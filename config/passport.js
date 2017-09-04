@@ -24,12 +24,12 @@ module.exports = function (passport) {
   })
 
   // configure the local strategy for sign up
-  passport.use('local-signup', new LocalStrategy ({
-    firstnameField: 'firstname',
+  passport.use('local-signup', new LocalStrategy({
+    // firstnameField: 'firstname',
     usernameField: 'email',
     passwordField: 'password',
-    passReqToCallback: true,
-  }, function (req, firstname, email, password, done) {
+    passReqToCallback: true
+  }, function (req, email, password, done) {
     // find a user with this email
     // console.log('gets to local-signup strategy in passport.js file')
     User.findOne({ 'email': email }, function (err, user) {
@@ -37,12 +37,13 @@ module.exports = function (passport) {
       if (err) return done(err)
       // if there is a user with this email
       if (user) {
-        return done(null, false, req.flash('errorMessage', 'This email is already taken'))
+        // [AXN-done] this flash message was not working, until i added "message: req.flash('error')[0]" to the res.render in authController#getSignup. The hbs file also need to include {{ message }}!!
+        return done(null, false, req.flash('error', 'This email is already taken'))
       } else {
         // create a new user
         // console.log('starts creating new User in local-signup strategy in passport.js file')
         var newUser = new User()
-        newUser.firstname = firstname
+        // newUser.firstname = firstname
         newUser.email = email
         // note that the password is set as the plaintext pwd here, but it is hashed before being saved to the DB because of a pre save hook (see User model file)
         newUser.password = password
@@ -51,26 +52,28 @@ module.exports = function (passport) {
           if (err) return done(err)
           return done(null, user)
         })
-      }})
-  }))
+      }
+    })
+  })
+  )
 
   // configure the local strategy for login
     // assign the name attributes of the form fields (e.g. <label for="authEmail">Email</label> <input id="authEmail" class="form-control" type="email" name="user[email]">), and reference the callback function through which to pass the inputs
-  passport.use('local-login', new LocalStrategy ({
-      usernameField: 'email',
-      passwordField: 'password',
-      passReqToCallback: true
-      }, function (req, email, password, done) {
+  passport.use('local-login', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+  }, function (req, email, password, done) {
     // form submission data is passed into this function to perform the authentication logic
     User.findOne({
       email: email
     })
     .exec(function (err, foundUser) {
       if (err) return done(err)
-      // if no user is found
-      if(!foundUser) return done(null, false, req.flash('errorMessage', 'No user found'))
-      // check if the password is correct
-      if (!foundUser.validPassword(password)) return done(null, false, req.flash('errorMessage', 'Wrong password'))
+      // if no user is found. This flash message is working
+      if (!foundUser) return done(null, false, req.flash('error', 'No user found'))
+      // check if the password is correct. This flash message is working
+      if (!foundUser.validPassword(password)) return done(null, false, req.flash('error', 'Wrong password'))
       return done(null, foundUser)
     })
   }))

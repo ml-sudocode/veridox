@@ -4,9 +4,15 @@ const Schema = mongoose.Schema
 
 // create schema
 const entrySchema = new Schema({
+  // the parent relationship
   user_id: {
     type: Schema.Types.ObjectId,
     ref: 'User'
+  },
+  // the child relationship
+  tierion_record_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'TierionRecord'
   },
   title: {
     type: String,

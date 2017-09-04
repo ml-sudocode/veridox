@@ -30,7 +30,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 // connect the session to mongoose > the database
 const MongoStore = require('connect-mongo')(session)
-// const methodOverride = require('method-override')
+const methodOverride = require('method-override')
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 var SHA256 = require("crypto-js/sha256");
 
@@ -39,7 +39,6 @@ mongoose.Promise = global.Promise
 
 // set up DB (location) and connect to mongoose ODM
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/veridox'
-const url = 'mongodb://localhost:27017/project-2'
 mongoose.connect(url, {
   useMongoClient: true
 }).then(
@@ -93,9 +92,9 @@ app.use(methodOverride(function(req, res) {
 // alternatively, as used in brian's project: app.use(methodOverride('_method'))
 
 // this doesn't work: "req" is not defined. How to fix it???
-app.locals = {
-  user: req.user
-}
+// app.locals = {
+//   user: req.user
+// }
 
 // state the static/public directory
 app.use(express.static('public'))
@@ -389,31 +388,24 @@ app.get('/', function (req, res) {
 // delete one record
 // TBU!!!
 
-app.route('/verify')
-  .get(function (req, res){
-//   res.render('termsandconditions')
-  })
-  .post(function (req, res){
-  //   do something
-  })
-
-app.get('/features', function (req, res){
-//   res.render('termsandconditions')
-})
-
-app.route('/contact')
-  .get(function (req, res){
-//   res.render('termsandconditions')
-  })
-  .post(function (req, res){
-  //   do something
-  })
-
 // routes for auth and user
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
 app.use('/auth', authRoutes)
 app.use('/user', userRoutes)
+
+// other generic routes
+  // they have their own controller file
+const rootController = require('./controllers/rootController')
+app.route('/verify')
+  .get(rootController.getVerify)
+  .post(rootController.postVerify)
+
+app.get('/features', rootController.getFeatures)
+
+app.route('/contact')
+  .get(rootController.getContact)
+  // .post(rootController.postContact)
 
 // mount the app and start listening on the designated port
 const port = process.env.PORT || 5000

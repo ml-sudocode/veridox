@@ -22,7 +22,7 @@ const express = require('express')
 // create the app
 const app = express()
 const mongoose = require('mongoose')
-// const passport = require('passport')
+const passport = require('passport')
 const flash = require('connect-flash')
 const exphbs = require('express-handlebars')
 const cookieParser = require('cookie-parser')
@@ -38,36 +38,36 @@ var SHA256 = require("crypto-js/sha256");
 mongoose.Promise = global.Promise
 
 // set up DB (location) and connect to mongoose ODM
-// const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/project-2'
-// // const url = 'mongodb://localhost:27017/project-2'
-// mongoose.connect(url, {
-//   useMongoClient: true
-// }).then(
-//   function () { // this is the resolve callback
-//     console.log(`connected successfully to mongodb at server location ${url}`)
-//   },
-//   function (err) { // this is the error callback
-//     console.log(`connection error: ${err}`)
-//   }
-// )
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/veridox'
+const url = 'mongodb://localhost:27017/project-2'
+mongoose.connect(url, {
+  useMongoClient: true
+}).then(
+  function () { // this is the resolve callback
+    console.log(`connected successfully to mongodb at server location ${url}`)
+  },
+  function (err) { // this is the error callback
+    console.log(`connection error: ${err}`)
+  }
+)
 
 // enable sessions functionality. connect sessions to mongoose > the database
-// app.use(session({
-//   store: new MongoStore({
-//     url: url
-//   }),
-//   secret: 'this is my secret salt',   // the secret that verifies that the cookie sent back by client is valid. it salts the session id that is returned (??? i think)
-//   resave: false,            // convention
-//   saveUninitialized: true   // convention
-// }))
+app.use(session({
+  store: new MongoStore({
+    url: url
+  }),
+  secret: 'salty bacon and creamy eggs make a delectable breakfast',   // the secret that verifies that the cookie sent back by client is valid. it salts the session id that is returned (??? i think)
+  resave: false,            // convention
+  saveUninitialized: true   // convention
+}))
 
 // initialize authentication (passport), then connect to [sessions > mongoose > the database]
   // initialize passport
-// app.use(passport.initialize())
-//   // the line below must be AFTER the session setup
-// app.use(passport.session())
-// // [AXN] what does this do?
-// require('./config/passport')(passport)
+app.use(passport.initialize())
+  // the line below must be AFTER the session setup
+app.use(passport.session())
+// [AXN] what does this do?
+require('./config/passport')(passport)
 
   // set up morgan (to log http requests in the shell)
 app.use(require('morgan')('dev'))
@@ -83,19 +83,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 // set up methodOverride [AXN not yet sure where and how this would be used]
-// app.use(methodOverride(function(req, res) {
-//   if(req.body && typeof req.body === 'object' && '_method' in req.body) {
-//     var method = req.body._method;
-//     delete req.body._method;
-//     return method;
-//   }
-// }));
+app.use(methodOverride(function(req, res) {
+  if(req.body && typeof req.body === 'object' && '_method' in req.body) {
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}))
 // alternatively, as used in brian's project: app.use(methodOverride('_method'))
 
 // this doesn't work: "req" is not defined. How to fix it???
-// app.locals = {
-//   user: req.user
-// }
+app.locals = {
+  user: req.user
+}
 
 // state the static/public directory
 app.use(express.static('public'))
@@ -109,11 +109,9 @@ app.set('view engine', 'handlebars')
 // app.set("views", __dirname + "/views");
 
 // set routes to use
-  // routes for key pages: homepage, terms & conditions page
-  // impt: if i put .use instead of .get, i will end up being served the index.hbs file no matter where i navigate to!!
-// app.get('/', function (req, res) {
-//   res.render('index')
-// })
+app.get('/', function (req, res) {
+  res.render('index')
+})
 
 // obtain auth token - from backend. This works.
 // xhr = new XMLHttpRequest()
@@ -349,87 +347,76 @@ app.set('view engine', 'handlebars')
 // xhr_showRecord.send()
 
 // validate receipt (using receipt pulled from Datastore Record)
-xhr_validateReceipt = new XMLHttpRequest()
-xhr_validateReceipt.onreadystatechange = function () {
-  if (xhr_validateReceipt.readyState === 4) {
-    result = JSON.parse(xhr_validateReceipt.responseText)
-    console.log(`result is:`)
-    console.log(result)
-  }
-}
-const method = "POST"
-const urlToValidateReceipt = "https://api.tierion.com/v1/validatereceipt"
-xhr_validateReceipt.open(method, urlToValidateReceipt, true)
-xhr_validateReceipt.setRequestHeader("Content-Type", "application/json")
-const receiptWithKeyName = JSON.stringify({
-  "blockchain_receipt": {
-    "@context": "https://w3id.org/chainpoint/v2",
-    "type": "ChainpointSHA256v2",
-    "targetHash": "476b9a271bf3fffee4c1eeaf353719f4a5437ccd4decc0a9a176dff6baf700f9",
-    "merkleRoot": "945a7a81a84abf938b40ec87c03823faf1f766de931deab21c50673c5ddbb036",
-    "proof": [
-      {
-        "left": "02f83019bca7b6877ea5c10b9ab773352881c3c617d5fb77911a925d73f4f44b"
-      },
-      {
-        "left": "38edaca2a81a9638f8175c5cf687fef9af1d7be12a3405d3163973f3c50a3825"
-      },
-      {
-        "right": "7f05b6c69c80c97cb8d51a40bf573c94b77e47915900795669a0df344dc28f18"
-      }
-    ],
-    "anchors": [
-      {
-        "type": "BTCOpReturn",
-        "sourceId": "0f22cc68a6b265850d29f329a15c9a4b0ff5c68c0f0aff260eff372412b72f54"
-      }
-    ]
-  }
-})
-xhr_validateReceipt.send(receiptWithKeyName)
+// xhr_validateReceipt = new XMLHttpRequest()
+// xhr_validateReceipt.onreadystatechange = function () {
+//   if (xhr_validateReceipt.readyState === 4) {
+//     result = JSON.parse(xhr_validateReceipt.responseText)
+//     console.log(`result is:`)
+//     console.log(result)
+//   }
+// }
+// const method = "POST"
+// const urlToValidateReceipt = "https://api.tierion.com/v1/validatereceipt"
+// xhr_validateReceipt.open(method, urlToValidateReceipt, true)
+// xhr_validateReceipt.setRequestHeader("Content-Type", "application/json")
+// const receiptWithKeyName = JSON.stringify({
+//   "blockchain_receipt": {
+//     "@context": "https://w3id.org/chainpoint/v2",
+//     "type": "ChainpointSHA256v2",
+//     "targetHash": "476b9a271bf3fffee4c1eeaf353719f4a5437ccd4decc0a9a176dff6baf700f9",
+//     "merkleRoot": "945a7a81a84abf938b40ec87c03823faf1f766de931deab21c50673c5ddbb036",
+//     "proof": [
+//       {
+//         "left": "02f83019bca7b6877ea5c10b9ab773352881c3c617d5fb77911a925d73f4f44b"
+//       },
+//       {
+//         "left": "38edaca2a81a9638f8175c5cf687fef9af1d7be12a3405d3163973f3c50a3825"
+//       },
+//       {
+//         "right": "7f05b6c69c80c97cb8d51a40bf573c94b77e47915900795669a0df344dc28f18"
+//       }
+//     ],
+//     "anchors": [
+//       {
+//         "type": "BTCOpReturn",
+//         "sourceId": "0f22cc68a6b265850d29f329a15c9a4b0ff5c68c0f0aff260eff372412b72f54"
+//       }
+//     ]
+//   }
+// })
+// xhr_validateReceipt.send(receiptWithKeyName)
 
 // delete one record
 // TBU!!!
 
-// app.get('/termsandconditions', function (req, res){
+app.route('/verify')
+  .get(function (req, res){
 //   res.render('termsandconditions')
-// })
+  })
+  .post(function (req, res){
+  //   do something
+  })
 
-// app.get('/termsandconditions', function (req, res){
+app.get('/features', function (req, res){
 //   res.render('termsandconditions')
-// })
-  // routes for auth and user
-// const authRoutes = require('./routes/authRoutes')
-// const userRoutes = require('./routes/userRoutes')
-//
-// app.use('/auth', authRoutes)
-// app.use('/user', userRoutes)
+})
+
+app.route('/contact')
+  .get(function (req, res){
+//   res.render('termsandconditions')
+  })
+  .post(function (req, res){
+  //   do something
+  })
+
+// routes for auth and user
+const authRoutes = require('./routes/authRoutes')
+const userRoutes = require('./routes/userRoutes')
+app.use('/auth', authRoutes)
+app.use('/user', userRoutes)
 
 // mount the app and start listening on the designated port
 const port = process.env.PORT || 5000
 app.listen(port, function () {
   console.log(`express is running on port ${port}`)
 })
-
-// Create questions for the database here (i do not want to create a GUI for this yet). Note that we have to delete all qns before running this section, otherwise there will be several copies of the same question
-// const Question = require('./models/Question')
-// Question.remove({}, function () {
-//   console.log(`questions db cleared`)
-// })
-// const questionsAllControllers = require('./controllers/questionsAllControllers')
-// questionsAllControllers('What are your top 5 principles in life?', 'values')
-// questionsAllControllers('What are princples that you used to hold, that you have since rejected or deprioritized?', 'values')
-// questionsAllControllers('What makes you happy?', 'values')
-// questionsAllControllers('The Four Burners Theory (http://jamesclear.com/four-burners-theory) says that in order to be successful you can only have 2-3 burners on at one time: family, friends, health and work. How do you rank these? How do you think your priorities have changed over the years?', 'values')
-// questionsAllControllers('Who are the 5 most important people in your life? Who are the 5 people you spend most of your non-work time with?', 'values')
-// questionsAllControllers('The Five Love Languages are widely acknowledged to be: gift giving, quality time, words of affirmation, acts of service (devotion), and physical touch (https://en.wikipedia.org/wiki/The_Five_Love_Languages). How do you rank these? If a category is not important at all, leave it out.', 'communication')
-// questionsAllControllers('In your past relationships, were disagreements typically fiesty and passionate, or calm and rational? How quickly were they resolved?', 'communication')
-// questionsAllControllers('Do you typically expect your partner to be able to tell when you are upset, or are you quite verbal and proactive in sharing your problems?', 'communication')
-// questionsAllControllers('Am i free to talk to you about anything? What topics or history are offlimits?', 'communication')
-// questionsAllControllers('Am i doing anything now to make you feel disrespected?', 'communication')
-// questionsAllControllers('What are you looking for in your next relationship?', 'intentions')
-// questionsAllControllers('What do you think is a reasonable amount of time to date before knowing if you are compatible with someome for the long term? What are some milestones do you think you need to hit together to help determine this?', 'intentions')
-// questionsAllControllers('What have you learnt from your past relationships that you would like to apply or avoid in your next one?', 'intentions')
-// questionsAllControllers('What are your thoughts regarding marriage?', 'intentions')
-// questionsAllControllers('Do you intend to have children? If so, how many? If not, why? If unsure, what are your considerations/', 'intentions')
-// console.log(`questions are saved into DB`)

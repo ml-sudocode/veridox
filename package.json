@@ -5,14 +5,6 @@
   "repository": "https://github.com/mmmlll/veridox.git",
   "author": "mmmlll <michelle.y.lai@gmail.com>",
   "license": "MIT",
-  "eslintConfig": {
-    "rules": {
-      "quotes": [
-        "error",
-        "double"
-      ]
-    }
-  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",

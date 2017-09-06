@@ -3,6 +3,7 @@ const TierionRecord = require('../models/TierionRecord')
 const BlockchainReceipt = require('../models/BlockchainReceipt')
 const tierionApiController = require('./tierionApiController')
 const async = require('async')
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 
 function showDashboard (req, res) {
   // console.log(`req.user is: `)
@@ -142,16 +143,40 @@ function showEntry (req, res) {
             } else {
               sourceId = false
             }
-            res.render('user/entries/show', {
-              user: req.user,
-              entry: foundEntry,
-              record: foundRecord,
-              receipt: foundReceipt,
-              status: status,
-              statusIsComplete: statusIsComplete,
-              sourceId: sourceId,
-              message: req.flash('info')
-            })
+
+            const xhr_getBR = new XMLHttpRequest()
+            xhr_getBR.onreadystatechange = function () {
+              if (xhr_getBR.readyState === 4) {
+                let receiptFromTierionApi = ''
+                // console.log('JSON.parse(xhr_getBR.responseText).blockchain_receipt is:')
+                // console.log(JSON.parse(xhr_getBR.responseText).blockchain_receipt)
+                if (JSON.parse(xhr_getBR.responseText).blockchain_receipt) {
+                  receiptFromTierionApi = JSON.parse(xhr_getBR.responseText).blockchain_receipt
+                } else {
+                  receiptFromTierionApi = null
+                }
+                // console.log('receiptFromTierionApi is:')
+                // console.log(receiptFromTierionApi)
+                res.render('user/entries/show', {
+                  user: req.user,
+                  entry: foundEntry,
+                  record: foundRecord,
+                  receipt: JSON.stringify(receiptFromTierionApi),
+                  status: status,
+                  statusIsComplete: statusIsComplete,
+                  sourceId: sourceId,
+                  message: req.flash('info')
+                })
+              }
+            }
+            const method = "GET"
+            // [AXN] change to dynamic recordId
+            const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
+            xhr_getBR.open(method, urlToShowRecord, true)
+            xhr_getBR.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
+            xhr_getBR.setRequestHeader("X-Api-Key", process.env.TIERION_API_KEY)
+            xhr_getBR.setRequestHeader("Content-Type", "application/json")
+            xhr_getBR.send()
           })
       } else {
         const sourceId = false

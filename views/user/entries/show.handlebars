@@ -36,6 +36,7 @@ This is the user:
   {{receipt}}
   {{!-- THIS DOESN'T WORK. LEAVING IT HERE FOR WHEN I INCORPORATE A PARTIAL? --}}
   {{!-- {{> entries/receipt this}} --}}
+  <h4>To validate this receipt, copy and paste the above receipt information into: <a href="https://tierion.com/validate" target="blank">https://tierion.com/validate</a></h4>
 {{else}}
   No receipt data yet. Click button to check if receipt is ready.
 {{/if}}
@@ -44,9 +45,8 @@ This is the user:
   <form action="/user/entries/{{entry.id}}" method="post">
     <input type="submit" name="" value="Check if receipt is ready">
   </form>
+  {{else}}
 
-{{else}}
-  See details below:
 {{/unless}}
 
 {{#if sourceId }}

@@ -115,10 +115,21 @@ function showEntry (req, res) {
     if (err) res.send(err)
     // console.log(req.params.id)
     // console.log(foundEntry)
+    TierionRecord.find({entry_id: foundEntry.id}, function (err, foundRecord) {
+      const status = foundRecord.status
+      console.log(status)
+      if (status !== "complete") {
+        // run API to get blockchain receipt status in the Tierion record 
+      }
+    })
+  })
+  .then(function (err, foundEntry) {
     res.render('user/entries/show', {
       user: req.user,
       entry: foundEntry,
-      message: req.flash('info')
+      message: req.flash('info'),
+      status: ,
+      sourceId:
     })
   })
 }

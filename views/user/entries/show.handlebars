@@ -13,3 +13,19 @@
   Data: {{entry.data}}
   Created: {{entry.createdAt}}
   Updated: {{entry.updatedAt}}
+
+<h3>This is the status of the blockchain receipt:</h3>
+<p>Status: {{status}}</p>
+
+<small>
+  Note:
+  <ul>
+    <li>"Queued" = Pending submission to the Bitcoin blockchain. Please wait up to 1-2 minutes (usually less).</li>
+    <li>"Unpublished" = Processing of the block underway. Please wait up to 1-5 minutes (usually less).</li>
+    <li>"Complete" = Block confirmed. Hash of your data has been anchored to the Bitcoin blockchain.</li>
+  </ul>
+</small>
+
+{{#if sourceId }}
+  <strong>Check the block that your data is anchored at: https://www.blocktrail.com/BTC/tx/{{sourceId}}</strong>
+{{/if}}

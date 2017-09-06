@@ -17,12 +17,13 @@ const anchorsSchema = new Schema({
 })
 
 const blockchainReceiptSchema = new Schema({
-  _id: String,
   // the parent relationship
-  tierion_record_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'TierionRecord'
-  },
+  tierion_record_id_as_string: String,
+  // this definition below gave be problems when tried to save, so i changed the type to just string
+  // tierion_record_id: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'TierionRecord'
+  // },
   "@context": String,
   type: String,
   targetHash: String,

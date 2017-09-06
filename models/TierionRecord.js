@@ -17,7 +17,7 @@ const tierionRecordSchema = new Schema({
   },
   datastore_id: Number,
   status: String,
-  data: String,
+  dataStringify: String,
   json: String,
   hash: String,
   timestamp: String,

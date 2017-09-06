@@ -72,7 +72,7 @@ function createEntry (req, res) {
   }
 
   function saveBlockchainReceipt (recordId, callback) {
-    tierionApiController.saveReceipt(recordId, callback)
+    tierionApiController.saveBlockchainReceipt(recordId, callback)
   }
 
   async.waterfall([ saveEntry, createTierionRecord, saveBlockchainReceipt ], function (err, result) {

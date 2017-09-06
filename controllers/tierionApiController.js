@@ -41,7 +41,7 @@ function createRecord (dataFromUser, entryId, callback) {
         entry_id: entryId,
         datastore_id: parsedResText.datastoreId,
         status: parsedResText.status,
-        data: JSON.stringify(parsedResText.data),
+        dataStringify: JSON.stringify(parsedResText.data),
         json: parsedResText.json,
         hash: parsedResText.SHA256,
         timestamp: timestamp,
@@ -76,13 +76,14 @@ function saveBlockchainReceipt (recordId, callback) {
   const xhr_showRecord = new XMLHttpRequest()
   xhr_showRecord.onreadystatechange = function () {
     if (xhr_showRecord.readyState === 4) {
-      console.log(`The default RETURN of xhr_showRecord is:`)
-      console.log(xhr_showRecord)
+      // console.log(`The default RETURN of xhr_showRecord is:`)
+      // console.log(xhr_showRecord)
       const parsedResText = JSON.parse(xhr_showRecord.responseText)
       const receiptObj = parsedResText.blockchain_receipt
-      console.log(receiptObj)
+      // console.log(receiptObj)
       const newReceipt = new BlockchainReceipt({
-        tierion_record_id: recordId,
+        // note that this recordId is NOT a reference, because it was giving me this error. I changed the type in the BlockchainReceipt model to String rather than ObjectId. ValidationError: BlockchainReceipt validation failed: tierion_record_id: Cast to ObjectID failed for value "VMMLFetBgkiC21L4GaHrgA" at path "tierion_record_id"
+        tierion_record_id_as_string: recordId,
         "@context": receiptObj["@context"],
         type: receiptObj.type,
         targetHash: receiptObj.targetHash,
@@ -99,7 +100,8 @@ function saveBlockchainReceipt (recordId, callback) {
   }
   const method = "GET"
   const record_id = recordId
-  const urlToShowRecord = `https://api.tierion.com/v1/records/c1BMEDWP0ECKdn1_1P7-lg`
+  // ========================= START FROM HERE =========================
+  const urlToShowRecord = `https://api.tierion.com/v1/records/VMMLFetBgkiC21L4GaHrgA`
   // const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
   xhr_showRecord.open(method, urlToShowRecord, true)
   xhr_showRecord.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
@@ -301,5 +303,5 @@ function saveBlockchainReceipt (recordId, callback) {
 
 module.exports = {
   createRecord,
-  saveReceipt
+  saveBlockchainReceipt
 }

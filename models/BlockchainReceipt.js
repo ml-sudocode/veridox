@@ -17,6 +17,11 @@ const anchorsSchema = new Schema({
 })
 
 const blockchainReceiptSchema = new Schema({
+  // the grandparent relationship
+  entry_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'Entry'
+  },
   // the parent relationship
   tierion_record_id_as_string: String,
   // this definition below gave be problems when tried to save, so i changed the type to just string

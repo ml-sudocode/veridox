@@ -43,13 +43,15 @@ function createRecord (dataFromUser, entryId, callback) {
         status: parsedResText.status,
         dataStringify: JSON.stringify(parsedResText.data),
         json: parsedResText.json,
-        hash: parsedResText.SHA256,
+        hash: parsedResText.sha256,
         timestamp: timestamp,
         date: new Date(timestamp * 1000)
       })
       newTierionRecord.save(function (err, record) {
         if (err) throw err
-        callback(null, record.id)
+        // i couldn't pass more than one argument into the callback, to pass to the next task in the waterfall, without causing an error "callback is not a function", so i'm using an array to pass two different values. I think there is an error in the package
+        entryAndRecordIds = [entryId, record.id]
+        callback(null, entryAndRecordIds)
       })
     }
   }
@@ -70,31 +72,34 @@ function createRecord (dataFromUser, entryId, callback) {
 }
 
 // show one record
-// showRecord returns two more fields than createRecord: blockchain_receipt and insights
-function saveBlockchainReceipt (recordId, callback) {
-
+// showRecord API returns two more fields than createRecord API: blockchain_receipt and insights
+function saveBlockchainReceipt (entryAndRecordIds, callback) {
+  // console.log('entryAndRecordIds is')
+  // console.log(entryAndRecordIds)
   const xhr_showRecord = new XMLHttpRequest()
   xhr_showRecord.onreadystatechange = function () {
     if (xhr_showRecord.readyState === 4) {
       // console.log(`The default RETURN of xhr_showRecord is:`)
       // console.log(xhr_showRecord)
       const parsedResText = JSON.parse(xhr_showRecord.responseText)
-      const receiptObj = parsedResText.blockchain_receipt
+      // blockchain_receipt field is null when record is first created, so anything related to the receipt is commented out
+      // const receiptObj = parsedResText.blockchain_receipt
       // console.log(receiptObj)
       // console.log('receiptObj.proof is:')
       // console.log(receiptObj.proof)
       // console.log('receiptObj.anchors is:')
       // console.log(receiptObj.anchors)
       const newReceipt = new BlockchainReceipt({
+        entry_id: entryAndRecordIds[0],
         // note that this recordId is NOT a reference, because it was giving me this error. I changed the type in the BlockchainReceipt model to String rather than ObjectId. ValidationError: BlockchainReceipt validation failed: tierion_record_id: Cast to ObjectID failed for value "VMMLFetBgkiC21L4GaHrgA" at path "tierion_record_id"
-        tierion_record_id_as_string: recordId,
-        "@context": receiptObj["@context"],
-        type: receiptObj.type,
-        targetHash: receiptObj.targetHash,
-        merkleRoot: receiptObj.merkleRoot,
-        // [AXN] below are stand-ins, need to check compliance with sub schema. IT SEEMS TO WORK? CHECK IT OUT ==================
-        proof: receiptObj.proof,
-        anchors: receiptObj.anchors
+        tierion_record_id_as_string: entryAndRecordIds[1]
+        // "@context": receiptObj["@context"],
+        // type: receiptObj.type,
+        // targetHash: receiptObj.targetHash,
+        // merkleRoot: receiptObj.merkleRoot,
+        // // [AXN] below are stand-ins, need to check compliance with sub schema. IT SEEMS TO WORK? CHECK IT OUT ==================
+        // proof: receiptObj.proof,
+        // anchors: receiptObj.anchors
       })
       newReceipt.save(function (err, receipt) {
         if (err) throw err
@@ -103,9 +108,9 @@ function saveBlockchainReceipt (recordId, callback) {
     }
   }
   const method = "GET"
-  const record_id = recordId
-  const urlToShowRecord = `https://api.tierion.com/v1/records/ppkz8BtfEkqV0gHXS2LhSA`
-  // const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
+  const record_id = entryAndRecordIds[1]
+  // const urlToShowRecord = `https://api.tierion.com/v1/records/ppkz8BtfEkqV0gHXS2LhSA`
+  const urlToShowRecord = `https://api.tierion.com/v1/records/${record_id}`
   xhr_showRecord.open(method, urlToShowRecord, true)
   xhr_showRecord.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
   xhr_showRecord.setRequestHeader("X-Api-Key", process.env.TIERION_API_KEY)

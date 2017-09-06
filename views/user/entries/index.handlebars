@@ -3,18 +3,18 @@
 <p>These are your submitted Entries. Click to see full details of each Entry.</p>
 <a href="/user/entries/new"><button type="button" name="button_create_new_entry">Create New Entry</button></a>
 <br>
-{{!-- [AXN] ADD A BUTTON FOR EACH TO NAVIGATE TO THE SHOW VIEW OF EACH ENTRY --}}
-{{#each entries as |entry| }}
-  <div class="entries[]">
-    Entry ID: {{entry.id}}
-    Title: {{entry.title}}
-    Description: {{entry.description}}
-    Contract Name: {{entry.contractName}}
-    {{!-- Contract Date: {{entry.contractDate}} --}}
-    Contract Parties: {{entry.contractParties}}
-    Data: {{entry.data}}
-    Created: {{entry.createdAt}}
-    Updated: {{entry.updatedAt}}
-  </div>
-  <br>
-{{/each}}
+<br>
+  {{#each entries as |entry| }}
+    <div class="entries[]">
+      Title: {{entry.title}}
+      Description: {{entry.description}}
+      Contract Name: {{entry.contractName}}
+      Contract Parties: {{entry.contractParties}}
+      Data: {{entry.data}}
+      Created: {{entry.createdAt}}
+      Updated: {{entry.updatedAt}}
+      Entry ID: {{entry.id}}
+      <a href="/user/entries/{{entry.id}}">Details</a>
+    </div>
+    <br>
+  {{/each}}

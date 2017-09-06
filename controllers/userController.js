@@ -78,8 +78,8 @@ function createEntry (req, res) {
 
   async.waterfall([ saveEntry, createTierionRecord, saveBlockchainReceipt ], function (err, result) {
     if (err) { console.error("Error :", err) }
-    console.log('result:')
-    console.log(result)
+    // console.log('result:')
+    // console.log(result)
     // ***** The below code is based on using .series instead of .waterfall. Leaving this in, and the comments, because good lesson on .exec, .then (+res.redirect), and how to manage async nature of model operations
     // we need to enter the entry_id (parent) field in the record (child)
     // TierionRecord.findById(recordId, function (err, foundRecord) {
@@ -107,7 +107,7 @@ function newEntry (req, res) {
   res.render('user/entries/new')
 }
 
-// [AXN-done] When i used just ".find" rather than "".findById", the find operation didn't return anything
+// [AXN-done] When i used just ".find" rather than "".findById", the .find operation didn't return anything
 function showEntry (req, res) {
   Entry.findById(req.params.id, function (err, foundEntry) {
     if (err) res.send(err)
@@ -123,27 +123,62 @@ function showEntry (req, res) {
       // console.log('foundRecord is')
       // console.log(foundRecord)
       const recordId = foundRecord.id
-      BlockchainReceipt.findOne({tierion_record_id_as_string: recordId})
-        .populate('anchors')
-        .exec(function (err, foundReceipt) {
-          if (err) res.send(err)
-          // console.log('foundReceipt is:')
-          // console.log(foundReceipt)
-          const sourceId = foundReceipt.anchors[0].sourceId
-          res.render('user/entries/show', {
-            user: req.user,
-            entry: foundEntry,
-            message: req.flash('info'),
-            status: foundRecord.status,
-            sourceId: sourceId
+      const status = foundRecord.status
+      // the variable statusIsComplete holds true or false
+      const statusIsComplete = status === 'complete'
+      // console.log('statusIsComplete is:')
+      // console.log(statusIsComplete)
+      if (statusIsComplete === true) {
+        BlockchainReceipt.findOne({tierion_record_id_as_string: recordId})
+          .populate('anchors')
+          .exec(function (err, foundReceipt) {
+            if (err) res.send(err)
+            // console.log('foundReceipt is:')
+            // console.log(foundReceipt)
+            // note that i cannot define sourceId inside the if statement (const sourceId = ...), if i want to access it in the res.render below
+            let sourceId = ''
+            if (foundReceipt.anchors.length > 0) {
+              sourceId = foundReceipt.anchors[0].sourceId
+            } else {
+              sourceId = false
+            }
+            res.render('user/entries/show', {
+              user: req.user,
+              entry: foundEntry,
+              record: foundRecord,
+              receipt: foundReceipt,
+              status: status,
+              statusIsComplete: statusIsComplete,
+              sourceId: sourceId,
+              message: req.flash('info')
+            })
           })
+      } else {
+        const sourceId = false
+        res.render('user/entries/show', {
+          user: req.user,
+          entry: foundEntry,
+          record: foundRecord,
+          receipt: false,
+          status: status,
+          statusIsComplete: statusIsComplete,
+          sourceId: sourceId,
+          message: req.flash('info')
         })
-    })
+      }
+    }
+    )
   })
 }
 
 function updateRecordAndReceipt (req, res) {
   console.log('successfully entered updateRecordAndReceipt function')
+  // check Tierion API for record status
+  const cloudRecord = tierionApiController.checkRecordOnCloud(req.params.id)
+  // if status = complete, update the record in my db, update the BR in my db
+  // pass the receipt data, status and sourceId to View
+  // if status = unpublished, vs db status = queued, update the record status in my db, and pass updated status to View
+  // else, pass a message saying "receipt still not ready"
   Entry.findById(req.params.id, function (err, foundEntry) {
     if (err) res.send(err)
   })
@@ -183,17 +218,33 @@ function updateEntry (req, res) {
     title: req.body.entry.title,
     description: req.body.entry.description,
     contractName: req.body.entry.contract_name,
-    contractParties: req.body.entry.contract_parties}
+    contractParties: req.body.entry.contract_parties,
+    updatedAt: new Date()
+  }
   }, { new: true }, function (err, updatedEntry) {
     if (err) return res.send(err)
-    req.flash('info', 'Thank you, your update has been saved.')
+    req.flash('info', 'Thank you, your edit has been saved.')
     // [AXN-done] DOUBTFUL IF THE BELOW WORKS. Yes it does!
     res.redirect(`/user/entries/${req.params.id}`)
   })
 }
 
 function destroyEntry (req, res) {
-  // TBC [AXN]
+  // delete the entry, its record, and its receipt
+  // [AXN] I tried to implement a pre/post hook to delete the subdocs ie record and receipt, but that didn't work. https://stackoverflow.com/questions/14348516/cascade-style-delete-in-mongoose
+  Entry.findByIdAndRemove(req.params.id, function (err) {
+    if (err) res.send(err)
+    TierionRecord.findOneAndRemove({entry_id: req.params.id}, function (err) {
+      if (err) res.send(err)
+      BlockchainReceipt.findOneAndRemove({entry_id: req.params.id}, function (err) {
+        if (err) res.send(err)
+        // flash message to confirm deletion
+        req.flash('info', 'Successfully deleted.')
+        // redirect to entries path
+        res.redirect('/user/entries')
+      })
+    })
+  })
 }
 
 function editEntry (req, res) {

@@ -1,31 +1,60 @@
 <h2>hi from views/user/entries/show.hbs</h2>
 
-<p>This is the user:</p>
+This is the user:
 {{ user }}
 
-<h3>Here are the full details of the Entry:</h3>
+<h3>Here are the details of the Entry:</h3>
+<ul>
+  <li>Title: {{entry.title}}</li>
+  <li>Description: {{entry.description}}</li>
+  <li>Contract Name: {{entry.contractName}}</li>
+  <li>Contract Parties: {{entry.contractParties}}</li>
+  <li>Data: {{entry.data}}</li>
+  <li>Created: {{entry.createdAt}}</li>
+  <li>Updated: {{entry.updatedAt}}</li>
+  <li>Entry ID: {{entry.id}}</li>
+</ul>
 
-  Entry ID: {{entry.id}}
-  Title: {{entry.title}}
-  Description: {{entry.description}}
-  Contract Name: {{entry.contractName}}
-  Contract Parties: {{entry.contractParties}}
-  Data: {{entry.data}}
-  Created: {{entry.createdAt}}
-  Updated: {{entry.updatedAt}}
+<form action="/user/entries/{{entry.id}}?_method=DELETE" method="post">
+  <input type="submit" name="" value="Delete this Entry">
+</form>
 
-<h3>This is the status of the blockchain receipt:</h3>
-<p>Status: {{status}}</p>
+<form class="" action="/user/entries/{{entry.id}}/edit" method="get">
+  <input type="submit" name="" value="Edit this Entry">
+</form>
 
+<h3>Here are the details of the Tierion Record:</h3>
+<ul>
+  <li>Hash submitted to blockchain: {{record.hash}}</li>
+  <li>Data used to create hash: {{record.dataStringify}}</li>
+  <li>Date submitted: {{record.date}}</li>
+</ul>
+
+<h3>Here are the details of the Blockchain Receipt:</h3>
+<h4>This is the status of the blockchain receipt: {{status}}</h4>
+{{#if receipt}}
+  {{receipt}}
+{{else}}
+  No receipt data yet. Click button to check if receipt is ready.
+{{/if}}
+{{#unless statusIsComplete}}
+
+  <form action="/user/entries/{{entry.id}}" method="post">
+    <input type="submit" name="" value="Check if receipt is ready">
+  </form>
+
+{{else}}
+  See details below:
+{{/unless}}
+
+{{#if sourceId }}
+  <h3>Check the block that your data is anchored here: <a href="https://www.blocktrail.com/BTC/tx/{{sourceId}}" target="blank">view on Bitcoin blockchain.</a></h3>
+{{/if}}
 <small>
-  Note:
   <ul>
+    <li>Notes:</li>
     <li>"queued" = Pending submission to the Bitcoin blockchain. Please wait up to 1-2 minutes (usually less).</li>
     <li>"unpublished" = Processing of the block underway. Please wait up to 1-5 minutes (usually less).</li>
     <li>"complete" = Block confirmed. Hash of your data has been anchored to the Bitcoin blockchain.</li>
   </ul>
 </small>
-
-{{#if sourceId }}
-  <strong>Check the block that your data is anchored here: <a href="https://www.blocktrail.com/BTC/tx/{{sourceId}}" target="blank">view on Bitcoin blockchain.</a></strong>
-{{/if}}

@@ -10,7 +10,7 @@ const tierionRecordSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Entry'
   },
-  // the child relationship. Not sure this is necessary
+  // the child relationship. Not sure this is necessary. Currently not populated
   blockchain_receipt_id: {
     type: Schema.Types.ObjectId,
     ref: 'BlockchainReceipt'

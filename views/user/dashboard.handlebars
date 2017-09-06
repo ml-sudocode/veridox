@@ -9,13 +9,16 @@
 <a href="/verify"><button type="button" name="button_verify">Verify Entry</button></a>
 
 <h3>{{ entries.length }} entries saved</h3>
+<a href="/user/entries">See all entries</a>
 
-{{!-- [AXN] ADD A BUTTON FOR EACH TO NAVIGATE TO THE SHOW VIEW OF EACH ENTRY --}}
+<h3>Latest Entries</h3>
+{{!-- [AXN] limit to top 10 entries --}}
 {{#each entries as |entry| }}
   <p>
-    {{entry.id}}
-    {{entry.title}}
-    {{entry.description}}
-    {{entry.createdAt}}
+    Title: {{entry.title}}
+    Description: {{entry.description}}
+    Contract Name: {{entry.contractName}}
+    Created: {{entry.createdAt}}
+    <a href="/user/entries/{{entry.id}}">Details</a>
   </p>
 {{/each}}

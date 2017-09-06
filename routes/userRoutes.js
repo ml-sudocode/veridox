@@ -34,6 +34,7 @@ router.route('/entries/:id')
     // should this be patch or put? [AXN]
     .put(authenticatedUser, userController.updateEntry)
     .delete(authenticatedUser, userController.destroyEntry)
+    .post(authenticatedUser, userController.updateRecordAndReceipt)
 
 router.route('/entries/:id/edit')
   .get(authenticatedUser, userController.editEntry)

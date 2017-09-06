@@ -1,6 +1,8 @@
 // require the modules that allow me to create a schema and generate the model
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const TierionRecord = require('../models/TierionRecord')
+const BlockchainReceipt = require('../models/BlockchainReceipt')
 
 // create schema
 const entrySchema = new Schema({
@@ -50,6 +52,14 @@ entrySchema.pre('save', function (next) {
   }
   next()
 })
+
+// entrySchema.pre('findByIdAndRemove', function (next) {
+//   console.log('this.id is:')
+//   console.log(this.id)
+//   TierionRecord.findOneAndRemove({entry_id: this.id})
+//   BlockchainReceipt.findOneAndRemove({entry_id: this.id})
+//   next()
+// })
 
 // create model
 const Entry = mongoose.model('Entry', entrySchema)

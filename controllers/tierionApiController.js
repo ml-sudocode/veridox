@@ -35,20 +35,20 @@ function createRecord (dataFromUser, entryId, callback) {
       // console.log(`xhr_createRecord.responseText is:`)
       // console.log(JSON.parse(xhr_createRecord.responseText))
       const parsedResText = JSON.parse(xhr_createRecord.responseText)
+      const timestamp = parsedResText.timestamp
       const newTierionRecord = new TierionRecord({
         _id: parsedResText.id,
-        // entry_id: req.session.entryId,
         entry_id: entryId,
         datastore_id: parsedResText.datastoreId,
-        hashOfData: parsedResText.sha256,
-        timestamp: parsedResText.timestamp
+        status: parsedResText.status,
+        data: JSON.stringify(parsedResText.data),
+        json: parsedResText.json,
+        hash: parsedResText.SHA256,
+        timestamp: timestamp,
+        date: new Date(timestamp * 1000)
       })
       newTierionRecord.save(function (err, record) {
         if (err) throw err
-        // the below returns empty... because async? not sure
-        // console.log('record.id from tierionApiController is:')
-        // console.log(record.id)
-        // return record.id
         callback(null, record.id)
       })
     }
@@ -70,31 +70,42 @@ function createRecord (dataFromUser, entryId, callback) {
 }
 
 // show one record
-function saveBlockchainReceipt (callback) {
-  callback(null, 'tbc')
-// xhr_showRecord = new XMLHttpRequest()
-// xhr_showRecord.onreadystatechange = function () {
-//   if (xhr_showRecord.readyState === 4) {
-//     console.log(`The default RETURN of xhr_showRecord is:`)
-//     console.log(xhr_showRecord)
-//     const parsedResText = JSON.parse(xhr_showRecord.responseText)
-//     const data = parsedResText.data
-//     console.log(data)
-//     const timestamp = parsedResText.timestamp
-//     const date = new Date(timestamp * 1000)
-//     console.log(date)
-//     const receipt = parsedResText.blockchain_receipt
-//     console.log(receipt)
-//   }
-// }
-// const method = "GET"
-// const recordId = "c1BMEDWP0ECKdn1_1P7-lg"
-// const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
-// xhr_showRecord.open(method, urlToShowRecord, true)
-// xhr_showRecord.setRequestHeader("X-Username", "michelle.y.lai@gmail.com")
-// xhr_showRecord.setRequestHeader("X-Api-Key", "w+2WHLUX7KdcJzaaTar+NT5BQZ12TZMDvykV2ZFjCu8=")
-// xhr_showRecord.setRequestHeader("Content-Type", "application/json")
-// xhr_showRecord.send()
+// showRecord returns two more fields than createRecord: blockchain_receipt and insights
+function saveBlockchainReceipt (recordId, callback) {
+
+  const xhr_showRecord = new XMLHttpRequest()
+  xhr_showRecord.onreadystatechange = function () {
+    if (xhr_showRecord.readyState === 4) {
+      console.log(`The default RETURN of xhr_showRecord is:`)
+      console.log(xhr_showRecord)
+      const parsedResText = JSON.parse(xhr_showRecord.responseText)
+      const receiptObj = parsedResText.blockchain_receipt
+      console.log(receiptObj)
+      const newReceipt = new BlockchainReceipt({
+        tierion_record_id: recordId,
+        "@context": receiptObj["@context"],
+        type: receiptObj.type,
+        targetHash: receiptObj.targetHash,
+        merkleRoot: receiptObj.merkleRoot,
+        // [AXN] below are stand-ins, need to check compliance with sub schema
+        proof: receiptObj.proof,
+        anchors: receiptObj.anchors
+      })
+      newReceipt.save(function (err, receipt) {
+        if (err) throw err
+        callback(null, receipt.id)
+      })
+    }
+  }
+  const method = "GET"
+  const record_id = recordId
+  const urlToShowRecord = `https://api.tierion.com/v1/records/c1BMEDWP0ECKdn1_1P7-lg`
+  // const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
+  xhr_showRecord.open(method, urlToShowRecord, true)
+  xhr_showRecord.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
+  xhr_showRecord.setRequestHeader("X-Api-Key", process.env.TIERION_API_KEY)
+  xhr_showRecord.setRequestHeader("Content-Type", "application/json")
+  xhr_showRecord.send()
 }
 
 //
@@ -289,5 +300,6 @@ function saveBlockchainReceipt (callback) {
 // xhr_validateReceipt.send(receipt)
 
 module.exports = {
-  createRecord
+  createRecord,
+  saveReceipt
 }

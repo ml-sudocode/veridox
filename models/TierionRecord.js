@@ -10,16 +10,20 @@ const tierionRecordSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Entry'
   },
-  // the child relationship
+  // the child relationship. Not sure this is necessary
   blockchain_receipt_id: {
     type: Schema.Types.ObjectId,
     ref: 'BlockchainReceipt'
   },
-  hashOfData: String,
   datastore_id: Number,
-  timestamp: Number,
-  createdAt: { type: Date },
-  updatedAt: { type: Date }
+  status: String,
+  data: String,
+  json: String,
+  hash: String,
+  timestamp: String,
+  date: Date,
+  createdAt: Date,
+  updatedAt: Date
 })
 
 // pre save hook to insert creation and updated dates. copied from https://stackoverflow.com/questions/12669615/add-created-at-and-updated-at-fields-to-mongoose-schemas

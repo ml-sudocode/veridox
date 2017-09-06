@@ -17,7 +17,7 @@ const anchorsSchema = new Schema({
 })
 
 const blockchainReceiptSchema = new Schema({
-  _id: String,  // this is to be the same as the blockhain receipt ID
+  _id: String,
   // the parent relationship
   tierion_record_id: {
     type: Schema.Types.ObjectId,
@@ -28,19 +28,7 @@ const blockchainReceiptSchema = new Schema({
   targetHash: String,
   merkleRoot: String,
   proof: [proofSchema],
-  anchors: [anchorsSchema],
-  createdAt: { type: Date },
-  updatedAt: { type: Date }
-})
-
-// pre save hook to insert creation and updated dates. copied from https://stackoverflow.com/questions/12669615/add-created-at-and-updated-at-fields-to-mongoose-schemas
-blockchainReceiptSchema.pre('save', function (next) {
-  let now = new Date()
-  this.updatedAt = now
-  if (!this.createdAt) {
-    this.createdAt = now
-  }
-  next()
+  anchors: [anchorsSchema]
 })
 
 // create models

@@ -71,21 +71,15 @@ function createEntry (req, res) {
     // callback(null, recordId)
   }
 
-  function saveBlockchainReceipt (callback) {
-    // tierionApiController.saveBlockchainReceipt([TBC], callback)
+  function saveBlockchainReceipt (recordId, callback) {
+    tierionApiController.saveReceipt(recordId, callback)
   }
 
-  async.waterfall([ saveEntry, createTierionRecord ], function (err, result) {
-    // console.log('err', err)
+  async.waterfall([ saveEntry, createTierionRecord, saveBlockchainReceipt ], function (err, result) {
     if (err) { console.error("Error :", err) }
-    console.log('result from .waterfall is:')
+    console.log('result:')
     console.log(result)
-    // const entryId = result[0]
-    // console.log('entryId 1 is:')
-    // console.log(entryId)
-    // const recordId = result[1]
-    // console.log('recordId from userController is:')
-    // console.log(recordId)
+    // ***** The below code is based on using .series instead of .waterfall. Leaving this in, and the comments, because good lesson on .exec, .then (+res.redirect), and how to manage async nature of model operations
     // we need to enter the entry_id (parent) field in the record (child)
     // TierionRecord.findById(recordId, function (err, foundRecord) {
     //   if (err) res.send(err)
@@ -93,14 +87,16 @@ function createEntry (req, res) {
     //   // udpating the field doesn't save it!!! Need to .save()!!!
     //   foundRecord.save()
     // })
-      // doing the record updating in .exec, instead of inside findById, is totally extraneous
-      // .exec(function (err, foundRecord) {
-      //   foundRecord.entry_id = entryId
-      // })
-      // after the query, can use a promise i.e. .then! Helps with the async nature of the query, i.e. what's in the .then will not be executed until everything in the query is run
-      // .then(function (savedRecord) {
-        // CHECK IF THIS WORKS [AXN-done]. Works!
-      // })
+    //   doing the record updating in .exec, instead of inside findById, is totally extraneous
+    //   .exec(function (err, foundRecord) {
+    //     foundRecord.entry_id = entryId
+    //   })
+    //   after the query, can use a promise i.e. .then! Helps with the async nature of the query, i.e. what's in the .then will not be executed until everything in the query is run
+    //   .then(function (savedRecord) {
+    //     req.flash('info', 'Success, new entry saved!')
+    //     res.redirect('/user/entries')
+    //   })
+    // CHECK IF THIS WORKS [AXN-done]. Works!
     req.flash('info', 'Success, new entry saved!')
     res.redirect('/user/entries')
   })

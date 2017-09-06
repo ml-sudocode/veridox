@@ -11,7 +11,7 @@ const anchorsSchema = new Schema({
   type: {
     type: String
   },
-  sourceID: {
+  sourceId: {
     type: String
   }
 })

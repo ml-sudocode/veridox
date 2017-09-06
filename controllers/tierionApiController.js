@@ -81,6 +81,10 @@ function saveBlockchainReceipt (recordId, callback) {
       const parsedResText = JSON.parse(xhr_showRecord.responseText)
       const receiptObj = parsedResText.blockchain_receipt
       // console.log(receiptObj)
+      // console.log('receiptObj.proof is:')
+      // console.log(receiptObj.proof)
+      // console.log('receiptObj.anchors is:')
+      // console.log(receiptObj.anchors)
       const newReceipt = new BlockchainReceipt({
         // note that this recordId is NOT a reference, because it was giving me this error. I changed the type in the BlockchainReceipt model to String rather than ObjectId. ValidationError: BlockchainReceipt validation failed: tierion_record_id: Cast to ObjectID failed for value "VMMLFetBgkiC21L4GaHrgA" at path "tierion_record_id"
         tierion_record_id_as_string: recordId,
@@ -88,7 +92,7 @@ function saveBlockchainReceipt (recordId, callback) {
         type: receiptObj.type,
         targetHash: receiptObj.targetHash,
         merkleRoot: receiptObj.merkleRoot,
-        // [AXN] below are stand-ins, need to check compliance with sub schema
+        // [AXN] below are stand-ins, need to check compliance with sub schema. IT SEEMS TO WORK? CHECK IT OUT ==================
         proof: receiptObj.proof,
         anchors: receiptObj.anchors
       })
@@ -100,7 +104,7 @@ function saveBlockchainReceipt (recordId, callback) {
   }
   const method = "GET"
   const record_id = recordId
-  const urlToShowRecord = `https://api.tierion.com/v1/records/VMMLFetBgkiC21L4GaHrgA`
+  const urlToShowRecord = `https://api.tierion.com/v1/records/ppkz8BtfEkqV0gHXS2LhSA`
   // const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
   xhr_showRecord.open(method, urlToShowRecord, true)
   xhr_showRecord.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
@@ -121,6 +125,7 @@ function updateStatus (recordId, callback) {
       if (status === "complete") {
         // look up the record in my db, update the status, and save the record
         // then, get the blockchain receipt data from the same parsedResText above, save into my database (update the existing receipt), and send to the View
+
       }
     }
   }

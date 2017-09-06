@@ -1,5 +1,6 @@
 const Entry = require('../models/Entry')
 const TierionRecord = require('../models/TierionRecord')
+const BlockchainReceipt = require('../models/BlockchainReceipt')
 const tierionApiController = require('./tierionApiController')
 const async = require('async')
 
@@ -112,6 +113,41 @@ function showEntry (req, res) {
     if (err) res.send(err)
   })
   .exec(function (err, foundEntry) {
+    // console.log('foundEntry is')
+    // console.log(foundEntry)
+    if (err) res.send(err)
+    // find record, find its blockchain receipt, and pass the sourceId argument into the res.render
+    // BE CAREFUL: .find returns an ARRAY of documents. Compare: .findOne returns just the first document
+    TierionRecord.findOne({entry_id: foundEntry.id}, function (err, foundRecord) {
+      if (err) res.send(err)
+      // console.log('foundRecord is')
+      // console.log(foundRecord)
+      const recordId = foundRecord.id
+      BlockchainReceipt.findOne({tierion_record_id_as_string: recordId})
+        .populate('anchors')
+        .exec(function (err, foundReceipt) {
+          if (err) res.send(err)
+          // console.log('foundReceipt is:')
+          // console.log(foundReceipt)
+          const sourceId = foundReceipt.anchors[0].sourceId
+          res.render('user/entries/show', {
+            user: req.user,
+            entry: foundEntry,
+            message: req.flash('info'),
+            status: foundRecord.status,
+            sourceId: sourceId
+          })
+        })
+    })
+  })
+}
+
+function updateRecordAndReceipt (req, res) {
+  console.log('successfully entered updateRecordAndReceipt function')
+  Entry.findById(req.params.id, function (err, foundEntry) {
+    if (err) res.send(err)
+  })
+  .exec(function (err, foundEntry) {
     if (err) res.send(err)
     // console.log(req.params.id)
     // console.log(foundEntry)
@@ -119,7 +155,7 @@ function showEntry (req, res) {
       const status = foundRecord.status
       console.log(status)
       if (status !== "complete") {
-        // run API to get blockchain receipt status in the Tierion record 
+        // run API to get blockchain receipt status in the Tierion record
       }
     })
   })
@@ -128,8 +164,8 @@ function showEntry (req, res) {
       user: req.user,
       entry: foundEntry,
       message: req.flash('info'),
-      status: ,
-      sourceId:
+      status: foundEntry.status,
+      sourceId: 'TBC'
     })
   })
 }
@@ -179,6 +215,7 @@ module.exports = {
   createEntry,
   newEntry,
   showEntry,
+  updateRecordAndReceipt,
   updateEntry,
   destroyEntry,
   editEntry

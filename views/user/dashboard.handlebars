@@ -1,13 +1,16 @@
 <h2>hi from views/user/dashboard.hbs</h2>
 
+<p>This is the user:</p>
 {{ user }}
 
+<br>
 <br>
 <a href="/user/entries/new"><button type="button" name="button_create_new_entry">Create New Entry</button></a>
 <a href="/verify"><button type="button" name="button_verify">Verify Entry</button></a>
 
-<h3>{{ entries.length }}</h3><p>records saved</p>
+<h3>{{ entries.length }} entries saved</h3>
 
+{{!-- [AXN] ADD A BUTTON FOR EACH TO NAVIGATE TO THE SHOW VIEW OF EACH ENTRY --}}
 {{#each entries as |entry| }}
   <p>
     {{entry.id}}

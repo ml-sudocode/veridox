@@ -171,37 +171,80 @@ function showEntry (req, res) {
   })
 }
 
-function updateRecordAndReceipt (req, res) {
-  console.log('successfully entered updateRecordAndReceipt function')
-  // check Tierion API for record status
-  const cloudRecord = tierionApiController.checkRecordOnCloud(req.params.id)
-  // if status = complete, update the record in my db, update the BR in my db
-  // pass the receipt data, status and sourceId to View
-  // if status = unpublished, vs db status = queued, update the record status in my db, and pass updated status to View
-  // else, pass a message saying "receipt still not ready"
-  Entry.findById(req.params.id, function (err, foundEntry) {
-    if (err) res.send(err)
-  })
-  .exec(function (err, foundEntry) {
-    if (err) res.send(err)
-    // console.log(req.params.id)
-    // console.log(foundEntry)
-    TierionRecord.find({entry_id: foundEntry.id}, function (err, foundRecord) {
-      const status = foundRecord.status
-      console.log(status)
-      if (status !== "complete") {
-        // run API to get blockchain receipt status in the Tierion record
-      }
-    })
-  })
-  .then(function (err, foundEntry) {
-    res.render('user/entries/show', {
-      user: req.user,
-      entry: foundEntry,
-      message: req.flash('info'),
-      status: foundEntry.status,
-      sourceId: 'TBC'
-    })
+function checkAndUpdate (req, res) {
+  const entryId = req.params.id
+
+  // Strange. When i try to pass "entryId" into checkRecord, e.g. function checkRecord(entryId, callback), there are two errors: first, Linter tells me that entryId in the line above "is assigned a value but never used"; second, entryId isn't passed through at all!
+  function checkRecord (callback) {
+    // console.log('entryId from checkRecord:')
+    // console.log(entryId)
+    tierionApiController.checkRecordOnCloud(entryId, callback)
+  }
+
+  function updateRecordAndReceipt (cloudRecord, callback) {
+    const status = cloudRecord.status
+    const statusText = "Status of data submission to the blockchain: " + status.toUpperCase()
+    // console.log('status is:')
+    // console.log(status)
+    const blockchain_receipt = cloudRecord.blockchain_receipt
+    let receiptNotAvailText = 'Sorry, the blockchain receipt is not yet available. Please try again in 1 minute. Click on link below to go back.'
+    // if status is complete or unpublished, update the status in the record in my DB
+    if (status === "complete" || status === "unpublished") {
+      TierionRecord.findOneAndUpdate({entry_id: entryId}, {$set: {status: status}}, function (err, updatedRecord) {
+        if (err) res.send(err)
+        if (status === "complete") {
+          const dataToAddToReceipt = {
+            "@context": blockchain_receipt["@context"],
+            type: blockchain_receipt.type,
+            targetHash: blockchain_receipt.targetHash,
+            merkleRoot: blockchain_receipt.merkleRoot,
+            proof: blockchain_receipt.proof,
+            anchors: blockchain_receipt.anchors
+          }
+          BlockchainReceipt.findOneAndUpdate({entry_id: entryId}, {$set: dataToAddToReceipt}, function (err, updatedReceipt) {
+            if (err) res.send(err)
+            receiptNotAvailText = ''
+            const dataForViews = [statusText, blockchain_receipt, receiptNotAvailText]
+            callback(null, dataForViews)
+          })
+        }
+        if (status === "unpublished") {
+          const dataForViews = [statusText, receiptNotAvailText]
+          callback(null, dataForViews)
+        }
+      })
+    } else {
+      const dataForViews = [statusText, receiptNotAvailText]
+      callback(null, dataForViews)
+    }
+  }
+  async.waterfall([ checkRecord, updateRecordAndReceipt ], function (err, result) {
+    if (err) { console.error("Error :", err) }
+    // console.log('result is (dataforViews):')
+    // console.log(result)
+    // console.log('req.originalUrl is:')
+    // console.log(req.originalUrl)
+    // /user/entries/59b0529a36507148c0e42080
+    // console.log('req.url is:')
+    // console.log(req.url)
+    // /entries/59b0529a36507148c0e42080
+    // console.log("req.header('referrer') is:")
+    // console.log(req.header('referrer'))
+    // http://localhost:5000/user/entries/59b0529a36507148c0e42080
+    const returnUrl = req.header('referrer').toString()
+    result.push(returnUrl)
+    // [AXN] how to do remote scripting, to avoid page refresh? I also don't want to have to re-generate all three docs: entry, record and receipt. Currently my workaround is to send informative text to the browser in the form of res.json; user has to hit Back Button or navigate via URL to exit this page ====================
+    res.json(result)
+    // res.render('user/entries/show', {
+    //   user: req.user,
+    //   entry: foundEntry,
+    //   record: foundRecord,
+    //   receipt: foundReceipt,
+    //   status: status,
+    //   statusIsComplete: statusIsComplete,
+    //   sourceId: sourceId,
+    //   message: req.flash('info')
+    // })
   })
 }
 
@@ -266,7 +309,7 @@ module.exports = {
   createEntry,
   newEntry,
   showEntry,
-  updateRecordAndReceipt,
+  checkAndUpdate,
   updateEntry,
   destroyEntry,
   editEntry

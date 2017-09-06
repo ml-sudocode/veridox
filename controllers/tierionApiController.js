@@ -1,5 +1,5 @@
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
-const SHA256 = require("crypto-js/sha256")
+// const SHA256 = require("crypto-js/sha256")
 const TierionRecord = require('../models/TierionRecord')
 const BlockchainReceipt = require('../models/BlockchainReceipt')
 
@@ -119,31 +119,32 @@ function saveBlockchainReceipt (entryAndRecordIds, callback) {
 }
 
 // check for updated status in the Tierion record
-// [AXN] opps for DRY here; code duplicated in saveBlockchainReceipt
-function updateStatus (recordId, callback) {
+// [AXN] opps for DRY here; some rows duplicated in saveBlockchainReceipt
+function checkRecordOnCloud (entryId, callback) {
+  // console.log('entryId from checkRecordOnCloud')
+  // console.log(entryId)
+  TierionRecord.findOne({entry_id: entryId}, function (err, foundRecord) {
+    if (err) throw err
+    const recordId = foundRecord.id
 
-  const xhr_updateStatus = new XMLHttpRequest()
-  xhr_updateStatus.onreadystatechange = function () {
-    if (xhr_updateStatus.readyState === 4) {
-      const parsedResText = JSON.parse(xhr_updateStatus.responseText)
-      const status = parsedResText.status
-      if (status === "complete") {
-        // look up the record in my db, update the status, and save the record
-        // then, get the blockchain receipt data from the same parsedResText above, save into my database (update the existing receipt), and send to the View
-
+    const xhr_checkStatus = new XMLHttpRequest()
+    xhr_checkStatus.onreadystatechange = function () {
+      if (xhr_checkStatus.readyState === 4) {
+        const cloudRecord = JSON.parse(xhr_checkStatus.responseText)
+        // console.log('cloudRecord from checkRecordOnCloud')
+        // console.log(cloudRecord)
+        callback(null, cloudRecord)
       }
     }
-  }
-  const method = "GET"
-  const record_id = recordId
-  // [AXN] change to dynamic recordId
-  // const urlToShowRecord = `https://api.tierion.com/v1/records/VMMLFetBgkiC21L4GaHrgA`
-  const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
-  xhr_updateStatus.open(method, urlToShowRecord, true)
-  xhr_updateStatus.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
-  xhr_updateStatus.setRequestHeader("X-Api-Key", process.env.TIERION_API_KEY)
-  xhr_updateStatus.setRequestHeader("Content-Type", "application/json")
-  xhr_updateStatus.send()
+    const method = "GET"
+    // [AXN] change to dynamic recordId
+    const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
+    xhr_checkStatus.open(method, urlToShowRecord, true)
+    xhr_checkStatus.setRequestHeader("X-Username", process.env.TIERION_EMAIL)
+    xhr_checkStatus.setRequestHeader("X-Api-Key", process.env.TIERION_API_KEY)
+    xhr_checkStatus.setRequestHeader("Content-Type", "application/json")
+    xhr_checkStatus.send()
+  })
 }
 
 //
@@ -340,5 +341,5 @@ function updateStatus (recordId, callback) {
 module.exports = {
   createRecord,
   saveBlockchainReceipt,
-  updateStatus
+  checkRecordOnCloud
 }

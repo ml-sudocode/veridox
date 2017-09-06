@@ -1,13 +1,3 @@
-// const rootController = require('../controllers/rootController')
-// app.route('/verify')
-//   .get(rootController.getVerify)
-//   .post(rootController.postVerify)
-//
-// app.get('/features', rootController.getFeatures)
-//
-// app.route('/contact')
-//   .get(rootController.getContact)
-//   .post(rootController.postContact)
 
 function getVerify (req, res) {
   res.render('verify')

@@ -2,4 +2,17 @@
 
 {{ user }}
 
-{{ entries }}
+<br>
+<a href="/user/entries/new"><button type="button" name="button_create_new_entry">Create New Entry</button></a>
+<a href="/verify"><button type="button" name="button_verify">Verify Entry</button></a>
+
+<h3>{{ entries.length }}</h3><p>records saved</p>
+
+{{#each entries as |entry| }}
+  <p>
+    {{entry.id}}
+    {{entry.title}}
+    {{entry.description}}
+    {{entry.createdAt}}
+  </p>
+{{/each}}

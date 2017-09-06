@@ -1,1 +1,28 @@
 <h2>hi from views/user/entries/new.hbs</h2>
+
+<h3>Create a new Entry:</h3>
+
+<form id="form_entry" class="" action="/user/entries" method="post">
+  {{!-- [AXN-done] how to use the hidden field to populate the user_id field: this works! --}}
+  <input type="hidden" name="entry[user_id]" value="{{req.user.id}}">
+
+  <label for="entry_title">Title</label>
+  <input type="text" id="entry_title" name="entry[title]">
+
+  <label for="entry_description">Description</label>
+  <input type="text" id="entry_description" name="entry[description]">
+
+  <label for="entry_contract_name">Contract Name</label>
+  <input type="text" id="entry_contract_name" name="entry[contract_name]">
+
+  {{!-- <label for="entry_contract_date">Contract Date</label> --}}
+  {{!-- <input type="text" id="entry_contract_date" name="entry[contract_date]"> --}}
+
+  <label for="entry_contract_parties">Contract Parties (comma-separated)</label>
+  <input type="text" id="entry_contract_parties" name="entry[contract_parties]">
+
+  <p>Data (Important: This cannot be changed)</p>
+  <textarea name="entry[data]" rows="8" cols="80"></textarea>
+
+  <input type="submit" value="Submit">
+</form>

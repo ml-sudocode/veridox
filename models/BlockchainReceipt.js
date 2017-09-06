@@ -13,7 +13,7 @@ const anchorsSchema = new Schema({
   },
   sourceID: {
     type: String
-  },
+  }
 })
 
 const blockchainReceiptSchema = new Schema({
@@ -34,19 +34,19 @@ const blockchainReceiptSchema = new Schema({
 })
 
 // pre save hook to insert creation and updated dates. copied from https://stackoverflow.com/questions/12669615/add-created-at-and-updated-at-fields-to-mongoose-schemas
-tierionRecordSchema.pre('save', function (next) {
-  now = new Date()
-  this.updated_at = now
-  if (!this.created_at) {
-    this.created_at = now
+blockchainReceiptSchema.pre('save', function (next) {
+  let now = new Date()
+  this.updatedAt = now
+  if (!this.createdAt) {
+    this.createdAt = now
   }
   next()
 })
 
 // create models
-const TierionRecord = mongoose.model('TierionRecord', tierionRecordSchema)
+const BlockchainReceipt = mongoose.model('BlockchainReceipt', blockchainReceiptSchema)
 const Proof = mongoose.model('Proof', proofSchema)
 const Anchors = mongoose.model('Anchors', anchorsSchema)
 
 // export model
-module.exports = TierionRecord
+module.exports = BlockchainReceipt

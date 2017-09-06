@@ -1,1 +1,20 @@
 <h2>hi from views/user/entries/index.hbs</h2>
+
+<p>These are your submitted Entries. Click to see full details of each Entry.</p>
+<a href="/user/entries/new"><button type="button" name="button_create_new_entry">Create New Entry</button></a>
+<br>
+
+{{#each entries as |entry| }}
+  <div class="entries[]">
+    Entry ID: {{entry.id}}
+    Title: {{entry.title}}
+    Description: {{entry.description}}
+    Contract Name: {{entry.contractName}}
+    {{!-- Contract Date: {{entry.contractDate}} --}}
+    Contract Parties: {{entry.contractParties}}
+    Data: {{entry.data}}
+    Created: {{entry.createdAt}}
+    Updated: {{entry.updatedAt}}
+  </div>
+  <br>
+{{/each}}

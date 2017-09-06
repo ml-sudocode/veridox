@@ -26,6 +26,9 @@ const entrySchema = new Schema({
     type: String,
     required: [true, 'Please include the contract name']
   },
+  contractDate: {
+    type: Date
+  },
   contractParties: {
     type: String,
     required: [true, 'Please include the contract parties']
@@ -40,10 +43,10 @@ const entrySchema = new Schema({
 
 // pre save hook to insert creation and updated dates. copied from https://stackoverflow.com/questions/12669615/add-created-at-and-updated-at-fields-to-mongoose-schemas
 entrySchema.pre('save', function (next) {
-  now = new Date()
-  this.updated_at = now
-  if (!this.created_at) {
-    this.created_at = now
+  let now = new Date()
+  this.updatedAt = now
+  if (!this.createdAt) {
+    this.createdAt = now
   }
   next()
 })

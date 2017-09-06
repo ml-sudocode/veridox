@@ -26,7 +26,7 @@ const BlockchainReceipt = require('../models/BlockchainReceipt')
 // xhr_getRecords.send()
 
 // create record
-function createRecord (dataFromUser, callback) {
+function createRecord (dataFromUser, entryId, callback) {
   const xhr_createRecord = new XMLHttpRequest()
   xhr_createRecord.onreadystatechange = function () {
     if (xhr_createRecord.readyState === 4) {
@@ -38,7 +38,7 @@ function createRecord (dataFromUser, callback) {
       const newTierionRecord = new TierionRecord({
         _id: parsedResText.id,
         // entry_id: req.session.entryId,
-        // blockchain_receipt_id: ,
+        entry_id: entryId,
         datastore_id: parsedResText.datastoreId,
         hashOfData: parsedResText.sha256,
         timestamp: parsedResText.timestamp
@@ -70,6 +70,8 @@ function createRecord (dataFromUser, callback) {
 }
 
 // show one record
+function saveBlockchainReceipt (callback) {
+  callback(null, 'tbc')
 // xhr_showRecord = new XMLHttpRequest()
 // xhr_showRecord.onreadystatechange = function () {
 //   if (xhr_showRecord.readyState === 4) {
@@ -93,6 +95,8 @@ function createRecord (dataFromUser, callback) {
 // xhr_showRecord.setRequestHeader("X-Api-Key", "w+2WHLUX7KdcJzaaTar+NT5BQZ12TZMDvykV2ZFjCu8=")
 // xhr_showRecord.setRequestHeader("Content-Type", "application/json")
 // xhr_showRecord.send()
+}
+
 //
 // validate receipt (using receipt pulled from Datastore Record)
 // xhr_validateReceipt = new XMLHttpRequest()

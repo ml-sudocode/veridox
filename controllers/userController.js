@@ -61,42 +61,48 @@ function createEntry (req, res) {
     })
   }
 
-  function createTierionRecord (callback) {
+  function createTierionRecord (entryId, callback) {
     // not sure how the sync/async may lead to problems here. might have to use async here? or stick the createRecord function inside save?
     // adding the variable assignment here, and including a "return" statment in the createRecord function, allow me to pass a piece of info from createRecord back into the parent function!
     // console.log('req.body.entry.data is:')
     // console.log(req.body.entry.data)
-    tierionApiController.createRecord(req.body.entry.data, callback)
+    tierionApiController.createRecord(req.body.entry.data, entryId, callback)
     // moved this callback function to the .createRecord function, because the latter is async, meaning that recordId will not be entered into callback(null, recordId)
     // callback(null, recordId)
   }
 
-  async.series([ saveEntry, createTierionRecord ], function (err, results) {
+  function saveBlockchainReceipt (callback) {
+    // tierionApiController.saveBlockchainReceipt([TBC], callback)
+  }
+
+  async.waterfall([ saveEntry, createTierionRecord ], function (err, result) {
     // console.log('err', err)
     if (err) { console.error("Error :", err) }
-    const entryId = results[0]
+    console.log('result from .waterfall is:')
+    console.log(result)
+    // const entryId = result[0]
     // console.log('entryId 1 is:')
     // console.log(entryId)
-    const recordId = results[1]
+    // const recordId = result[1]
     // console.log('recordId from userController is:')
     // console.log(recordId)
     // we need to enter the entry_id (parent) field in the record (child)
-    TierionRecord.findById(recordId, function (err, foundRecord) {
-      if (err) res.send(err)
-      foundRecord.entry_id = entryId
-      // udpating the field doesn't save it!!! Need to .save()!!!
-      foundRecord.save()
-    })
+    // TierionRecord.findById(recordId, function (err, foundRecord) {
+    //   if (err) res.send(err)
+    //   foundRecord.entry_id = entryId
+    //   // udpating the field doesn't save it!!! Need to .save()!!!
+    //   foundRecord.save()
+    // })
       // doing the record updating in .exec, instead of inside findById, is totally extraneous
       // .exec(function (err, foundRecord) {
       //   foundRecord.entry_id = entryId
       // })
       // after the query, can use a promise i.e. .then! Helps with the async nature of the query, i.e. what's in the .then will not be executed until everything in the query is run
-      .then(function (savedRecord) {
+      // .then(function (savedRecord) {
         // CHECK IF THIS WORKS [AXN-done]. Works!
-        req.flash('info', 'Success, new entry saved!')
-        res.redirect('/user/entries')
-      })
+      // })
+    req.flash('info', 'Success, new entry saved!')
+    res.redirect('/user/entries')
   })
 }
 

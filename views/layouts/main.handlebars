@@ -2,13 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    {{!-- if i include the "." before /css, the file doesn't load on the client. WHY? --}}
-    {{!-- <link rel="stylesheet" href="./css/bulma.css"> --}}
-    {{!-- <link rel="stylesheet" href="/css/bulma.css"> --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="stylesheet" href="/css/veridox_style.css">
     <title>Veridox</title>
   </head>
+
   <body>
-    <h1>hi from views/layouts/main.hbs</h1>
+
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="/img/logo_with_text.jpg" alt="Veridox" width="112" height="28">
+        </a>
+      </div>
+
     {{#if user}}
 
         <div id="menu_loggedin" class="navbar-menu is-active">
@@ -50,10 +58,17 @@
       </div>
 
       {{/unless}}
+    </nav>
 
-    {{ message }}
+    <div class="container">
+      <div class="flash_message">
+        {{ message }}
+      </div>
+    </div>
 
-    {{{ body }}}
+    <div class="container">
+      {{{ body }}}
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/js/script.js" charset="utf-8"></script>

@@ -162,4 +162,4 @@ ___aka decisions that turned out well___
 * [Tierion](https://tierion.io) - Core API, blockchain technology
 * [Bulma](https://bulma.io) - CSS Module
 
-__Contact: michelle.y.lai |at| gmail.com_
+__Contact: michelle.y.lai |at| gmail.com__

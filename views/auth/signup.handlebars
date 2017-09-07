@@ -1,11 +1,26 @@
-<h2>hi from views/auth/signup.js</h2>
 
-{{ message }}
+<div class="container">
+  <form id="form_signup" class="" action="/auth/signup" method="post">
 
-<form id="form_signup" class="" action="/auth/signup" method="post">
-  <label for="email">Email</label>
-  <input type="text" id="email"name="email" value="">
-  <label for="password">Password (min. 8 characters)</label>
-  <input type="password" id="password"name="password" value="">
-  <input type="submit" value="Submit">
-</form>
+    <div class="field">
+      <label class="label" for="email">Email</label>
+      <div class="control">
+        <input class="input" type="text" id="email" name="email" placeholder="email">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="password">Password</label>
+      <div class="control">
+        <input class="input" type="password" id="password"name="password" placeholder="(minimum 8 characters)">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit">Submit</button>
+      </div>
+      {{!-- <input type="submit" value="Submit"> --}}
+    </div>
+  </form>
+</div>

@@ -1,4 +1,120 @@
-<h2>hi from views/index.js</h2>
+<section class="section is-medium">
+  <div class="container">
+    <h3 class="title is-2">
+        Sound familiar?
+    </h3>
+    <h4 class="subtitle is-4">Legal contracts rarely cover all potential outcomes</h4>
+    <div id="grid" class="columns">
+      <div class="column">
+        <div class="notification is-danger has-text-centered">
+          <p class="title">That's definitely not what we intended in that clause!</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="notification is-primary has-text-centered">
+          <p class="title">I did not have this information before I signed.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="notification is-success has-text-centered">
+          <p class="title">That's inconsistent with the spirit of our negotiations.</p>
+        </div>
+      </div>
+    </div>
 
-<a href="/auth/signup"><button type="button" name="button">Sign Up</button></a>
-<a href="/auth/login"><button type="button" name="button">Log In</button></a>
+  </div>
+</section>
+
+<section class="hero is-fullheight is-info">
+  <div class="hero-head">
+    <div class="container">
+      <div class="tabs is-centered">
+        <ul>
+          {{!-- <li><a>This is always at the top</a></li> --}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h3 class="title is-2">
+        <span class="icon is-medium">
+          <i class="fa fa-arrows-v"></i>
+        </span>
+        {{!-- <a href="http://bulma.io/documentation/layout/hero/"> --}}
+          Veridox: A better way to resolve contract conflicts
+        {{!-- </a> --}}
+      </h3>
+      <h4 class="subtitle is-4">Prove <strong>original intent</strong> by anchoring data to a blockchain</h4>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="container">
+      <div class="tabs is-centered">
+        <ul>
+          {{!-- <li><a>And this at the bottom</a></li> --}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-medium">
+  <div class="container">
+    <h3 class="title is-2">
+        How does it work?
+      </a>
+    </h3>
+    <h4 class="subtitle is-4">A illustrative flow of events</h4>
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-success">
+              <p class="title">(1) Commercial negotiations</p>
+              <p class="subtitle">Emails and chat messages are exchanged, communicating the spirit and context of each parties' intentions.</p>
+            </article>
+            <article class="tile is-child notification is-warning">
+              <p class="title">(2) Contract execution</p>
+              <p class="subtitle">A contract is prepared based on preceding discussions, and the contract is executed on both sides.</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-info">
+              <p class="title">(3) Veridox: Immutable Data</p>
+              <p class="subtitle">Submit email and chat data to prove their existence.</p>
+              <figure class="image is-4by3">
+                <img src="/img/lock.jpg">
+              </figure>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-danger">
+            <p class="title">(4) Trouble brews...</p>
+            <p class="subtitle">months or years later</p>
+            <div class="content">
+              <p>Events have unfolded that fall outside the consideration of the original contract. Both parties go to court to protect their interests.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+          <p class="title">(5) Veridox receipt presented</p>
+          <p class="subtitle">Expensive discovery and drawn out evidence gathering avoided</p>
+          <div class="content">
+            <p>One or both parties submit their evidence to court, demonstrating the original intent behind the contract.</p>
+            <p>There is no question around the authenticity and timing of the evidence submitted, due to the irrevokability of data on the blockchain. A strong hashing algorithm ensures that any minute change in evidence will result in invalidation of a receipt.</p>
+            <p>This dynamic also has a strong deterrent effect on bad actors. Pareto optimal outcome!</p>
+          </div>
+        </article>
+      </div>
+    </div>
+    </div>
+</section>
+
+{{!-- <a href="/auth/signup"><button type="button" name="button">Sign Up</button></a>
+<a href="/auth/login"><button type="button" name="button">Log In</button></a> --}}

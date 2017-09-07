@@ -198,6 +198,7 @@ function showEntry (req, res) {
 
 function checkAndUpdate (req, res) {
   // use regex and req.originalUrl to grab the entryId
+  // /user/receipt.json?entryId=23u8912y31i2u21u231
   var originalUrl = req.originalUrl
   // match '=' and capture everything that follows
   var regex = /=(.+)/

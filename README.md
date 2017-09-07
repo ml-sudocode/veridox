@@ -1,25 +1,130 @@
-# veridox
+# ![](public/img/logo.jpg) VERIDOC
 
 Deployed at: https://veridox.herokuapp.com
 
-##App Overview
+__Note: This Readme is focused on (1) the business case, and (2) reflections on the execution of the project. For a how-to of the app, please go to the deployed side, which provides a straightforward explanation of features and the how-to.__
 
-###PROBLEM
+## App Overview
+
+This app was inspired by my time in private equity, where legal enforcement of contracts turned out much messier and more expensive than I believe they needed to be.
+
+### PROBLEM
 Generally, information veracity and timing are hard to verify. Here, we are focused on the problem of information verification in the context of legal contracts.
 
-More specifically, when legal contracts are created, sometimes the intention behind the language may be ambiguous, causing problems down the road when the parties disagree on implementation of the contract. Parties that bring their problem to court or to arbitration then engage in "he said, she said" debates, with information that is unverifiable. When no conclusion is reached, one or both sides are often subject to discovery processes that are costly for all parties - and may still not discover the relevant evidence due to fraudulent actions or poor archiving practices. Worse, documents presented at any time during the process may also be forged.
+More specifically, when legal contracts are created, sometimes the intention behind the language may be ambiguous, causing problems down the road when the parties disagree on implementation of the contract. Parties that bring their problem to court or to arbitration then engage in "he said, she said" debates, with information that is unverifiable.
 
-###USER JOURNEY
+When no conclusion is reached, one or both sides are often subject to discovery processes that are costly for all parties - and may still not discover the relevant evidence due to fraudulent actions or poor archiving practices. Worse, documents presented at any time during the process may also be forged.
+
+### SOLUTION
+In short: an app that can confirm that materials being submitted are veracious (unchanged) and existed at a said point in time.  
+
+When the materials are first submitted to the app, a hash of the documents is saved and timestamped, and this information is saved on a public blockchain.
+
+Later, when materials are prepared for submission to court, the user will use the app to generate proof that that the materials were created prior to contract execution, and unchanged since.
+
+This works like Accredible (certification verification), but for legal contracts: https://hackernoon.com/accredible-uses-tierion-for-blockchain-verifiable-credentials-633c82b6ec9d
+
+### USER JOURNEY
 The central user persona is a party on either side of a contract.
 
 Immediately after the contract is finalized, the user will be able to submit materials (emails and text messages) to the app, documenting the discussions conducted prior to contract finalization. Time-stamping at this time also proves that the information existed at the time of contract execution.
 
-Down the road, in case of litigation or arbitration, the user will be able to submit the same materials to the judge/arbitrator, and include proof (provided by the app) that those materials were created prior to contract execution (the timing problem), and unchanged since (the information veracity problem).
+Down the road, in case of litigation or arbitration, the user will be able to submit the same materials to the judge/arbitrator, and include proof (a receipt of information anchored to the Bitcoin blockchain) that those materials were created prior to contract execution (the timing problem), and unchanged since (the information veracity problem).
 
-###SOLUTION
-In short: an app that can confirm that materials being submitted are veracious (unchanged) and existed at a said point in time.  
+### CAVEATS
+* Commercially, legal counter-parties often want to leave some room for interpretation, so that when (if) enforcement occurs in the future, they can incorporate situational factors in making their arguments. This app essentially takes much of that grey area off the table
+* On the flip side, data taken out of context may also lead to unintended, negative outcomes. One mitigation against this would be to modify the app so that counter-parties have to jointly submit one set of data
+* In addition, the potential that communications may be codified and held against yourself years down the road may result in individuals and companies being reluctant to put only the most innocuous communications in writing, rendering this solution pointless
 
-More detailed: When the materials are first submitted to the app, a hash of the documents is saved and timestamped, and this information is saved on a public blockchain.
-Later, when materials are prepared for submission to court, the user will use the app to generate proof (implementation TBD) that that the materials were created prior to contract execution, and unchanged since.
+## Tierion
+The core technology used in this app is Tierion: https://tierion.com.
+It is a service that anchors data to the Bitcoin blockchain, providing a receipt with information that can be verified on the blockchain, e.g. the Merkle Root that the data was anchored to.  
 
-This works like Accredible (certification verification), but for legal contracts: https://hackernoon.com/accredible-uses-tierion-for-blockchain-verifiable-credentials-633c82b6ec9d
+Use cases include:
+- Issue Digital Receipts
+Proof of any transaction. Purchases, stock trades, insurance claims.
+
+- Audit Trail
+Create a cryptographically verifiable audit trail. Track data provenance and processes.
+
+- IoT Data Collection
+Capture data from various connected devices. Every record gets a proof.
+This is a popular topic in the contemporary conversation on security vulnerabilities in IoT e.g. video cameras and fridges.
+
+- Immutable Records
+Medical records, financial records, corporate governance, legal records, inventory management.
+A popular example is land registries in areas where the legal and administrative infrastructure are weak and vulnerable to corruption.
+
+- Secure Customer Data
+Create a verifiable record of customer data. Reduce KYC and compliance costs.
+This is another often touted application of the blockchain, as KYC does not have to be duplicated for the same customer whenever he/she requires a new service.
+
+## Interesting
+### Complete white space, needed to explore rather than definitively define the user journey
+- Lisk. Testnet node, yay. SDK not yet available to build Dapps
+- Opentimestamps. Functioning, but confusing UI, not sure what to do
+- Tierion. Fully functioning API endpoints. Two different APIs, one was more suited to my implementation, but i still had to spend equal amounts of time understanding how i could / would use both (e.g. the first API required me to hash the data myself, and was easier to implement overall, but did not include all the information i need to make the use case meaningful e.g. timestamp).
+- Being able to navigate to view a Bitcoin block to see where my data (or a hash of it) lived was cool
+### Async mayhem
+- The Tierion API had to be called multiple points through the User Journey
+- In addition, each new entry by the user populates three separate collections
+- This resulted in a lot of headache, and ultimately a lot of learning gains, in order to manage the numerous async operations
+### Transition from form submit to Ajax page update
+- This is my first implementation of live page updates without page refresh (aka AJAX), while still running XMLHttpRequest, with it's sensitive API keys, in the server
+- On the page displaying a full entry, the blockchain receipt data is not always available until about 2-8 minutes later
+- The most straightforward implementation to check if the receipt is available would be to load the XMLHttpRequest on the script.js file loaded in the browser. However that would expose my Tierion API keys
+- The next most straightforward implementation would be via a form submit, sending a request to check if the receipt is ready. But this involves refreshing the page, which I didn't want to do as it is operationally expensive and inefficient; at first, i settled for sending the JSON result to the browser (res.json(receiptData))
+- However, through mentorship and world-class pigheadedness, I figured out a solution: use jQuery .click event on the front end to trigger a JSON AJAX ($.getJSON) call to an API endpoint (essentially just a defined route); call the Tierion API to check on the receipt status; and then return data to the $.getJSON function to render the new information on the page... all without a page refresh.
+- Other than understanding $.getJSON (a shorthand of the $.ajax I am familiar with), another tricky part of the third implementation was how to pass the entryId variable from the front end, to the back end. For this, i utilized a few operations I wasn't familiar with
+* script.js:
+** var currentUrl = $(location).attr('pathname')
+This was used to grab the entryId in the URL of the current page
+** $.getJSON("/user/receipt.json", {
+  "entryId": entryId
+}, function (res) {...})
+The data section above adds to the URL path with query parameters: /user/receipt.json?entryId=23u8912y31i2u21u231
+* userController.js:
+** var originalUrl = req.originalUrl
+This was used to grab the path that led to this function, i.e. /user/receipt.json?entryId=23u8912y31i2u21u231. Then, using regex, i grabbed the entryId, and proceeded to call the Tierion API
+
+### Full CRUD
+- Neither of my previous 2 projects had full CRUD
+
+## Areas for Improvement
+Functionality
+- Upload documents rather than plaintext (e.g. email files, txt files exported from Whatsapp)
+- Users can send an invite to external parties to verify that the data was anchored to the blockchain at a stated date
+- Counter-parties can jointly submit data so that there is no dispute over the content being submitted
+- Normalization of user input to avoid formatting issues resulting in different hash results for essentially the same content
+- Search function across all Entries
+- Contract Date field for Entries. Deprioritized due to format normalization hurdle
+Security
+- Escape from form inputs
+Code Design
+- DRY-er code. Currently API requests include duplicated code and/or parameters
+- Greater orthogonality. Currently some functions do several things, though there is an effort to implement Single Responsibility principle
+- Debugging process
+Tech Operations
+- Unit tests (e.g. Mocha/Chai)
+- Functional tests (e.g. Selenium)
+- System integration test (e.g. Travis CI)
+Process
+- More detailed Use Case diagram earlier on, to streamline development
+
+## Good Calls
+aka decisions that turned out well
+- Choosing to use a non-relational database like MongoDB, rather than a relational database like Postgresql. Given the complexity and uncertainty involved in this project, I frequently updated my schema to optimize functions or to work around limitations (e.g. avoid multiple nested database queries). If used a relational DB, requiring a migration each time
+- Re-using the Passport implementation from a previous project for authentication saved a lot of time early on >> reusable code FTW
+
+## Observations
+### Ruby on Rails vs ExpressJS
+- I had originally wanted to build a Rails app, but because the Tierion documentation focused on Javascript, and one of the 2 APIs had a Node.js library, so i went with Express (eventually I used the other more fully functional API, so I could have gone with Rails instead)
+- Early on I started missing the conventions in Rails that made life easier. For example, having to define routes one by one was less efficient.
+- Being able to set data-remote=true on forms in Ruby also makes Ajax fired in the client but processed in the browser easier to handle than in ExpressJS
+- That being said, a non-opinionated framework can be more flexible, and provides more reinforcement of fundamentals than an opinionated, conventions-driven framework like Rails
+### Blockchain companies
+- Having spent a good proportion of my time learning the tech behind three different blockchain products, here is a  summary of my takeaways
+- Lisk was the most abstracted from the blockchain. When their SDK becomes available, I understand that you would build apps (Dapps) the same way you would normally build Node.js apps, except they would run on or alongside the Lisk blockchain (I still have more learning to do here)
+- Opentimetamps was IMO the least abstracted from the blockchain. You enter some input, their very basic web-based app returns a file, and you submit this file back later to prove that your data existed at a said point in time. It wasn't very clear what I had to do (of course perhaps that's related to my technical chops not being up to scratch yet)
+- Tierion was the Goldilocks of the bunch, with clean and easy to use APIs to submit your data, through their API, to the blockchain. They provide a good web-based UI to verify your record (in addition to an API), which is how I have chosen to implement verification in my app
+- While building a blockchain technology or company is not trivial, I've come to understand that the application of blockchain technology can actually be relatively straightforward. This gives the blockchain revolution the true potential to disrupt industries and relationships that currently rely on trust central authorities to function

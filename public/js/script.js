@@ -7,6 +7,8 @@ $(document).ready(function () {
     var entryId = currentUrl.split('/').pop()
     // after the click, run the .get (ajax) call to /receipt.json
     $.getJSON("/user/receipt.json", {
+      // Adding the data bit results in a url query param as below! But routing is not affected by query params
+      // /user/receipt.json?entryId=23u8912y31i2u21u231
       "entryId": entryId
     },
     function (res) {

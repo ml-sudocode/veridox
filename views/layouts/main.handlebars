@@ -9,6 +9,47 @@
   </head>
   <body>
     <h1>hi from views/layouts/main.hbs</h1>
+    {{#if user}}
+
+        <div id="menu_loggedin" class="navbar-menu is-active">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <a class="navbar-item" href="/user/dashboard">
+                Dashboard
+              </a>
+              <a class="navbar-item" href="/user/entries">
+                Entries
+              </a>
+              <a class="navbar-item" href="/auth/logout">
+                Log Out
+              </a>
+            </div>
+          </div>
+        </div>
+
+      {{/if}}
+
+      {{#unless user}}
+
+      <div id="menu_loggedout" class="navbar-menu is-active">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+          <div class="navbar-item">
+            <a class="navbar-item" href="/auth/signup">
+              Sign Up
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a class="navbar-item" href="/auth/login">
+              Log In
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {{/unless}}
 
     {{ message }}
 

@@ -1,20 +1,40 @@
-<h2>hi from views/user/entries/index.hbs</h2>
+<section class="section is-small">
+  <div class="container">
+    <a href="/user/entries/new"><button class="button is-info" type="button" name="button_create_new_entry">Create New Entry</button></a>
+    {{!-- <a href="/verify"><button type="button" name="button_verify">Verify Entry</button></a> --}}
+  </div>
+</section>
 
-<p>These are your submitted Entries. Click to see full details of each Entry.</p>
-<a href="/user/entries/new"><button type="button" name="button_create_new_entry">Create New Entry</button></a>
-<br>
-<br>
-  {{#each entries as |entry| }}
-    <div class="entries[]">
-      Title: {{entry.title}}
-      Description: {{entry.description}}
-      Contract Name: {{entry.contractName}}
-      Contract Parties: {{entry.contractParties}}
-      Data: {{entry.data}}
-      Created: {{entry.createdAt}}
-      Updated: {{entry.updatedAt}}
-      Entry ID: {{entry.id}}
-      <a href="/user/entries/{{entry.id}}">Details</a>
-    </div>
-    <br>
-  {{/each}}
+<section class="section is-small">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Contract Name</th>
+        <th>Parties</th>
+        <th>Data</th>
+        {{!-- <th>Created</th> --}}
+        <th>Updated</th>
+        <th>Entry ID</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- [AXN] limit to top 10 entries --}}
+      {{#each entries as |entry| }}
+      <tr>
+        <td>{{entry.title}}</td>
+        <td>{{entry.description}}</td>
+        <td>{{entry.contractName}}</td>
+        <td>{{entry.contractParties}}</td>
+        <td>{{entry.data}}</td>
+        {{!-- <td>{{entry.createdAt}}</td> --}}
+        <td>{{entry.updatedAt}}</td>
+        <td>{{entry.id}}</td>
+        <td><a href="/user/entries/{{entry.id}}">Edit</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

@@ -238,7 +238,7 @@ function checkAndUpdate (req, res) {
           }
           BlockchainReceipt.findOneAndUpdate({entry_id: entryId}, {$set: dataToAddToReceipt}, function (err, updatedReceipt) {
             if (err) res.send(err)
-            receiptNotAvailText = "Receipt retrieval is complete."
+            receiptNotAvailText = "Receipt retrieval is complete. Please refresh the page."
             const dataForViews = [statusText, blockchain_receipt, receiptNotAvailText]
             callback(null, dataForViews)
           })

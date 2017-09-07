@@ -1,65 +1,133 @@
-<h2>hi from views/user/entries/show.hbs</h2>
 
-This is the user:
-{{ user }}
+{{!-- This is the user:
+{{ user }} --}}
 
-<h3>Here are the details of the Entry:</h3>
-<ul>
-  <li>Title: {{entry.title}}</li>
-  <li>Description: {{entry.description}}</li>
-  <li>Contract Name: {{entry.contractName}}</li>
-  <li>Contract Parties: {{entry.contractParties}}</li>
-  <li>Data: {{entry.data}}</li>
-  <li>Created: {{entry.createdAt}}</li>
-  <li>Updated: {{entry.updatedAt}}</li>
-  <li>Entry ID: {{entry.id}}</li>
-</ul>
+<section class="section is-small">
+  <div class="field is-grouped">
+    <div class="control">
+      <form class="" action="/user/entries/{{entry.id}}/edit" method="get">
+        <button class="button is-info" type="submit">Edit This Entry</button>
+        {{!-- <input type="submit" name="" value="Edit this Entry"> --}}
+      </form>
+    </div>
 
-<form action="/user/entries/{{entry.id}}?_method=DELETE" method="post">
-  <input type="submit" name="" value="Delete this Entry">
-</form>
-
-<form class="" action="/user/entries/{{entry.id}}/edit" method="get">
-  <input type="submit" name="" value="Edit this Entry">
-</form>
-
-<h3>Here are the details of the Tierion Record:</h3>
-<ul>
-  <li>Hash submitted to blockchain: {{record.hash}}</li>
-  <li>Data used to create hash: {{record.dataStringify}}</li>
-  <li>Date submitted: {{record.date}}</li>
-</ul>
-
-<h3>Here are the details of the Blockchain Receipt:</h3>
-{{!-- [AXN] needs to be fixed so that when json response is updated, the status here updates accordingly --}}
-<h4>This is the status of the blockchain receipt: {{status}}</h4>
-{{#if receipt}}
-  {{receipt}}
-  <h4>To validate this receipt, copy and paste the above receipt information into: <a href="https://tierion.com/validate" target="blank">https://tierion.com/validate</a></h4>
-{{else}}
-  No receipt data yet. Click button to check if receipt is ready.
-{{/if}}
-{{#unless statusIsComplete}}
-  {{!-- [AXN] testing rendering of json response without page refresh. Not sure what will happen to the if statement section above, e.g. will it also refresh so that we will have two copies of the br receipt; OR, will it continue to show "no receipt data yet", even when this div renders the br receipt  --}}
-  <button id="check_button" type="button" name="button">Check if receipt is ready</button>
-  <div id="br_div">
+    <div class="control">
+      <form action="/user/entries/{{entry.id}}?_method=DELETE" method="post">
+        <button class="button is-warning" type="submit">Delete This Entry</button>
+        {{!-- <input type="submit" name="" value="Delete this Entry"> --}}
+      </form>
+    </div>
   </div>
-  {{!-- below is before i tried to use on-page ajax to return the json within the same view --}}
-  {{!-- <form action="/user/entries/{{entry.id}}" method="post">
-    <input type="submit" name="" value="Check if receipt is ready">
-  </form> --}}
+</section>
+
+<section class="section is-small">
+  <div class="container">
+    <h1 class="title">Entry Details</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Title</strong></td>
+          <td>{{entry.title}}</td>
+        </tr>
+        <tr>
+          <td><strong>Description</strong></td>
+          <td>{{entry.description}}</td>
+        </tr>
+        <tr>
+          <td><strong>Contract Name</strong></td>
+          <td>{{entry.contractName}}</td>
+        </tr>
+        <tr>
+          <td><strong>Contract Parties</strong></td>
+          <td>{{entry.contractParties}}</td>
+        </tr>
+        <tr>
+          <td><strong>Data</strong></td>
+          <td>{{entry.data}}</td>
+        </tr>
+        <tr>
+          <td><strong>Created</strong></td>
+          <td>{{entry.createdAt}}</td>
+        </tr>
+        <tr>
+          <td><strong>Updated</strong></td>
+          <td>{{entry.updatedAt}}</td>
+        </tr>
+        <tr>
+          <td><strong>Entry ID</strong></td>
+          <td>{{entry.id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section is-small">
+  <div class="container">
+    <h1 class="title">Tierion Record</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hash submitted to blockchain</strong></td>
+          <td>{{record.hash}}</td>
+        </tr>
+        <tr>
+          <td><strong>Data used to create hash</strong></td>
+          <td>{{record.dataStringify}}</td>
+        </tr>
+        <tr>
+          <td><strong>Date submitted</strong></td>
+          <td>{{record.date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section is-small">
+  <h3 class="title">Blockchain Receipt:</h3>
+  {{!-- [AXN] needs to be fixed so that when json response is updated, the status here updates accordingly --}}
+  <h4>This is the status of the blockchain receipt: {{status}}</h4>
+  {{#if receipt}}
+    {{receipt}}
+    <h4>To validate this receipt, copy and paste the above receipt information into: <a href="https://tierion.com/validate" target="blank">https://tierion.com/validate</a></h4>
   {{else}}
+    No receipt data yet. Click button to check if receipt is ready.
+  {{/if}}
+  {{#unless statusIsComplete}}
+    {{!-- [AXN] testing rendering of json response without page refresh. Not sure what will happen to the if statement section above, e.g. will it also refresh so that we will have two copies of the br receipt; OR, will it continue to show "no receipt data yet", even when this div renders the br receipt  --}}
+    <button id="check_button" type="button" name="button">Check if receipt is ready</button>
+    <div id="br_div">
+    </div>
+    {{!-- below is before i tried to use on-page ajax to return the json within the same view --}}
+    {{!-- <form action="/user/entries/{{entry.id}}" method="post">
+      <input type="submit" name="" value="Check if receipt is ready">
+    </form> --}}
+    {{else}}
 
-{{/unless}}
+  {{/unless}}
 
-{{#if sourceId }}
-  <h3>Check the block that your data is anchored here: <a href="https://www.blocktrail.com/BTC/tx/{{sourceId}}" target="blank">view on Bitcoin blockchain.</a></h3>
-{{/if}}
-<small>
-  <ul>
-    <li>Notes:</li>
-    <li>"queued" = Pending submission to the Bitcoin blockchain. Please wait up to 1-2 minutes (usually less).</li>
-    <li>"unpublished" = Processing of the block underway. Please wait up to 1-5 minutes (usually less).</li>
-    <li>"complete" = Block confirmed. Hash of your data has been anchored to the Bitcoin blockchain.</li>
-  </ul>
-</small>
+  {{#if sourceId }}
+    <h3>Check the block that your data is anchored here: <a href="https://www.blocktrail.com/BTC/tx/{{sourceId}}" target="blank">view on Bitcoin blockchain.</a></h3>
+  {{/if}}
+  <small>
+    <ul>
+      <li>Notes:</li>
+      <li>"queued" = Pending submission to the Bitcoin blockchain. Please wait up to 1-2 minutes (usually less).</li>
+      <li>"unpublished" = Processing of the block underway. Please wait up to 1-5 minutes (usually less).</li>
+      <li>"complete" = Block confirmed. Hash of your data has been anchored to the Bitcoin blockchain.</li>
+    </ul>
+  </small>
+</section>

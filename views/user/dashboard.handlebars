@@ -1,24 +1,39 @@
-<h2>hi from views/user/dashboard.hbs</h2>
 
-<p>This is the user:</p>
-{{ user }}
+{{!-- <p>This is the user:</p>
+{{ user }} --}}
+<section class="section is-small">
+  <div class="container">
+    <h3 class="title is-2"> <a href="/user/entries">{{ entries.length }} entries saved</a></h3>
+  </div>
+  <br>
+  <div class="container">
+    <a href="/user/entries/new"><button class="button is-info" type="button" name="button_create_new_entry">Create New Entry</button></a>
+    {{!-- <a href="/verify"><button type="button" name="button_verify">Verify Entry</button></a> --}}
+  </div>
+</section>
 
-<br>
-<br>
-<a href="/user/entries/new"><button type="button" name="button_create_new_entry">Create New Entry</button></a>
-{{!-- <a href="/verify"><button type="button" name="button_verify">Verify Entry</button></a> --}}
-
-<h3>{{ entries.length }} entries saved</h3>
-<a href="/user/entries">See all entries</a>
-
-<h3>Latest Entries</h3>
-{{!-- [AXN] limit to top 10 entries --}}
-{{#each entries as |entry| }}
-  <p>
-    Title: {{entry.title}}
-    Description: {{entry.description}}
-    Contract Name: {{entry.contractName}}
-    Created: {{entry.createdAt}}
-    <a href="/user/entries/{{entry.id}}">Details</a>
-  </p>
-{{/each}}
+<section class="section is-small">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Contract Name</th>
+        <th>Created</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- [AXN] limit to top 10 entries --}}
+      {{#each entries as |entry| }}
+      <tr>
+        <td>{{entry.title}}</td>
+        <td>{{entry.description}}</td>
+        <td>{{entry.contractName}}</td>
+        <td>{{entry.createdAt}}</td>
+        <td><a href="/user/entries/{{entry.id}}">Edit</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

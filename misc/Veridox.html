@@ -1,4 +1,52 @@
-<section class="section is-small">
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./Veridox_files/bulma.css">
+    <link rel="stylesheet" href="./Veridox_files/veridox_style.css">
+    <title>Veridox</title>
+  </head>
+
+  <body style="">
+
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://localhost:5000/">
+          <img src="./Veridox_files/logo_with_text.jpg" alt="Veridox" width="112" height="28">
+        </a>
+      </div>
+
+
+
+      <div id="menu_loggedout" class="navbar-menu is-active">
+        <div class="navbar-start">
+          <a class="navbar-item" href="http://localhost:5000/">
+            Home
+          </a>
+          <div class="navbar-item">
+            <a class="navbar-item" href="http://localhost:5000/auth/signup">
+              Sign Up
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a class="navbar-item" href="http://localhost:5000/auth/login">
+              Log In
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+    <div class="container">
+      <div class="flash_message">
+        
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="section is-medium">
   <div class="container">
     <div id="grid" class="columns">
       <div class="column">
@@ -29,7 +77,6 @@
     <div class="container">
       <div class="tabs is-centered">
         <ul>
-          {{!-- <li><a>This is always at the top</a></li> --}}
         </ul>
       </div>
     </div>
@@ -41,9 +88,7 @@
         <span class="icon is-medium">
           <i class="fa fa-arrows-v"></i>
         </span>
-        {{!-- <a href="http://bulma.io/documentation/layout/hero/"> --}}
           Veridox: A better way to resolve contract conflicts
-        {{!-- </a> --}}
       </h3>
       <h4 class="subtitle is-4">Prove <strong>original intent</strong> by anchoring data to a blockchain</h4>
     </div>
@@ -53,7 +98,6 @@
     <div class="container">
       <div class="tabs is-centered">
         <ul>
-          {{!-- <li><a>And this at the bottom</a></li> --}}
         </ul>
       </div>
     </div>
@@ -64,7 +108,7 @@
   <div class="container">
     <h3 class="title is-2">
         How does it work?
-      </a>
+      
     </h3>
     <h4 class="subtitle is-4">A illustrative flow of events</h4>
     <div class="tile is-ancestor">
@@ -73,19 +117,19 @@
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-success">
               <p class="title">(1) Commercial negotiations</p>
-              <p class="subtitle">Emails and chat messages are exchanged, communicating the spirit and context of each parties' intentions</p>
+              <p class="subtitle">Emails and chat messages are exchanged, communicating the spirit and context of each parties' intentions.</p>
             </article>
             <article class="tile is-child notification is-warning">
               <p class="title">(2) Contract execution</p>
-              <p class="subtitle">A contract is prepared based on preceding discussions, and the contract is executed on both sides</p>
+              <p class="subtitle">A contract is prepared based on preceding discussions, and the contract is executed on both sides.</p>
             </article>
           </div>
           <div class="tile is-parent">
             <article class="tile is-child notification is-info">
               <p class="title">(3) Veridox: Immutable Data</p>
-              <p class="subtitle">Submit email and chat data to prove their existence</p>
+              <p class="subtitle">Submit email and chat data to prove their existence.</p>
               <figure class="image is-4by3">
-                <img src="/img/lock.jpg">
+                <img src="./Veridox_files/lock.jpg">
               </figure>
             </article>
           </div>
@@ -115,5 +159,11 @@
     </div>
 </section>
 
-{{!-- <a href="/auth/signup"><button type="button" name="button">Sign Up</button></a>
-<a href="/auth/login"><button type="button" name="button">Log In</button></a> --}}
+
+    </div>
+
+    <script src="./Veridox_files/jquery-3.2.1.min.js"></script>
+    <script src="./Veridox_files/script.js" charset="utf-8"></script>
+  
+
+</body></html>

@@ -137,7 +137,6 @@ function checkRecordOnCloud (entryId, callback) {
       }
     }
     const method = "GET"
-    // [AXN] change to dynamic recordId
     const urlToShowRecord = `https://api.tierion.com/v1/records/${recordId}`
     xhr_checkStatus.open(method, urlToShowRecord, true)
     xhr_checkStatus.setRequestHeader("X-Username", process.env.TIERION_EMAIL)

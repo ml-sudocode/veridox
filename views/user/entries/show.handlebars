@@ -41,10 +41,14 @@ This is the user:
   No receipt data yet. Click button to check if receipt is ready.
 {{/if}}
 {{#unless statusIsComplete}}
-
-  <form action="/user/entries/{{entry.id}}" method="post">
+  {{!-- [AXN] testing rendering of json response without page refresh. Not sure what will happen to the if statement section above, e.g. will it also refresh so that we will have two copies of the br receipt; OR, will it continue to show "no receipt data yet", even when this div renders the br receipt  --}}
+  <button id="check_button" type="button" name="button">Check if receipt is ready</button>
+  <div id="br_div">
+  </div>
+  {{!-- below is before i tried to use on-page ajax to return the json within the same view --}}
+  {{!-- <form action="/user/entries/{{entry.id}}" method="post">
     <input type="submit" name="" value="Check if receipt is ready">
-  </form>
+  </form> --}}
   {{else}}
 
 {{/unless}}

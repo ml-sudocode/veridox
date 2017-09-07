@@ -39,4 +39,7 @@ router.route('/entries/:id')
 router.route('/entries/:id/edit')
   .get(authenticatedUser, userController.editEntry)
 
+router.route('/receipt.json')
+  .get(authenticatedUser, userController.checkAndUpdate)
+
 module.exports = router

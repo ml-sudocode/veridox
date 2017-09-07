@@ -108,7 +108,9 @@ app.set('view engine', 'handlebars')
 
 // set routes to use
 app.get('/', function (req, res) {
-  res.render('index')
+  res.render('index', {
+    message: req.flash('info')
+  })
 })
 
 // routes for auth and user

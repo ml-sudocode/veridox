@@ -35,6 +35,7 @@ function postSignup(req, res, next) {
 
 function getLogout(req, res) {
   req.logout()
+  req.flash('info', "Successfully logged out.")
   res.redirect("/")
 }
 

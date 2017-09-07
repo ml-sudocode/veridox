@@ -39,7 +39,7 @@ Down the road, in case of litigation or arbitration, the user will be able to su
 * On the flip side, data taken out of context may also lead to unintended, negative outcomes. One mitigation against this would be to modify the app so that counter-parties have to jointly submit one set of data
 * In addition, the potential that communications may be codified and held against yourself years down the road may result in individuals and companies being reluctant to put only the most innocuous communications in writing, rendering this solution pointless
 
-## ![tierion.io](public/img/logo_tierion_small.jpg)
+## ![](public/img/logo_tierion_small.jpg)
 The core technology used in this app is Tierion: https://tierion.com.
 
 It is a service that anchors data to the Bitcoin blockchain, providing a receipt with information that can be verified on the blockchain, e.g. the Merkle Root that the data was anchored to. They have partnered with big corporates like Philips and Microsoft.

@@ -204,8 +204,8 @@ function checkAndUpdate (req, res) {
   var regex = /=(.+)/
   var matchedPortion = originalUrl.match(regex)
   var entryId = matchedPortion[1]
-  console.log('entryId from checkAndUpdate:')
-  console.log(entryId)
+  // console.log('entryId from checkAndUpdate:')
+  // console.log(entryId)
   // this method below works only when we used form submit, because the form submit / request comes direction from the same page, i.e. /entries/:id
   // const entryId = req.params.id
 

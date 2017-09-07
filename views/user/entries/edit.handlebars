@@ -1,24 +1,48 @@
-<h2>hi from views/user/entries/edit.hbs</h2>
 
-<p>Entry ID is: {{entry.id}}</p>
-<h3>Update your Entry here:</h3>
-{{!-- [AXN] NOT SURE ABOUT THIS PART... --}}
-<form action="/user/entries/{{entry.id}}?_method=PUT" method="post">
-  <input type="hidden" name="entry[user_id]" value="{{req.user.id}}">
+<section class="section is-small">
+  <h5 class="title is-5">Update your Entry here</h5>
 
-  <label for="entry_title">Title</label>
-  <input type="text" id="entry_title" name="entry[title]" value="{{entry.title}}">
+  <div class="container">
+    <h3>Entry ID: {{entry.id}}</h3>
+    <form action="/user/entries/{{entry.id}}?_method=PUT" method="post">
+      <input type="hidden" name="entry[user_id]" value="{{req.user.id}}">
 
-  <label for="entry_description">Description</label>
-  <input type="text" id="entry_description" name="entry[description]" value="{{entry.description}}">
+      <div class="field">
+        <label class="label" for="entry_title">Title</label>
+        <div class="control">
+          <input class="input" type="text" id="entry_title" name="entry[title]" value="{{entry.title}}">
+        </div>
+      </div>
 
-  <label for="entry_contract_name">Contract Name</label>
-  <input type="text" id="entry_contract_name" name="entry[contract_name]" value="{{entry.contractName}}">
+      <div class="field">
+        <label class="label" for="entry_description">Description</label>
+        <div class="control">
+          <input class="input" type="text" id="entry_description" name="entry[description]" value="{{entry.description}}">
+        </div>
+      </div>
 
-  <label for="entry_contract_parties">Contract Parties (comma-separated)</label>
-  <input type="text" id="entry_contract_parties" name="entry[contract_parties]" value="{{entry.contractParties}}">
+      <div class="field">
+        <label class="label" for="entry_contract_name">Contract Name</label>
+        <div class="control">
+          <input class="input" type="text" id="entry_contract_name" name="entry[contract_name]" value="{{entry.contractName}}">
+        </div>
+      </div>
 
-  <input type="submit" value="Submit">
-</form>
+      <div class="field">
+        <label class="label" for="entry_contract_parties">Contract Parties (comma-separated)</label>
+        <div class="control">
+          <input class="input" type="text" id="entry_contract_parties" name="entry[contract_parties]" value="{{entry.contractParties}}">
+        </div>
+      </div>
+      <div class="field">
+        <small>Note: The Data field cannot be updated as it has been submitted to the blockchain.</small>
+      </div>
 
-<small>Note: Data cannot be updated.</small>
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,25 +1,37 @@
-<h2>hi from views/user/entries/new.hbs</h2>
 
-<h3>Create a new Entry:</h3>
+<h3 class="title">Create an Entry</h3>
 
-<form id="form_entry" class="" action="/user/entries" method="post">
-  {{!-- [AXN-done] how to use the hidden field to populate the user_id field: this works! --}}
-  <input type="hidden" name="entry[user_id]" value="{{req.user.id}}">
+<div class="container">
+  <form id="form_entry" class="" action="/user/entries" method="post">
+    {{!-- [AXN-done] how to use the hidden field to populate the user_id field: this works! --}}
+    <input type="hidden" name="entry[user_id]" value="{{req.user.id}}">
 
-  <label for="entry_title">Title</label>
-  <input type="text" id="entry_title" name="entry[title]">
+    <div class="field">
+      <label class="label "for="entry_title">Title</label>
+      <input class="input" type="text" id="entry_title" name="entry[title]" placeholder="e.g. ABC Shareholders Agreement discusssions">
+    </div>
 
-  <label for="entry_description">Description</label>
-  <input type="text" id="entry_description" name="entry[description]">
+    <div class="field">
+      <label class="label" for="entry_description">Description</label>
+      <input class="input" type="text" id="entry_description" name="entry[description]" placeholder="e.g. chat messages from 1 Jul to 31 Jul 2017 between Michelle Lai and Andrew Chen">
+    </div>
 
-  <label for="entry_contract_name">Contract Name</label>
-  <input type="text" id="entry_contract_name" name="entry[contract_name]">
+    <div class="field">
+      <label class="label" for="entry_contract_name">Contract Name</label>
+      <input class="input" type="text" id="entry_contract_name" name="entry[contract_name]" placeholder="e.g. ABC Shareholders Agreement Aug 2017">
+    </div>
 
-  <label for="entry_contract_parties">Contract Parties (comma-separated)</label>
-  <input type="text" id="entry_contract_parties" name="entry[contract_parties]">
+    <div class="field">
+      <label class="label" for="entry_contract_parties">Contract Parties (comma-separated)</label>
+      <input class="input" type="text" id="entry_contract_parties" name="entry[contract_parties]" placeholder="e.g. ABC Company Limited, XYZ Capital Partners">
+    </div>
 
-  <p>Data (Important: This cannot be changed)</p>
-  <textarea name="entry[data]" rows="8" cols="80"></textarea>
+    <div class="field">
+      <label class="label" for="data">Data (important: This cannot be edited later)</label>
+      <textarea class="textarea" id="data" name="entry[data]" rows="8" cols="80" placeholder="Insert the information you want to anchor to the blockchain here"></textarea>
+    </div>
 
-  <input type="submit" value="Submit">
-</form>
+    <button class="button is-info" type="submit">Submit</button>
+    {{!-- <input type="submit" value="Submit"> --}}
+  </form>
+</div>

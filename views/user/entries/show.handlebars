@@ -97,19 +97,47 @@
 </section>
 
 <section class="section is-small">
-  <h3 class="title">Blockchain Receipt:</h3>
+  <h3 class="title">Blockchain Receipt</h3>
   {{!-- [AXN] needs to be fixed so that when json response is updated, the status here updates accordingly --}}
-  <h4>This is the status of the blockchain receipt: {{status}}</h4>
+  <h4 class="title is-5">This is the status of the blockchain receipt: {{status}}</h4>
   {{#if receipt}}
-    {{receipt}}
+    <article class="message is-info">
+    <div class="message-header">
+      <p>Blockchain Receipt</p>
+      <button class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      {{receipt}}
+    </div>
+  </article>
+
+  <article class="message is-danger">
+  <div class="message-header">
+    <p>Next Steps</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
     <h4>To validate this receipt, copy and paste the above receipt information into: <a href="https://tierion.com/validate" target="blank">https://tierion.com/validate</a></h4>
+    <h3>Check the block that your data is anchored here: <a href="https://www.blocktrail.com/BTC/tx/{{sourceId}}" target="blank">view on Bitcoin blockchain.</a></h3>
+  </div>
+</article>
+
+
   {{else}}
-    No receipt data yet. Click button to check if receipt is ready.
+    <article class="message is-warning">
+      <div class="message-header">
+        <p>Information</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <p>No receipt data yet. Click button to check if receipt is ready.</p>
+        <button id="check_button" class="button" type="button" name="button">Check</button>
+      </div>
+    </article>
   {{/if}}
   {{#unless statusIsComplete}}
     {{!-- [AXN] testing rendering of json response without page refresh. Not sure what will happen to the if statement section above, e.g. will it also refresh so that we will have two copies of the br receipt; OR, will it continue to show "no receipt data yet", even when this div renders the br receipt  --}}
-    <button id="check_button" type="button" name="button">Check if receipt is ready</button>
-    <div id="br_div">
+    <div class="flash_message" id="br_div">
     </div>
     {{!-- below is before i tried to use on-page ajax to return the json within the same view --}}
     {{!-- <form action="/user/entries/{{entry.id}}" method="post">
@@ -119,15 +147,15 @@
 
   {{/unless}}
 
-  {{#if sourceId }}
-    <h3>Check the block that your data is anchored here: <a href="https://www.blocktrail.com/BTC/tx/{{sourceId}}" target="blank">view on Bitcoin blockchain.</a></h3>
-  {{/if}}
-  <small>
-    <ul>
-      <li>Notes:</li>
-      <li>"queued" = Pending submission to the Bitcoin blockchain. Please wait up to 1-2 minutes (usually less).</li>
-      <li>"unpublished" = Processing of the block underway. Please wait up to 1-5 minutes (usually less).</li>
-      <li>"complete" = Block confirmed. Hash of your data has been anchored to the Bitcoin blockchain.</li>
-    </ul>
-  </small>
+  <div class="field">
+    <br>
+    <small>
+      <ul>
+        <li>Notes on receipt status:</li>
+        <li>"queued" = Pending submission to the Bitcoin blockchain. Please wait up to 1-2 minutes (usually less).</li>
+        <li>"unpublished" = Processing of the block underway. Please wait up to 1-5 minutes (usually less).</li>
+        <li>"complete" = Block confirmed. Hash of your data has been anchored to the Bitcoin blockchain.</li>
+      </ul>
+    </small>
+  </div>
 </section>

@@ -103,7 +103,7 @@ I explored this as a fallback solution in case I could not successfully work wit
   ```
 
   * userController.js:
-  This was used to grab the path that led to this function, i.e. /user/receipt.json?entryId=23u8912y31i2u21u231
+  This was used to grab the path that led to this function, i.e. _/user/receipt.json?entryId=23u8912y31i2u21u231_
   ```var originalUrl = req.originalUrl
   ```
   Then, using regex, i grabbed the entryId, and proceeded to call the Tierion API

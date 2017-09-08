@@ -1,4 +1,4 @@
-# ![](public/img/logo.png) VERIDOC
+# ![](public/img/logo.png) VERIDOX
 
 Deployed at: https://veridox.herokuapp.com
 
@@ -68,10 +68,10 @@ Create a cryptographically verifiable audit trail. Track data provenance and pro
 As a result, instead of defining the end result from the start, my process involved a significant amount of time exploring how to apply different technologies.
 - Lisk: a Node.js based decentralized application ("Dapp") blockchain company.
 Website: https://lisk.io/
-I spent a day figuring out how I could interact with their product. I ended up successfully setting up a testnet node on a virtual machine (http://45.32.120.37:7000/), but that's the extent of what I can do with it now. Their software development kit is not yet available to build Dapps
+I spent a day figuring out how I could interact with their product. I ended up successfully setting up a testnet node on a virtual machine (http://45.32.120.37:7000/), but that's the extent of what I can do with it now. Their software development kit is not yet available to build decentralized apps ("Dapps")
 - Tierion: a service that anchors data to the Bitcoin blockchain.
-It has 2 fully functioning APIs, each used in different use cases. I had to spend equal amounts of time understanding how i could / would use each, to decide which would work best.
-While first API (the HashAPI) required me to hash data myself, it was easier to implement overall, and it had a Node library to make interacting with the HashAPI even easier. However it did not include all the information I needed, in the format I needed it, to make the use case meaningful e.g. timestamp the receipt.
+It has 2 fully functioning APIs, each used in different use cases. I had to spend equal amounts of time understanding how i could / would use each.
+While first API (the HashAPI) required me to hash data myself, it was easier to implement overall, and it had a Node library to make interacting with the HashAPI even easier. However it did not include all the information I needed, in the right format, to make the use case meaningful e.g. timestamp the receipt.
 So, in the end, I used the fuller API, the DataAPI.
 ___Being able to navigate to a block explorer to view the Bitcoin block where my data lived was cool!___
 - Opentimestamps. A web-based timeproofing service
@@ -92,10 +92,12 @@ I explored this as a fallback solution in case I could not successfully work wit
 - Other than understanding $.getJSON (a shorthand of the $.ajax I am familiar with), another tricky part of the third implementation was how to pass the entryId variable from the front end, to the back end. For this, i utilized a few operations I wasn't familiar with:
   * script.js:
   This was used to grab the entryId in the URL of the current page:
-  ```var currentUrl = $(location).attr('pathname')
+  ```
+  var currentUrl = $(location).attr('pathname')
   ```
   The below adds query parameters to the URL path: /user/receipt.json?entryId=23u8912y31i2u21u231
-  ```$.getJSON("/user/receipt.json", {
+  ```
+  $.getJSON("/user/receipt.json", {
     "entryId": entryId
   }, function (res) {...})
   ```
@@ -105,9 +107,14 @@ I explored this as a fallback solution in case I could not successfully work wit
   ```var originalUrl = req.originalUrl
   ```
   Then, using regex, i grabbed the entryId, and proceeded to call the Tierion API
+  - On second thoughts, I wonder if React (with its virtual DOM and built-in interactivity) would have solved this problem more easily
 
 ### Full CRUD
 - Full Create, Read, Update and Delete capabilities for Entries. Neither of my previous 2 projects had full CRUD, so I'm happy with the progress
+
+### Styling
+- Styling has always been low priority to me, so my knowledge has been limited. I took it up one tiny notch in this project with several different components provided in the Bulma CSS framework e.g. tiles, forms, hero
+- Sorry, I know it's still ugly
 
 ## Areas for Improvement
 Functionality
@@ -149,7 +156,7 @@ ___aka decisions that turned out well___
 
 ### Blockchain companies
 - Having spent a good proportion of my time learning the tech behind three different blockchain products, here is a  summary of my takeaways
-- Lisk was the most abstracted from the blockchain. When their SDK becomes available, I understand that you would build apps ("Dapps") the same way you would normally build Node.js apps, except they would run on or alongside the Lisk blockchain (I still have more learning to do here)
+- Lisk was the most abstracted from the blockchain. When their SDK becomes available, I understand that you would build Dapps the same way you would normally build Node.js apps, except they would run on or alongside the Lisk blockchain (I still have more learning to do here)
 - OpenTimetamps was IMO the least abstracted from the blockchain. You enter some input, their very basic web-based app returns a file, and you submit this file back later to prove that your data existed at a said point in time. However, it wasn't very clear what I had to do (of course perhaps that's related to my technical chops not being up to scratch yet)
 - Tierion was the Goldilocks of the bunch, with clean and easy to use APIs to submit your data to the blockchain. They provide a good web-based UI to verify your record, which is how I have chosen to implement verification in my app (instead of using their API within the Veridox app)
 - While building a blockchain technology or company is not trivial, I've come to understand that the application of blockchain technology can actually be relatively straightforward. This gives the blockchain revolution the true potential to disrupt industries and relationships that currently rely on trust central authorities to function

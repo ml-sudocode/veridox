@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://my.vultr.com/subs/?SUBID=10245339#subsusage -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Manage 45.32.120.37 - Vultr.com</title>
+	<!-- Styles -->
+	<link href="./Manage 45.32.120.37 - Vultr.com_files/global.css" rel="stylesheet">
+	<link href="./Manage 45.32.120.37 - Vultr.com_files/bootstrap-grid.css" rel="stylesheet">
+	<link href="./Manage 45.32.120.37 - Vultr.com_files/form.authy.css" rel="stylesheet">
+	<link href="./Manage 45.32.120.37 - Vultr.com_files/flags.authy.css" rel="stylesheet">
+	<link href="./Manage 45.32.120.37 - Vultr.com_files/select2.min.css" rel="stylesheet">
+	<style type="text/css">
+		.select2-container--default .select2-selection--single { border-color:#DCDEE0; height:50px; }
+		.select2-container--default .select2-selection--single .select2-selection__rendered	{ line-height: 50px; padding-left:16px; }
+		.select2-container--default .select2-selection--single .select2-selection__arrow { height:50px; }
+	</style>
+		<style>
+		div.tag-form,
+		div.label-form {
+			margin-top:3px;
+		}
+		form.dynamic-tag .select2-container--default .select2-selection--single {
+			border: 0px;
+			margin-left: -15px;
+		}
+		form.dynamic-tag .select2-container--default .select2-selection--single .select2-selection__rendered {
+			height: 35px;
+			line-height: initial;
+			position: relative;
+			top: 10px;
+		}
+		form.dynamic-tag .select2-container .select2-selection--single {
+			height: initial;
+		}
+		form.dynamic-tag .select2-container--default .select2-selection--single .select2-selection__arrow b {
+			top: 35%;
+		}
+		.select2-container--open .select2-dropdown--below {
+			border-top: 1px solid #aaa !important;
+		}
+		.select2-dropdown select2-dropdown--below {
+			margin-top: 20px !important;
+		}
+		input[name=reverse_dns] {
+			height: 35px;
+			vertical-align: text-top;
+			padding-left: 8px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+		a[name=reverse_dns_submit] {
+			color: #616366;
+			font-size: 22px;
+			margin-left: 5px;
+			vertical-align: text-top;
+			padding-top:4px;
+			cursor:pointer;
+		}
+		.zmdi:hover {
+			color: #0084df;
+		}
+		.reverseDNSEditIcon {
+			color: #0084df;
+			opacity: 0;
+			transition: opacity ease-in .15s;
+			margin-left: 2px;
+		}
+		#address_edit:hover ~ .zmdi-edit  {
+			opacity: 1 !important;
+		}
+
+		
+	</style>
+
+</head>
+<body style="">
+
+<div id="header0v_0">
+	<a href="https://my.vultr.com/">
+	</a>
+			<a href="https://my.vultr.com/" class="active">
+		Servers
+	</a>
+				<a href="https://my.vultr.com/billing/">
+		Billing
+	</a>
+			<a href="https://my.vultr.com/support/">
+		Support
+			</a>
+			<a aria-label="Affiliate" href="https://my.vultr.com/affiliate/">
+		A<span>f</span>filiate
+			</a>
+		<a href="https://my.vultr.com/settings/">
+		Account
+	</a>
+</div>
+
+
+<div id="header0h_0">
+	<div id="header0h_1" onclick="menusidebarShow(); event.preventDefault(); event.stopPropagation();">
+	</div>
+	<a id="header0h_2" href="https://my.vultr.com/">
+	</a>
+		&nbsp;
+	</div>
+
+
+
+
+<div id="header1_0">
+	<div id="header1_session">
+		<div>
+			<span class="glyph"></span>
+			<span class="inactivity_message">Your session will expire soon due to inactivity</span> <a class="button" href="https://my.vultr.com/subs/?SUBID=10245339#" onclick="inactivity_continue(); return false;">Continue Session</a>
+		</div>
+	</div>
+			<a href="https://my.vultr.com/subs/?SUBID=10245339#" id="header1_2" data-offset-x="43" data-offset-y="10" data-dropdownpopup="CgkJPGEgaHJlZj0iIyIgYXJpYS1sYWJlbD0iUG9wdXAgTWVudSIgb25jbGljaz0icmV0dXJuIGZhbHNlOyIgc3R5bGU9Im91dGxpbmUtd2lkdGg6IDBweDsgaGVpZ2h0OiAwcHg7IHBhZGRpbmc6IDBweDsgbWFyZ2luOiAwcHg7Ij48L2E+CgkJPGEgaHJlZj0iL3NldHRpbmdzLyNzZXR0aW5nc3Byb2ZpbGUiIG9uY2xpY2s9ImNoYW5nZVRhYlN1Ym1lbnUoJ3NldHRpbmdzcHJvZmlsZScpIj5Qcm9maWxlPC9hPgoJCTxhIGhyZWY9Ii9zZXR0aW5ncy8jc2V0dGluZ3NhdXRoZW50aWNhdGlvbiIgb25jbGljaz0iY2hhbmdlVGFiU3VibWVudSgnc2V0dGluZ3NhdXRoZW50aWNhdGlvbicpIj5BdXRoZW50aWNhdGlvbjwvYT4KCQk8YSBocmVmPSIvc2V0dGluZ3MvI3NldHRpbmdzYXBpIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc2FwaScpIj5BUEk8L2E+CgkJPGEgaHJlZj0iL3NldHRpbmdzLyNzZXR0aW5nc3VzZXJzIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc3VzZXJzJykiPlVzZXJzPC9hPgoJCTxhIGhyZWY9Ii9zZXR0aW5ncy8jc2V0dGluZ3Nub3RpZmljYXRpb25zIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc25vdGlmaWNhdGlvbnMnKSI+Tm90aWZpY2F0aW9uczwvYT4KCQk8aHIvPgoJCTxhIGhyZWY9Ii8/bG9nb3V0PTEiPkxvZ291dDwvYT4=">
+					Welcome back, Yin Yu Michelle Lai!
+			</a>
+</div>
+
+	<div id="header2_wrap" style="padding-bottom: 4px;">
+		<div id="header2_left" style="position:relative; padding-left:70px;">
+			<div class="fonticon_ubuntu" style="position:absolute; font-size:53px; top:20px; left:0px;">
+			</div>
+			<h1 style="margin-bottom: 0px;" class="sub_label">
+				Server Information (lisk-testnet)			</h1>
+
+			
+			<span class="header2_details">
+									45.32.120.37
+							</span>
+			<span class="header2_details">
+				Singapore
+			</span>
+			<span class="header2_details">
+				Ubuntu 16.04 x64
+			</span>
+		</div>
+
+		<div id="header2_right" class="server_actions">
+			
+							<button aria-label="View Console" class="header2_viewconsole" style="position:relative;" data-popup2="VmlldyBDb25zb2xl" onclick="viewConsole(10245339); return false;" data-original-title="" title="">
+					<span style="position:absolute; top:-2px; left:18px; font-size:8px; font-weight:bold; font-family:courier;">&gt;_</span>
+				</button>
+				<button aria-label="Server Stop" class="header2_substop" data-popup2="U2VydmVyIFN0b3A=" onclick="closeNotice(&#39;serverstop&#39;); confirmDialogShow(&#39;U2VydmVyOiA0NS4zMi4xMjAuMzcgbGlzay10ZXN0bmV0PGJyLz48YnIvPg==CglBcmUgeW91IHN1cmUgeW91IHdhbnQgdG8gc3RvcCB5b3VyIHNlcnZlcj8KCVRoaXMgd2lsbCBoYXJkIHBvd2VyIG9mZiB0aGUgc2VydmVyLgoJWW91IHdpbGwgbmVlZCB0byBzdGFydCB0aGUgc2VydmVyIGFnYWluIHZpYSB0aGUgcmVzdGFydCBidXR0b24uCgk8ZGl2IGNsYXNzPSJhbGVydCBhbGVydC1pbmZvIiBzdHlsZT0ibWFyZ2luLXRvcDoxMHB4OyI+CgkJPGRpdj4KCQkJTk9URTogU3RvcHBlZCBpbnN0YW5jZXMgY29udGludWUgdG8gaW5jdXIgY2hhcmdlcy4gSWYgeW91IHdhbnQgdG8gc3RvcCBjaGFyZ2VzLCBERVNUUk9ZIHlvdXIgc2VydmVyLiA8YSBocmVmPSIvc3VwcG9ydC8ja25vd2xlZGdlYmFzZSI+Rm9yIG1vcmUgaW5mb3JtYXRpb24sIHBsZWFzZSB2aWV3IG91ciBGQVE8L2E+LgoJCTwvZGl2PgoJPC9kaXY+&#39;, document.getElementById(&#39;vpsformstop&#39;)); return false;" data-original-title="" title="">
+				</button>
+				<button aria-label="Server Restart" class="header2_subrestart" data-popup2="U2VydmVyIFJlc3RhcnQ=" onclick="confirmDialogShow(&#39;U2VydmVyOiA0NS4zMi4xMjAuMzcgbGlzay10ZXN0bmV0PGJyLz48YnIvPg==QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIHJlc3RhcnQgeW91ciBzZXJ2ZXI/IFRoaXMgaXMgYSBIQVJEIHJlc3RhcnQu&#39;, document.getElementById(&#39;vpsformrestart&#39;)); return false;" data-original-title="" title="">
+				</button>
+									<button aria-label="Server Reinstall" class="header2_subreinstall" data-popup2="U2VydmVyIFJlaW5zdGFsbA==" onclick="superConfirmDialogShow(&#39;U2VydmVyOiA0NS4zMi4xMjAuMzcgbGlzay10ZXN0bmV0PGJyLz48YnIvPkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byByZWluc3RhbGwgeW91ciBzZXJ2ZXI/IEFueSBkYXRhIG9uIHlvdXIgc2VydmVyIHdpbGwgYmUgcGVybWFuZW50bHkgbG9zdCE=&#39;, document.getElementById(&#39;vpsformreinstall&#39;)); return false;" data-original-title="" title="">
+					</button>
+								<button aria-label="Server Destroy" class="header2_subdestroy" data-popup2="U2VydmVyIERlc3Ryb3k=" onclick="confirmDestroy2(10245339, &#39;1024 MB Server - 45.32.120.37 (lisk-testnet)&#39;, &#39;SSD&#39;, &#39;no&#39;); return false;" data-original-title="" title="">
+				</button>
+			
+					</div>
+	</div>
+	
+
+<div class="block1290 block1290deploy">
+	<div class="tabs-responsive">
+		<div class="tabs-container">
+			<ul class="nav nav-tabs">
+				<li id="tabl_subsoverview" class=""><a href="https://my.vultr.com/subs/?SUBID=10245339#subsoverview" onclick="changeTabSubmenu(&#39;subsoverview&#39;); hidePostMessages();">Overview</a></li>
+									<li id="tabl_subsusage" class="active"><a href="https://my.vultr.com/subs/?SUBID=10245339#subsusage" onclick="changeTabSubmenu(&#39;subsusage&#39;); hidePostMessages();">Usage Graphs</a></li>
+					<li id="tabl_subssettings" class=""><a href="https://my.vultr.com/subs/?SUBID=10245339#subssettings" onclick="changeTabSubmenu(&#39;subssettings&#39;); hidePostMessages(); loadReverseDNS();">Settings</a></li>
+					<li id="tabl_subssnapshots" class=""><a href="https://my.vultr.com/subs/?SUBID=10245339#subssnapshots" onclick="changeTabSubmenu(&#39;subssnapshots&#39;); hidePostMessages();">Snapshots</a></li>
+					<li id="tabl_subsbackups" class=""><a href="https://my.vultr.com/subs/?SUBID=10245339#subsbackups" onclick="changeTabSubmenu(&#39;subsbackups&#39;); hidePostMessages();">Backups</a></li>
+										<li id="tabl_subsddos" class=""><a href="https://my.vultr.com/subs/?SUBID=10245339#subsddos" onclick="changeTabSubmenu(&#39;subsddos&#39;); hidePostMessages();">DDOS</a></li>
+												</ul>
+			<button class="button-tab btn btn-prev" type="button" data-click="prev-tab"><span class="fonticon fonticon_chevron_left"></span></button>
+			<button class="button-tab btn btn-next" type="button" data-click="next-tab"><span class="fonticon fonticon_chevron_right"></span></button>
+		</div>
+	</div>
+		<a class="deploy_floating" href="https://my.vultr.com/deploy/" title="" aria-label="Deploy New Server" data-popup2="RGVwbG95IE5ldyBTZXJ2ZXI=" data-original-title="Deploy New Server">
+		<span class="fonticon_plus"></span>
+	</a>
+	</div>
+
+<div id="header4_0">
+</div>
+
+
+<div class="block1290">
+			<div class="reverse_dns_message" style="display:none;"></div>
+	
+
+	
+
+
+
+	<div class="submenutabcontent" id="tabc_subsoverview" style="display: none;">
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-md-4">
+
+					<a href="https://my.vultr.com/subs?SUBID=10245339#subsusage" aria-label="Bandwidth Usage">
+					<div class="boxLink" style="display:block; width:100%; border-radius: 3px; padding:20px; margin-bottom: 16px;">
+
+						<div style="font-size:13px; font-weight:300; color:#9da2a6; margin-bottom:4px;">
+							Bandwidth Usage
+						</div>
+						<div>
+							<span style="color:#363b40; font-size:25px; font-weight:500; line-height:32px;">3.92GB</span><span style="color: #8a9399; font-size:18px; font-weight:300;">/1000GB</span>
+						</div>
+					</div>
+					</a>
+
+				</div>
+				<div class="col-md-4">
+
+					<a href="https://my.vultr.com/subs?SUBID=10245339#subsusage" aria-label="CPU Usage">
+					<div class="boxLink" style="display:block; width:100%; border-radius: 3px; padding:20px; margin-bottom: 16px;">
+						<div style="float: left; width: 50%; overflow: hidden;">
+							<div style="font-size:13px; font-weight:300; color:#9da2a6; margin-bottom:4px;">
+								CPU Usage
+							</div>
+							<div>
+								<span id="cpu_label_sm" style="color: rgb(54, 59, 64); font-size: 25px; font-weight: 500; line-height: 32px;">0%</span>
+							</div>
+						</div>
+						<div style="float: left; width: 50%; overflow: hidden; position: relative;">
+							<div id="cpu_graph_sm_spinner" style="width: 100%; min-width: 100px; height: 60px; position: relative; display: none;"><span class="spinner spinner-md spinner-graph-blue"></span></div>
+							<div id="cpu_graph_sm" style="width: 100%; min-width: 100px; height: 60px; padding: 0px; position: relative;"><canvas class="flot-base" width="169" height="60" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 169px; height: 60px;"></canvas><canvas class="flot-overlay" width="169" height="60" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 169px; height: 60px;"></canvas></div>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+					</a>
+
+				</div>
+				<div class="col-md-4">
+
+					<a href="https://my.vultr.com/billing/#billinghistory" aria-label="Current Charges">
+					<div class="boxLink" style="display:block; width:100%; border-radius: 3px; padding:20px; margin-bottom: 16px;">
+						<div style="font-size:13px; font-weight:300; color:#9da2a6; margin-bottom:4px;">
+							Current Charges
+						</div>
+						<div>
+							<span style="color:#363b40; font-size:25px; font-weight:500; line-height:32px;">$0.44</span>
+						</div>
+					</div>
+					</a>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+
+					<div class="flexlayoutdata">
+						<div>
+							Location:
+						</div>
+						<span class="fonticon_cm_sg flag"></span>
+						<span style="vertical-align:middle;">
+							Singapore
+						</span>
+					</div>
+										<div class="flexlayoutdata">
+						<div>
+							IP Address:
+						</div>
+						<span id="overview_ip">45.32.120.37</span>
+						<span style="width: 4px;"></span>
+						<span class="spanlink" data-popup2="Q29weSBJUCBBZGRyZXNz" data-clicktoclipboard="45.32.120.37" onclick="flashElement(&#39;overview_ip&#39;)" data-original-title="" title="">
+							<span class="fonticon fonticoncopy"></span>
+						</span>
+					</div>
+															<div class="flexlayoutdata">
+						<div>
+							Username:
+						</div>
+						root
+					</div>
+					<div class="flexlayoutdata">
+						<div>
+							Password:
+						</div>
+												<span class="password" data-password="8n)XZ9a!,oSV8$S$">•••••••</span>
+						<a class="password-copy link link-default link-icon" href="https://my.vultr.com/subs/?SUBID=10245339#" data-toggle="tooltip" aria-label="Copy Password" data-popup2="Q29weSBQYXNzd29yZA==" data-clicktoclipboard="8n)XZ9a!,oSV8$S$" data-original-title="" title="">
+							<span class="spanlink">
+								<span class="fonticon fonticoncopy"></span>
+							</span>
+						</a>
+						<a class="password-show link link-default link-icon" href="https://my.vultr.com/subs/?SUBID=10245339#" data-toggle="tooltip" aria-label="Show Password" data-popup2="U2hvdyBQYXNzd29yZA==" data-original-title="" title="">
+							<span class="spanlink">
+								<span class="fonticon fonticon-eye"></span>
+							</span>
+						</a>
+						<a class="password-hide link link-default link-icon hidden" href="https://my.vultr.com/subs/?SUBID=10245339#" data-toggle="tooltip" aria-label="Hide Password" data-popup2="SGlkZSBQYXNzd29yZA==" data-original-title="" title="">
+							<span class="spanlink">
+								<span class="fonticon fonticon-eye-off"></span>
+							</span>
+						</a>
+											</div>
+					
+				</div>
+				<div class="col-md-4">
+
+					<div class="flexlayoutdata">
+						<div>
+							CPU:
+						</div>
+						1 vCore
+					</div>
+					<div class="flexlayoutdata">
+						<div>
+							RAM:
+						</div>
+						1024 MB
+					</div>
+					<div class="flexlayoutdata">
+						<div>
+							Storage:
+						</div>
+						25 GB SSD
+					</div>
+					<div class="flexlayoutdata" style="align-items:baseline;">
+						<div>
+							Bandwidth:
+						</div>
+						3<span style="font-size:24px">.</span>92 GB of 1000 GB (0%)
+					</div>
+					<div class="flexlayoutdata">
+						<div>
+							&nbsp;
+						</div>
+						( <a href="javascript:changeTabSubmenu(&#39;subsusage&#39;)">Show details</a> )
+					</div>
+
+				</div>
+				<div class="col-md-4">
+
+					<div class="flexlayoutdatalabel flexlayoutdataeditor">
+						<div class="label_link" style="width:120px; overflow:hidden; font-weight:500;">
+							Label:
+						</div>
+						<span class="label_link">
+														<div class="editable">lisk-testnet<i class="zmdi zmdi-edit"></i></div>
+													</span>
+						<span class="editable-container editable-inline" style="display:none;">
+							<div>
+								<div class="btn btn-preloader btn-preloader-editable btn-loading" style="display:none;">
+									<span class="spinner spinner-md"></span>
+								</div>
+								<form class="form-inline editableform" onsubmit="xhrLabelUpdate(this, &#39;/_ajax/SubscriptionUpdateLabel.php&#39;); return false;">
+									<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+									<input type="hidden" name="SUBID" value="10245339">
+									<div class="control-group form-group label-form">
+										<div>
+											<div class="editable-input" style="position:relative;">
+												<input type="text" name="label" class="form-control input-sm" style="padding-right:6px;" value="lisk-testnet">
+												<span class="editable-underline"></span>
+											</div>
+											<div class="editable-buttons">
+												<button type="submit" class="btn editable-submit">
+													<i class="zmdi zmdi-check"></i>
+												</button>
+												<button type="button" class="btn editable-cancel">
+													<i class="zmdi zmdi-close"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</span>
+					</div>
+
+					<div class="flexlayoutdatalabel flexlayoutdataeditor">
+						<div class="label_link" style="width:120px; overflow:hidden; font-weight:500;">
+							Tag:
+						</div>
+						<span class="label_link_tag">
+														<div class="editable-tag">[Click here to set]<i class="zmdi zmdi-edit"></i></div>
+													</span>
+						<span class="editable-container-tag editable-inline" style="display:none;">
+							<div>
+								<div class="btn btn-preloader btn-preloader-editable btn-loading" style="display:none;">
+									<span class="spinner spinner-md"></span>
+								</div>
+								<form class="form-inline editableform dynamic-tag" onsubmit="xhrTagUpdate(this, &#39;/_ajax/SubscriptionUpdateTag.php&#39;); return false;">
+									<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+									<input type="hidden" name="SUBID" value="10245339">
+									<div class="control-group form-group tag-form">
+										<div>
+											<select name="tag" onchange="checkTagValue($(this));">
+																																						<option value="Custom">Custom</option>
+																																						<option value="Cache" selected="">Cache</option>
+																																						<option value="Database">Database</option>
+																																						<option value="DNS">DNS</option>
+																																						<option value="Mail">Mail</option>
+																																						<option value="Storage">Storage</option>
+																																						<option value="Web">Web</option>
+																							</select>
+											<div class="editable-input-tag" style="position:relative;display:none;">
+												<input type="text" name="customtag" class="form-control input-sm" style="padding-right:6px;" value="">
+												<span class="editable-underline"></span>
+											</div>
+											<div class="editable-buttons">
+												<button type="submit" class="btn editable-submit-tag">
+													<i class="zmdi zmdi-check"></i>
+												</button>
+												<button type="button" class="btn editable-cancel-tag">
+													<i class="zmdi zmdi-close"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</span>
+					</div>
+
+					<div class="flexlayoutdata">
+						<div>
+							OS:
+						</div>
+						Ubuntu 16.04 x64
+					</div>
+																			</div>
+			</div>
+
+			
+			
+		</div>
+	</div>
+
+
+
+
+	<div class="submenutabcontent" id="tabc_subsusage" style="">
+		<h3>
+			Monthly Bandwidth
+		</h3>
+		<table class="tabledata">
+			<tbody><tr>
+				<td>
+					Usage:
+				</td>
+				<td>
+					3<span style="font-size:24px">.</span>92 GB of 1000 GB (0%)&nbsp;( <a href="https://my.vultr.com/settings/#settingsnotifications">Bandwidth preferences</a> )				</td>
+			</tr>
+			<tr>
+				<td>
+					Inbound:
+				</td>
+				<td>
+					3<span style="font-size:24px">.</span>8 GB
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Outbound:
+				</td>
+				<td>
+					3<span style="font-size:24px">.</span>92 GB
+				</td>
+			</tr>
+		</tbody></table>
+		<hr class="hr20">
+		<h4>Last 30 Days</h4>
+		<div class="graph_container">
+			<div id="monthly_bandwidth_graph_spinner" class="graph_spinner" style="display: none;">
+				<span class="spinner spinner-lg spinner-graph-blue"></span>
+			</div>
+			<div id="monthly_bandwidth_graph_error" class="graph_error" style="display: none;">
+			</div>
+			<div id="monthly_bandwidth_graph" class="graph" style="font-family: arial; display: block; padding: 0px; position: relative;">
+			<canvas class="flot-base" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 113px; text-align: center;">Sep 06</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 184px; text-align: center;">Sep 09</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 255px; text-align: center;">Sep 12</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 327px; text-align: center;">Sep 15</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 398px; text-align: center;">Sep 18</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 469px; text-align: center;">Sep 21</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 540px; text-align: center;">Sep 24</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 611px; text-align: center;">Sep 27</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 682px; text-align: center;">Sep 30</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 66px; top: 174px; left: 755px; text-align: center;">Oct 03</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; max-width: 133px; top: 163px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: arial; color: rgb(97, 99, 102); left: 69px; text-align: right;">0</div><div style="position: absolute; max-width: 133px; top: 130px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: arial; color: rgb(97, 99, 102); left: 18px; text-align: right;">476.84 MB</div><div style="position: absolute; max-width: 133px; top: 98px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: arial; color: rgb(97, 99, 102); left: 18px; text-align: right;">953.67 MB</div><div style="position: absolute; max-width: 133px; top: 66px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: arial; color: rgb(97, 99, 102); left: 32px; text-align: right;">1.40 GB</div><div style="position: absolute; max-width: 133px; top: 34px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: arial; color: rgb(97, 99, 102); left: 32px; text-align: right;">1.86 GB</div><div style="position: absolute; max-width: 133px; top: 2px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: arial; color: rgb(97, 99, 102); left: 32px; text-align: right;">2.33 GB</div></div></div><canvas class="flot-overlay" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="legend"><div style="position: absolute; width: 106px; height: 60px; bottom: 36px; left: 86px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;bottom:36px;left:86px;;font-size:smaller;color:#616366"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #1e88e5;overflow:hidden"></div></div></td><td class="legendLabel">Bytes received</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #ffa726;overflow:hidden"></div></div></td><td class="legendLabel">Bytes sent</td></tr></tbody></table></div></div>
+		</div>
+		<hr class="hr30">
+		<h3>
+			Server Monitors
+		</h3>
+		<table class="tabledata">
+			<tbody><tr>
+				<td>
+					Show:
+				</td>
+				<td>
+					<select id="graph_period" data-xselect2="yes" data-minimum-results-for-search="-1" style="width: 100%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+						<option value="-1days" selected="selected">Last 24 Hours</option>
+						<option value="-7days">Last Week</option>
+						<option value="-1months">Last Month</option>
+					</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-graph_period-container"><span class="select2-selection__rendered" id="select2-graph_period-container" title="Last 24 Hours">Last 24 Hours</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+				</td>
+			</tr>
+		</tbody></table>
+		<hr class="hr20">
+		<h4>CPU Usage</h4>
+		<div class="graph_container">
+			<div id="cpu_graph_spinner" class="graph_spinner" style="display: none;">
+				<span class="spinner spinner-lg spinner-graph-blue"></span>
+			</div>
+			<div id="cpu_graph_error" class="graph_error" style="display: none;">
+			</div>
+			<div id="cpu_graph" class="graph" style="display: block; padding: 0px; position: relative;">
+			<canvas class="flot-base" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 685px; text-align: center;">08:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 102px; text-align: center;">12:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 219px; text-align: center;">16:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 334px; text-align: center;">20:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 450px; text-align: center;">00:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 568px; text-align: center;">04:00</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; max-width: 160px; top: 163px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 40px; text-align: right;">0.00%</div><div style="position: absolute; max-width: 160px; top: 122px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 35px; text-align: right;">10.00%</div><div style="position: absolute; max-width: 160px; top: 82px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 33px; text-align: right;">20.00%</div><div style="position: absolute; max-width: 160px; top: 42px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 33px; text-align: right;">30.00%</div><div style="position: absolute; max-width: 160px; top: 2px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 33px; text-align: right;">40.00%</div></div></div><canvas class="flot-overlay" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="legend"><div style="position: absolute; width: 52px; height: 31px; bottom: 36px; left: 86px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;bottom:36px;left:86px;;font-size:smaller;color:#616366"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #1e88e5;overflow:hidden"></div></div></td><td class="legendLabel">Total</td></tr></tbody></table></div></div>
+		</div>
+		<h4>Disk Operations</h4>
+		<div class="graph_container">
+			<div id="disk_ops_graph_spinner" class="graph_spinner" style="display: none;">
+				<span class="spinner spinner-lg spinner-graph-blue"></span>
+			</div>
+			<div id="disk_ops_graph_error" class="graph_error" style="display: none;">
+			</div>
+			<div id="disk_ops_graph" class="graph" style="display: block; padding: 0px; position: relative;">
+			<canvas class="flot-base" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 685px; text-align: center;">08:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 102px; text-align: center;">12:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 219px; text-align: center;">16:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 334px; text-align: center;">20:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 450px; text-align: center;">00:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 568px; text-align: center;">04:00</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; max-width: 114px; top: 163px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 68px; text-align: right;">0</div><div style="position: absolute; max-width: 114px; top: 136px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 71px; text-align: right;">1</div><div style="position: absolute; max-width: 114px; top: 109px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 69px; text-align: right;">2</div><div style="position: absolute; max-width: 114px; top: 82px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 69px; text-align: right;">3</div><div style="position: absolute; max-width: 114px; top: 55px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 69px; text-align: right;">4</div><div style="position: absolute; max-width: 114px; top: 28px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 69px; text-align: right;">5</div><div style="position: absolute; max-width: 114px; top: 2px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 69px; text-align: right;">6</div></div></div><canvas class="flot-overlay" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="legend"><div style="position: absolute; width: 56px; height: 60px; bottom: 36px; left: 86px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;bottom:36px;left:86px;;font-size:smaller;color:#616366"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #1e88e5;overflow:hidden"></div></div></td><td class="legendLabel">Read</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #ffa726;overflow:hidden"></div></div></td><td class="legendLabel">Write</td></tr></tbody></table></div></div>
+		</div>
+		<h4>Network</h4>
+		<div class="graph_container">
+			<div id="network_graph_spinner" class="graph_spinner" style="display: none;">
+				<span class="spinner spinner-lg spinner-graph-blue"></span>
+			</div>
+			<div id="network_graph_error" class="graph_error" style="display: none;">
+			</div>
+			<div id="network_graph" class="graph" style="display: block; padding: 0px; position: relative;">
+			<canvas class="flot-base" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 685px; text-align: center;">08:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 102px; text-align: center;">12:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 219px; text-align: center;">16:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 334px; text-align: center;">20:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 450px; text-align: center;">00:00</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 100px; top: 174px; left: 568px; text-align: center;">04:00</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; max-width: 114px; top: 163px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 44px; text-align: right;">0 bps</div><div style="position: absolute; max-width: 114px; top: 136px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 16px; text-align: right;">48.83 kbps</div><div style="position: absolute; max-width: 114px; top: 109px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 17px; text-align: right;">97.66 kbps</div><div style="position: absolute; max-width: 114px; top: 82px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 11px; text-align: right;">146.48 kbps</div><div style="position: absolute; max-width: 114px; top: 55px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 13px; text-align: right;">195.31 kbps</div><div style="position: absolute; max-width: 114px; top: 28px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 11px; text-align: right;">244.14 kbps</div><div style="position: absolute; max-width: 114px; top: 2px; font-style: normal; font-variant: normal; font-weight: 300; font-stretch: normal; font-size: 12px; line-height: 13.8px; font-family: Raleway, Helvetica, Arial, sans-serif; color: rgb(97, 99, 102); left: 9px; text-align: right;">292.97 kbps</div></div></div><canvas class="flot-overlay" width="800" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 800px; height: 200px;"></canvas><div class="legend"><div style="position: absolute; width: 111px; height: 60px; bottom: 36px; left: 86px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div><table style="position:absolute;bottom:36px;left:86px;;font-size:smaller;color:#616366"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #1e88e5;overflow:hidden"></div></div></td><td class="legendLabel">Bytes received</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid #ffa726;overflow:hidden"></div></div></td><td class="legendLabel">Bytes sent</td></tr></tbody></table></div></div>
+		</div>
+	</div>
+
+
+
+
+	<div class="flex3column submenutabcontent" id="tabc_subssettings" style="display: none;">
+		<div class="flex3column_left">
+			<input type="radio" name="settings" value="" id="settings_ipv4" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subssettings&#39;); hidePostMessages(); loadReverseDNS();" checked="checked">
+			<label for="settings_ipv4">
+				IPv4
+			</label>
+			<input type="radio" name="settings" value="" id="settings_ipv6" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subssettings&#39;); hidePostMessages();">
+			<label for="settings_ipv6">
+				IPv6
+			</label>
+
+			<input type="radio" name="settings" value="" id="settings_firewall" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subssettings&#39;); hidePostMessages();">
+			<label for="settings_firewall">
+				Firewall
+			</label>
+
+						<input type="radio" name="settings" value="" id="settings_customiso" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subssettings&#39;); hidePostMessages();">
+			<label for="settings_customiso">
+				Custom&nbsp;ISO
+			</label>
+										<input type="radio" name="settings" value="" id="settings_changehostname" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subssettings&#39;); hidePostMessages();">
+				<label for="settings_changehostname">
+					Change Hostname
+				</label>
+										<input type="radio" name="settings" value="" id="settings_changeplan" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subssettings&#39;); hidePostMessages();">
+				<label for="settings_changeplan">
+					Change&nbsp;Plan
+				</label>
+									<input type="radio" name="settings" value="" id="settings_changeos" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subsettings&#39;); hidePostMessages();">
+			<label for="settings_changeos">
+				Change&nbsp;OS
+			</label>
+									<input type="radio" name="settings" value="" id="settings_changeapplication" class="tabmenu_radio" onchange="changeSideTab(this, &#39;subsettings&#39;); hidePostMessages();">
+			<label for="settings_changeapplication">
+				Change&nbsp;Application
+			</label>
+					</div>
+		<div class="flex3column_center">
+			<div>
+				<h3>
+					Public Network
+				</h3>
+				Need assistance? View our <a href="https://my.vultr.com/subs/netconfig/?SUBID=10245339">networking configuration</a> tips and examples.
+				<hr class="hr10">
+				<div style="width: 100%; overflow: auto;">
+					<table class="tablelist">
+						<thead>
+							<tr>
+								<th>
+									Address
+								</th>
+								<th>
+									Netmask
+								</th>
+								<th>
+									Gateway
+								</th>
+								<th>
+									Reverse DNS
+								</th>
+								<th>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+														<tr>
+								<td width="20%">
+									45<span style="font-size:24px">.</span>32<span style="font-size:24px">.</span>120<span style="font-size:24px">.</span>37
+																		<span class="label label-success">Main IP</span>
+																	</td>
+								<td width="20%">
+																														255<span style="font-size:24px">.</span>255<span style="font-size:24px">.</span>254<span style="font-size:24px">.</span>0
+																											</td>
+								<td width="20%">
+																														45<span style="font-size:24px">.</span>32<span style="font-size:24px">.</span>120<span style="font-size:24px">.</span>1
+																											</td>
+								<td width="35%">
+									<div style="height:35px;">
+									<form method="POST" style="display:none;margin-bottom:-20px;" id="reverseform_757102629" onsubmit="update_reverse($(this)); return false;">
+										<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+										<input type="hidden" name="action" value="update_reverse">
+										<input type="hidden" name="address" value="757102629">
+										<input type="text" name="reverse_dns" id="input_757102629" style="width:200px;">
+										<a name="reverse_dns_submit" class="zmdi zmdi-check" aria-label="Update Reverse DNS" data-popup2="VXBkYXRlIFJldmVyc2UgRE5T" onclick="$(this).parent().submit();" data-original-title="" title=""></a>
+										<a name="reverse_dns_submit" class="zmdi zmdi-close" aria-label="Cancel Changes" data-popup2="Q2FuY2VsIENoYW5nZXM=" onclick="hideReverseForm(&#39;757102629&#39;);" data-original-title="" title=""></a>
+									</form>
+									<span name="address_757102629" id="address_edit" style="cursor: pointer; color: rgb(0, 132, 223);" onclick="showReverseForm(&#39;757102629&#39;)">45<span style="font-size:24px;">.</span>32<span style="font-size:24px;">.</span>120<span style="font-size:24px;">.</span>37<span style="font-size:24px;">.</span>vultr<span style="font-size:24px;">.</span>com</span>
+									<i class="zmdi zmdi-edit reverseDNSEditIcon"></i>
+									<span id="reverselabel_757102629"></span>
+																											</div>
+								</td>
+															</tr>
+													</tbody>
+					</table>
+				</div>
+				<hr class="hr50">
+				<h3 style="margin-bottom:15px;">
+					Additional IPv4 IP <span style="font-size:15px; color:#0084df; cursor:pointer;" onclick="$(this).hide(); $(&#39;#additional_ipv4_details&#39;).show();">( Show details )</span>
+				</h3>
+				<div id="additional_ipv4_details" style="display:none;">
+					<ul>
+						<li>
+							IPv4 Addresses cost $2/month or $0.003/hour
+						</li>
+						<li>
+							Addresses must remain active for 60 minutes before they can be removed
+						</li>
+						<li>
+							You will need to manually configure additional IPs on your VPS
+						</li>
+						<li>
+							You are limited to a maximum of 2 additional IPv4 IPs per VPS
+						</li>
+					</ul>
+				</div>
+								<form method="post" id="add_extra_ip_form">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="add_v4_ip">
+					<input type="hidden" name="SUBID" value="10245339">
+					<input type="button" value="Add another IPv4 address" class="btn-alternate" onclick="confirmDialogShow(&#39;UGxlYXNlIG5vdGU6IFlvdXIgc2VydmVyIHdpbGwgYmUgcmVzdGFydGVkIHRvIGFkZCB0aGUgSVAgYWRkcmVzcyBhbmQgeW91IHdpbGwgbmVlZCB0byBtYW51YWxseSBjb25maWd1cmUgaXQgaW4geW91ciBPUy4gQWRkaXRpb25hbCBJUHMgYXJlIGJpbGxlZCBhdCAkMC4wMDMvaG91cg==&#39;, document.getElementById(&#39;add_extra_ip_form&#39;))">
+				</form>
+								<hr class="hr50">
+				<h3 style="margin-bottom:15px;">
+					Private Network <span style="font-size:15px; color:#0084df; cursor:pointer;" onclick="$(this).hide(); $(&#39;#private_network_details&#39;).show();">( Show details )</span>
+				</h3>
+				<div id="private_network_details" style="display:none;">
+					<ul>
+						<li>
+							Private network traffic is unmetered
+						</li>
+						<li>
+							Private networks are per-location (for example, a machine in New Jersey cannot communicate with a machine in Chicago)
+						</li>
+						<li>
+							Private networks only have your machines. You cannot communicate with other customer's machines
+						</li>
+						<li>
+							You will need to manually configure your private network connection
+						</li>
+						<li>
+							You can use any IPs you like on the private network. We assign one IP by default, but you can ignore it and use other ones if you like.
+						</li>
+					</ul>
+				</div>
+														<table class="tabledata">
+						<tbody><tr>
+							<td>
+								Private IP
+							</td>
+							<td>
+								10.99.0.10
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Netmask
+							</td>
+							<td>
+								255.255.0.0
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Gateway
+							</td>
+							<td>
+								n/a
+							</td>
+						</tr>
+					</tbody></table>
+					<b>Note:</b> We recommend configuring a MTU of 1450 on your private network. Using a larger MTU will result in poor performance.
+												</div>
+
+
+			<div style="display:none;">
+								IPv6 is currently available for this server, but a subnet has not yet been assigned.
+				<br>
+				<br>
+				<form method="post">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="assign_ipv6">
+					<input type="hidden" name="SUBID" value="10245339">
+					<input type="button" value="Assign IPv6 Network" onclick="confirmDialogShow(&#39;QXNzaWduaW5nIGFuIElQdjYgbmV0d29yayB3aWxsIHJlYm9vdCB5b3VyIFZQUy4gQXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGNvbnRpbnVlPw==&#39;, this.parentNode, &#39;form&#39;);">
+				</form>
+							</div>
+
+			<div style="display:none;" class="block460left">
+				<h3>
+					Firewall <a style="font-size:15px;" href="https://my.vultr.com/firewall/">( Manage )</a>
+				</h3>
+				<form method="POST" id="update_firewall">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="update_firewall">
+					<input type="hidden" name="SUBID" value="10245339">
+					<select name="FIREWALLGROUPID" style="width: 100%; display: block;">
+						<option value="0">No Firewall</option>
+											</select>
+					<br>
+				</form>
+				<button class="button" onclick="update_firewall();">Update Firewall Group</button>
+			</div>
+
+
+
+
+						<div style="display:none;" class="block460left">
+				<h3>
+					Custom ISO <a style="font-size:15px;" href="https://my.vultr.com/iso/">( Upload/Manage )</a>
+				</h3>
+				Current ISO:
+								None
+				
+				<div id="removeisobutton" style="display: none;">
+					<hr class="hr20">
+					<input type="button" value="Remove ISO" class="flexwidth100" onclick="confirmDialogShow(&#39;QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIHJlbW92ZSB0aGUgYXR0YWNoZWQgaW1hZ2U/IFlvdXIgc2VydmVyIHdpbGwgYmUgcmVib290ZWQgdG8gY29tcGxldGUgdGhpcyBwcm9jZXNzIC0gcGxlYXNlIG1ha2Ugc3VyZSB5b3VyIHNlcnZlciBpcyBubyBsb25nZXIgdXNpbmcgZmlsZXMgZnJvbSB0aGUgQ0Qu&#39;, document.getElementById(&#39;vpsformremoveiso&#39;));">
+				</div>
+
+								You have not uploaded any ISOs. <a href="https://my.vultr.com/iso/">Upload ISO</a>
+				
+								<hr class="hr20">
+				<h3>
+				ISO Library
+				</h3>
+				<form method="POST" id="attachisoform" class="flexlayoutform">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="attachiso">
+					<input type="hidden" name="SUBID" value="10245339">
+					<label class="floatinglabel flexwidth100">
+						<span style="display: inline;">ISO Library</span>
+						<select name="ISOID" data-xselect2="yes" style="padding-top: 14px; width: 100%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+															<option value="296177">Alpine Linux - 3.6.2 Standard x86_64</option>
+															<option value="315980">Arch Linux - 2017.09.01 x86_64</option>
+															<option value="204498">CentOS 6 - 6.8 i386 minimal</option>
+															<option value="204499">CentOS 6 - 6.8 x86_64 minimal</option>
+															<option value="204515">CentOS 7 - 7 x86_64 Minimal</option>
+															<option value="219815">coreos_production_iso_image.iso - x86_64</option>
+															<option value="204517">Debian 7 - 7 i386 netinstall</option>
+															<option value="204518">Debian 7 - 7 x86_64 netinstall</option>
+															<option value="204507">Debian 8 - 8.6 x86_64 netinstall</option>
+															<option value="204508">Debian 8 - 8.6 i386 netinstall</option>
+															<option value="291171">Debian 9 - 9.0 x86_64</option>
+															<option value="291172">Debian 9 - 9.0 i386</option>
+															<option value="285970">Devuan Jessie 1.0.0 - 1.0.0 amd64</option>
+															<option value="285971">Devuan Jessie 1.0.0 - 1.0.0 i386</option>
+															<option value="204523">Fedora 24 - i386 Net Install</option>
+															<option value="204524">Fedora 25 - x86_64 Net Install</option>
+															<option value="297988">Fedora 26 - x86_64</option>
+															<option value="93769">Finnix - 111 x86</option>
+															<option value="204509">FreeBSD 10.3  - 10.3 RELEASE x86_64</option>
+															<option value="204510">FreeBSD 10.3 - 10.3 RELEASE i386</option>
+															<option value="204511">FreeBSD 11 - 11 RELEASE x86_64</option>
+															<option value="204512">FreeBSD 11 - 11 RELEASE i386</option>
+															<option value="302983">FreeBSD 11.1 - 11.1 RELEASE x86_64</option>
+															<option value="302984">FreeBSD 11.1 - 11.1 RELEASE i386</option>
+															<option value="296175">FreePBX - 14.0.1.1 x86_64</option>
+															<option value="204532">FreePBX - 10.13.66 i386</option>
+															<option value="271616">OpenBSD 6.1 - 6.1 i386</option>
+															<option value="271617">OpenBSD 6.1 - 6.1 x86_64</option>
+															<option value="292168">openSUSE Leap 42.2 - 42.2 x86_64</option>
+															<option value="304644">openSUSE Leap 42.3 - 42.3 x86_64</option>
+															<option value="304678">pfSense CE 2.3.4 - 2.3.4 x86_64</option>
+															<option value="304679">pfSense CE 2.3.4 - 2.3.4 i386</option>
+															<option value="315979">Rancher OS - 1.1 x86_64</option>
+															<option value="245695">SystemRescueCD - 4.9.3</option>
+															<option value="51830">Trinity Rescue Kit - 3.4.2 build 372</option>
+															<option value="204505">Ubuntu 14.04 - 14.04.5 x86_64</option>
+															<option value="204506">Ubuntu 14.04 - 14.04.5 i386</option>
+															<option value="204500">Ubuntu 16.04 - 16.04.1 x86_64</option>
+															<option value="271611">Ubuntu 17.04 - 17.04 x86_64</option>
+															<option value="271612">Ubuntu 17.04 - 17.04 i386</option>
+													</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-ISOID-yf-container"><span class="select2-selection__rendered" id="select2-ISOID-yf-container" title="Alpine Linux - 3.6.2 Standard x86_64">Alpine Linux - 3.6.2 Standard x86_64</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+					</label>
+					<br>
+					<div class="staticlabel flexwidth100">
+						<input type="submit" value="Attach ISO and Reboot">
+					</div>
+				</form>
+				
+				
+								<hr class="hr20">
+				<b>Note:</b> Your server was originally deployed using one of our installers. If you reinstall the operating system via a custom ISO, the root password in your control panel will no longer be valid.
+				
+			</div>
+			
+						<div style="display:none;" class="block460left">
+				<h3>
+					Change Default Hostname
+				</h3>
+				Change the hostname recognized when this server is installed.<br>
+				<br>
+				For active servers, you may change the hostname by logging into the OS. We have guides for <a href="https://www.vultr.com/docs/search/?query=change+hostname">most platforms</a>.<br>
+				<br>
+				<b>Warning:</b> Reinstalling the operating system will wipe all the data on your server.
+				<hr class="hr20">
+				<form method="post" id="changehostname" class="flexlayoutform">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="changehostname">
+					<input type="hidden" name="SUBID" value="10245339">
+					<input type="text" name="vm_hostname" class="flexwidth100" placeholder="Hostname" value="lisk-testnet">
+					<hr class="hr10">
+					<input type="button" value="Reinstall" class="flexwidth100" onclick="superConfirmDialogShow(&#39;U2VydmVyOiA0NS4zMi4xMjAuMzcgbGlzay10ZXN0bmV0PGJyLz48YnIvPkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBjaGFuZ2UgdGhlIGhvc3RuYW1lIGFuZCByZWluc3RhbGwgeW91ciBvcGVyYXRpbmcgc3lzdGVtPyBBbGwgZGF0YSB3aWxsIGJlIGxvc3QgaW4gdGhlIHByb2Nlc3Mh&#39;, document.getElementById(&#39;changehostname&#39;));">
+				</form>
+			</div>
+			
+							<div id="upgrade_plan" style="display:none;" class="block460left">
+					<h3>
+						Change Plan
+					</h3>
+					<div id="upgrade_plan_spinner" style="height: 60px; position: relative;"><span class="spinner spinner-md"></span></div>
+					<div id="upgrade_plan_text" style="display:none;"></div>
+					<form id="upgrade_plan_form" method="post" style="display:none;">
+						<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+						<input type="hidden" name="SUBID" value="10245339">
+						<input type="hidden" name="action" value="upgrade">
+						<select id="new_VPSPLANID" name="new_VPSPLANID" class="flexwidth100 select2-hidden-accessible" data-xselect2="yes" style="width: 100%;" tabindex="-1" aria-hidden="true"></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-new_VPSPLANID-container"><span class="select2-selection__rendered" id="select2-new_VPSPLANID-container"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+						<hr class="hr10">
+						<input type="submit" value="Upgrade" class="flexwidth100">
+					</form>
+					<br>
+					<br>
+					<div>
+						<b>Note:</b> Downgrading is currently not supported. Shrinking the hard disk is not possible without risking data loss.
+					</div>
+				</div>
+			
+						<div style="display:none;" class="block460left">
+				<h3>
+					New Operating System
+				</h3>
+				<b>Warning:</b> Changing to a different operating system will wipe all the data on your server.<br>
+								<hr class="hr20">
+				<form method="post" id="osform" class="flexlayoutform">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="changeos">
+					<input type="hidden" name="SUBID" value="10245339">
+					<select name="OSID" class="flexwidth100 select2-hidden-accessible" data-xselect2="yes" style="width: 100%;" tabindex="-1" aria-hidden="true">
+													<option value="147">CentOS 6 i386</option>
+													<option value="127">CentOS 6 x64</option>
+													<option value="167">CentOS 7 x64</option>
+													<option value="179">CoreOS Stable</option>
+													<option value="152">Debian 7 i386 (wheezy)</option>
+													<option value="139">Debian 7 x64 (wheezy)</option>
+													<option value="194">Debian 8 i386 (jessie)</option>
+													<option value="193">Debian 8 x64 (jessie)</option>
+													<option value="244">Debian 9 x64 (stretch)</option>
+													<option value="233">Fedora 25 x64</option>
+													<option value="245">Fedora 26 x64</option>
+													<option value="140">FreeBSD 10 x64</option>
+													<option value="230">FreeBSD 11 x64</option>
+													<option value="234">OpenBSD 6 x64</option>
+													<option value="161">Ubuntu 14.04 i386</option>
+													<option value="160">Ubuntu 14.04 x64</option>
+													<option value="216">Ubuntu 16.04 i386</option>
+													<option value="242">Ubuntu 17.04 i386</option>
+													<option value="241">Ubuntu 17.04 x64</option>
+											</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-OSID-nf-container"><span class="select2-selection__rendered" id="select2-OSID-nf-container" title="CentOS 6 i386">CentOS 6 i386</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+					<hr class="hr10">
+					<input type="button" value="Change OS" class="flexwidth100" onclick="superConfirmDialogShow(&#39;U2VydmVyOiA0NS4zMi4xMjAuMzcgbGlzay10ZXN0bmV0PGJyLz48YnIvPkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBjaGFuZ2UgdG8gYSBkaWZmZXJlbnQgb3BlcmF0aW5nIHN5c3RlbT8gQWxsIGRhdGEgd2lsbCBiZSBsb3N0IGluIHRoZSBwcm9jZXNzIQ==&#39;, document.getElementById(&#39;osform&#39;));">
+				</form>
+			</div>
+			
+
+						<div style="display:none;" class="block460left">
+				<h3>
+					New Application
+				</h3>
+				<b>Warning:</b> Changing to a different application will wipe all the data on your server.<br>
+								<hr class="hr20">
+				<form method="post" id="frm_changeapp">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+					<input type="hidden" name="action" value="changeapp">
+					<input type="hidden" name="SUBID" value="10245339">
+					<select name="APPID" class="flexwidth100 select2-hidden-accessible" data-xselect2="yes" style="width: 100%;" tabindex="-1" aria-hidden="true">
+												<option value="17">Docker on CentOS 7 x64</option>
+												<option value="15">Drupal on CentOS 6 x64</option>
+												<option value="21">Joomla on CentOS 6 x64</option>
+												<option value="19">LAMP on CentOS 6 x64</option>
+												<option value="1">LEMP on CentOS 6 x64</option>
+												<option value="33">Magento on CentOS 6 x64</option>
+												<option value="23">Mediawiki on CentOS 6 x64</option>
+												<option value="3">Minecraft on CentOS 6 x64</option>
+												<option value="27">Nextcloud on CentOS 6 x64</option>
+												<option value="6">OpenVPN on CentOS 6 x64</option>
+												<option value="5">ownCloud on CentOS 6 x64</option>
+												<option value="25">PrestaShop on CentOS 6 x64</option>
+												<option value="4">Webmin on CentOS 6 x64</option>
+												<option value="2">WordPress on CentOS 6 x64</option>
+											</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-APPID-aq-container"><span class="select2-selection__rendered" id="select2-APPID-aq-container" title="Docker on CentOS 7 x64">Docker on CentOS 7 x64</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+					<hr class="hr10">
+					<input type="button" value="Change Application" class="flexwidth100" onclick="superConfirmDialogShow(&#39;U2VydmVyOiA0NS4zMi4xMjAuMzcgbGlzay10ZXN0bmV0PGJyLz48YnIvPkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBjaGFuZ2UgdG8gYSBkaWZmZXJlbnQgYXBwbGljYXRpb24/IEFsbCBkYXRhIHdpbGwgYmUgbG9zdCBpbiB0aGUgcHJvY2VzcyE=&#39;, document.getElementById(&#39;frm_changeapp&#39;));">
+				</form>
+			</div>
+					</div>
+	</div>
+
+
+
+
+	<div class="submenutabcontent" id="tabc_subssnapshots" style="display: none;">
+		
+		<h3>
+			Take Snapshot
+		</h3>
+				<form method="POST" id="snapshotform" class="flexlayoutform flexlayout460px">
+					<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+			<input type="hidden" name="action" value="take_snapshot">
+			<input type="hidden" name="SUBID" value="10245339">
+			<label class="floatinglabel flexwidthhalf">
+				<span style="display: none;">Label</span>
+				<input type="text" name="description" placeholder="Label">
+			</label>
+			<div class="staticlabel flexwidthhalf">
+				<input type="submit" value="Take Snapshot">
+			</div>
+		</form>
+		<hr class="hr10">
+		<ul>
+			<li>
+				Stored snapshots are currently free - pricing subject to change.
+			</li>
+			<li>
+				We recommend changing each machine to use DHCP for networking.
+			</li>
+			<li>
+				Snapshots can only be restored to equal or bigger disks. If there is a single partition, it will be automatically expanded.
+			</li>
+		</ul>
+		<hr class="hr50">
+
+		<h3>
+			Restore Snapshot
+		</h3>
+				<div style="width: 100%; overflow: auto;">
+			<table class="tablelist">
+				<thead>
+					<tr>
+						<th>
+							Name
+						</th>
+						<th>
+							OS
+						</th>
+						<th>
+							Date
+						</th>
+						<th>
+							Status
+						</th>
+						<th>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+									</tbody>
+			</table>
+		</div>
+					</div>
+
+
+
+
+	<div class="submenutabcontent" id="tabc_subsbackups" style="display: none;">
+					<div class="block460center">
+				<h3>Backups</h3>
+				Enabling backups is an additional $1.00/month. Individual files cannot be restored (only the entire server).
+				<hr class="hr30">
+									<form method="post" id="backups_form">
+						<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+						<input type="hidden" name="action" value="backup_enable">
+						<input type="button" class="btn-alternate w100p" value="Enable Backups" onclick="confirmDialogShow(&#39;RW5hYmxpbmcgYmFja3VwcyBpcyBhbiBhZGRpdGlvbmFsIDEuMDAvbW9udGguIEluZGl2aWR1YWwgZmlsZXMgY2Fubm90IGJlIHJlc3RvcmVkIChvbmx5IHRoZSBlbnRpcmUgc2VydmVyKS4=&#39;, &#39;enableBackups()&#39;, &#39;function&#39;)">
+					</form>
+							</div>
+		
+			</div>
+
+
+
+
+
+	
+
+
+
+	<div class="submenutabcontent" id="tabc_subsddos" style="display: none;">
+					<div class="block460center">
+				<h3>DDOS Protection</h3>
+				DDOS Protection is not currently available in this location.
+			</div>
+			</div>
+
+
+	
+	<form method="POST" id="vpsformstop">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="stop">
+	</form>
+	<form method="POST" id="vpsformrestart">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="restart">
+	</form>
+	<form method="POST" id="vpsformreinstall">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="reinstall">
+	</form>
+	<form method="POST" id="vpsformdestroy">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="destroy">
+	</form>
+	<form method="POST" id="vpsformremoveiso">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="removeiso">
+	</form>
+	<form method="POST" id="vpsformrestoresnapshot">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="restore_snapshot">
+		<input type="hidden" name="SNAPSHOTID">
+	</form>
+	<form method="POST" id="deletesnapshot">
+		<input type="hidden" name="csrf_token" value="3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=">
+		<input type="hidden" name="SUBID" value="10245339">
+		<input type="hidden" name="action" value="delete_snapshot">
+		<input type="hidden" name="SNAPSHOTID" value="">
+	</form>
+	</div>
+
+
+<div id="menusidebar_block" onclick="event.stopPropagation();">
+	<div id="menusidebar_hide" onclick="menusidebarHide();">
+	</div>
+	<div id="menusidebar_container">
+				<a href="https://my.vultr.com/" class="active">
+			Servers
+		</a>
+						<a href="https://my.vultr.com/billing/">
+			Billing
+		</a>
+						<a href="https://my.vultr.com/support/">
+			Support
+					</a>
+						<a href="https://my.vultr.com/affiliate/">
+			Affiliate
+		</a>
+				<a href="https://my.vultr.com/settings/">
+			Account
+		</a>
+		<a href="https://my.vultr.com/?logout=1">
+			Logout
+		</a>
+	</div>
+</div>
+
+
+
+<div id="notifications_block" onclick="event.stopPropagation();">
+	<div id="notifications_hide" onclick="notificationsHide();">
+	</div>
+	<div id="notifications_header">
+		Notifications
+		<a href="https://my.vultr.com/settings/#settingsnotifications">
+			Edit Preferences
+		</a>
+	</div>
+	</div>
+
+<!-- Scripts -->
+<script src="https://bat.bing.com/bat.js" async=""></script><script async="" src="https://static.ads-twitter.com/uwt.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="./Manage 45.32.120.37 - Vultr.com_files/jquery.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/jquery.flot.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/jquery.flot.time.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/jquery.flot.stack.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/form.authy.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/select2.min.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/global.js"></script>
+<script src="./Manage 45.32.120.37 - Vultr.com_files/bootstrap.js"></script>
+<script>
+	var csrf_token = "3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=";
+		$(document).ready(function()
+	{
+		
+			});
+	</script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		setTimeout("$('#affiliatebanner').slideDown(200, 'linear')", 500);
+	});
+</script>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		var server_time = 1507027401;
+		var local_time = Math.floor(new Date().getTime() / 1000);
+
+		var cookie_name = 'PHPSESSID_login_expire';
+
+		var time_sane = (local_time >= (server_time - 60)) && (local_time <= (server_time + 60));
+
+		if (time_sane)
+		{
+			setInterval(function()
+			{
+				inactivity_check(cookie_name);
+			},
+			60000);
+		}
+	});
+
+</script>
+	<script>
+
+		//
+		// Global variables
+		//
+
+		var g_graphs_loading = false;
+		var g_graphs_error = 'Graph data not available.';
+
+		var g_changeplan_loaded = false;
+		var g_changeplan_warning = '';
+
+		//
+		// Global routines
+		//
+
+		function showChangeAppForm()
+		{
+			$('#frm_changeapp').show();
+		}
+
+		function showReverseForm(address)
+		{
+			$('.reverseDNSEditIcon').css('display', 'none');
+			$('#reversebutton_'+address).hide();
+			$('span[name=address_'+address+']').hide();
+			$('#reverselabel_'+address).hide();
+			$('#reverseform_'+address).show();
+			$('#input_'+address).focus();
+		}
+
+		function hideReverseForm(address, update = false)
+		{
+			$('.reverseDNSEditIcon').css('display', 'initial');
+			$('#reverselabel_'+address).text('');
+			$('#reverseform_'+address).hide();
+			$('#reverselabel_'+address).show();
+			$('#reversebutton_'+address).show();
+			if (update)
+			{
+				$('span[name=address_'+address+']').html('<i class="sp-blue"></i>');
+			}
+			$('span[name=address_'+address+']').show();
+		}
+
+		function checkMountProgress()
+		{
+			$.ajax({
+				url: '/subs/',
+				cache: false,
+				data: {
+					SUBID: '10245339',
+					action: 'checkprogress',
+					ajax: true,
+					PROCESSID: $('#vm_mount_progress').data('processid'),
+				},
+
+				success: function (data, textStatus, jqXHR)
+				{
+					if (data.status == 'inprogress')
+					{
+						$('#vm_mount_progress').html(' in progress');
+						setTimeout('checkMountProgress()',5*1000);
+					}
+					else if (data.status == 'complete')
+					{
+						$('#vm_mount_progress').html(' complete, your server is now restarting');
+						$('#iso_mount_warning').hide();
+						$('#attachisoform').hide();
+						$('#removeisobutton').show();
+					}
+					else
+					{
+						$('#vm_mount_progress').html(' error: '+data.message);
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					console.log('ajax error');
+					setTimeout('checkMountProgress()',10*1000);
+				},
+			});
+		}
+
+		function serverGetState(SUBID)
+		{
+			$.ajax
+			({
+				type: 'POST',
+				dataType: 'json',
+				url: '/ajaj_get.php',
+				data: {'function':'serverGetState', 'SUBID':SUBID, 'csrf_token': csrf_token},
+				success: function(response)
+				{
+					if(response.result == 'SUCCESS')
+					{
+						if(response.state == 'ok')
+						{
+							$('#locked_warning').hide();
+							$('#warning_installingbooting').hide();
+							$('#iso_mount_warning').hide();
+							return;
+						}
+						if(response.state == 'locked')
+						{
+							$('#locked_warning').show();
+							$('#warning_installingbooting').hide();
+							$('#iso_mount_warning').hide();
+						}
+						if(response.state == 'installingbooting')
+						{
+							$('#locked_warning').hide();
+							$('#warning_installingbooting').show();
+							$('#iso_mount_warning').hide();
+						}
+						if(response.state == 'isomounting')
+						{
+							$('#locked_warning').hide();
+							$('#warning_installingbooting').hide();
+							$('#iso_mount_warning').show();
+						}
+						setTimeout(function(){serverGetState(SUBID);}, 10000);
+					}
+					return;
+				},
+				error: function(response)
+				{
+					//alert('Your request could not be processed at this time.');
+					return;
+				}
+			});
+		}
+
+		function checkRestoreProgress()
+		{
+			$.ajax({
+				url: '/_ajax/restore_progress.php',
+				cache: false,
+				data: {
+					SUBID: '10245339',
+					action: 'checkprogress',
+				},
+
+				success: function (data, textStatus, jqXHR)
+				{
+					if (data.status == 'complete')
+					{
+						$('#restore_message').html('Restore complete, your server is now restarting');
+					}
+					else
+					{
+						setTimeout('checkRestoreProgress()',15*1000);
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					setTimeout('checkRestoreProgress()',30*1000);
+				},
+			});
+		}
+
+		function restoreSnapshot(SNAPSHOTID)
+		{
+			$('#vpsformrestoresnapshot input[name=SNAPSHOTID]').val(SNAPSHOTID);
+			$('#vpsformrestoresnapshot').submit();
+		}
+
+		function editV6Reverse(id)
+		{
+			var div_jq = $('#reverse_content_' + id + ' > div');
+
+			if (div_jq.length == 2)
+			{
+				var label_jq = div_jq.eq(0);
+				var edit_jq = div_jq.eq(1);
+
+				label_jq.hide();
+				edit_jq.show();
+			}
+		}
+
+		function deleteSnapshot(SNAPSHOTID)
+		{
+			$('#deletesnapshot input[name=SNAPSHOTID]').val(SNAPSHOTID);
+			$('#deletesnapshot').submit();
+		}
+
+		function showPrivateNetworkDetails()
+		{
+			$("#private_network_details").show();
+			$("#private_network_details_button").hide();
+		}
+
+		function showExtraIPv4Details()
+		{
+			$("#additional_ipv4_details").show();
+			$("#ipv4_details_button").hide()
+		}
+
+		function changeAutoBackupCronType()
+		{
+			var auto_backup_cron_type_jq = $('select[name="auto_backup_cron_type"]');
+
+			if (auto_backup_cron_type_jq.length == 0)
+			{
+				return;
+			}
+
+			$('.updatebackups_form').hide();
+
+			var ubkey = 'updatebackups_' + auto_backup_cron_type_jq.val();
+			var ub_jq = $('form[name="' + ubkey + '"]');
+
+			if (ub_jq.length > 0)
+			{
+				ub_jq.show();
+			}
+		}
+
+		function enableBackups()
+		{
+			$('#backups_form').submit();
+		}
+
+		function graphsGetIdArrayByType(graphs)
+		{
+			var id_array = [];
+
+			if (graphs == 'all')
+				id_array.push('monthly_bandwidth_graph');
+			if (graphs == 'all' || graphs == 'server_monitors')
+				id_array.push('cpu_graph');
+			if (graphs == 'all' || graphs == 'server_monitors')
+				id_array.push('disk_ops_graph');
+			if (graphs == 'all' || graphs == 'server_monitors')
+				id_array.push('network_graph');
+
+			return id_array;
+		}
+
+		function graphsHide(id)
+		{
+			var graph_jq = $('#' + id);
+			var graph_error_jq = $('#' + id + '_error');
+			var graph_spinner_jq = $('#' + id + '_spinner');
+
+			graph_jq.hide();
+			graph_error_jq.hide();
+			graph_spinner_jq.hide();
+		}
+
+		function graphsShowSpinner(id)
+		{
+			var graph_jq = $('#' + id);
+			var graph_error_jq = $('#' + id + '_error');
+			var graph_spinner_jq = $('#' + id + '_spinner');
+
+			graph_jq.hide();
+			graph_error_jq.hide();
+			graph_spinner_jq.show();
+		}
+
+		function graphsShowError(id, error)
+		{
+			var graph_jq = $('#' + id);
+			var graph_error_jq = $('#' + id + '_error');
+			var graph_spinner_jq = $('#' + id + '_spinner');
+
+			graph_error_jq.text(error);
+
+			graph_jq.hide();
+			graph_error_jq.show();
+			graph_spinner_jq.hide();
+		}
+
+		function graphsShowGraph(id)
+		{
+			var graph_jq = $('#' + id);
+			var graph_error_jq = $('#' + id + '_error');
+			var graph_spinner_jq = $('#' + id + '_spinner');
+
+			graph_jq.show();
+			graph_error_jq.hide();
+			graph_spinner_jq.hide();
+		}
+
+		function graphsFillMonthlyBandwidth(graph_result)
+		{
+			var id = 'monthly_bandwidth_graph';
+			var graph_jq = $('#' + id);
+
+			// Parse result
+			var bytes_received_data = null;
+			var bytes_sent_data = null;
+
+			if (graph_result.hasOwnProperty('flot_data'))
+			{
+				var flot_data = graph_result['flot_data'];
+
+				for (var i = 0; i < flot_data.length; i++)
+				{
+					if (flot_data[i].label == 'Bytes received')
+					{
+						bytes_received_data = flot_data[i].data;
+					}
+					else if (flot_data[i].label == 'Bytes sent')
+					{
+						bytes_sent_data = flot_data[i].data;
+					}
+				}
+			}
+
+			if (bytes_received_data == null ||
+				bytes_sent_data == null
+				)
+			{
+				graphsShowError(id, g_graphs_error);
+				return;
+			}
+
+			// Setup graph
+			var data = [
+				{
+					color: '#1e88e5', // data
+					label: 'Bytes received',
+					data: bytes_received_data,
+					shadowSize: 0
+				},
+				{
+					color: '#ffa726', // data
+					label: 'Bytes sent',
+					data: bytes_sent_data,
+					shadowSize: 0
+				}
+			];
+
+			var options = {
+				xaxes: [
+					{
+						color: '#e6e9eb', // grid
+						mode: 'time',
+						/*timezone: '', // Need timezoneJS for this feature */
+						timeformat: '%b %d',
+						minTickSize: [1, 'day']
+					}
+				],
+				yaxes: [
+					{
+						color: '#e6e9eb', // grid
+						font: {
+							color: "#616366" // text
+						},
+						min: 0,
+						tickFormatter: bytesFormatter,
+						labelWidth: 75
+					}
+				],
+				legend: {
+					position: 'sw'
+				},
+				bars: {
+					show: true,
+					barWidth: ((60 * 60 * 6) * 1000),
+					align: 'right',
+					fill: 1.0,
+					lineWidth: 0.5
+				},
+				grid: {
+					color: '#616366', // text
+					borderColor: '#e6e9eb', // grid
+					borderWidth: 1.0
+				}
+			};
+
+			graphsShowGraph(id);
+			$.plot(graph_jq, data, options);
+		}
+
+		function graphsFillCPU(period, graph_result)
+		{
+			var id = 'cpu_graph';
+			var graph_jq = $('#' + id);
+
+			// Parse result
+			var total_data = null;
+
+			if (graph_result.hasOwnProperty('flot_data'))
+			{
+				var flot_data = graph_result['flot_data'];
+
+				for (var i = 0; i < flot_data.length; i++)
+				{
+					if (flot_data[i].label == 'Total')
+					{
+						total_data = flot_data[i].data;
+					}
+				}
+			}
+
+			if (total_data == null)
+			{
+				graphsShowError(id, g_graphs_error);
+				return;
+			}
+
+			// Setup graph
+			var data = [
+				{
+					color: '#1e88e5', // data
+					label: 'Total',
+					data: total_data,
+					shadowSize: 0
+				}
+			];
+
+			var options = {
+				xaxes: [
+					{
+						color: '#e6e9eb', // grid
+						show: true,
+						mode: 'time',
+						/*timezone: '', // Need timezoneJS for this feature */
+						timeformat: '%b %d',
+						minTickSize: [1, 'day']
+					}
+				],
+				yaxes: [
+					{
+						color: '#e6e9eb', // grid
+						font: {
+							color: "#616366" // text
+						},
+						min: 0,
+						//max: 100,
+						tickFormatter: percentFormatter,
+						labelWidth: 75
+					}
+				],
+				legend: {
+					position: 'sw'
+				},
+				series: {
+					stack: false,
+					lines: {
+						show: true,
+						fill: false,
+						steps: false,
+						lineWidth: 1.0
+					},
+					bars: {
+						show: false
+					},
+					points: {
+						show: false
+					}
+				},
+				grid: {
+					color: '#616366', // text
+					borderColor: '#e6e9eb', // grid
+					borderWidth: 1.0
+				}
+			};
+
+			if (period == '-1days')
+			{
+				options.xaxes[0].timeformat = '%H:%M';
+				options.xaxes[0].minTickSize = [4, 'hour'];
+			}
+
+			graphsShowGraph(id);
+			$.plot(graph_jq, data, options);
+		}
+
+		function graphsFillDiskOps(period, graph_result)
+		{
+			var id = 'disk_ops_graph';
+			var graph_jq = $('#' + id);
+
+			// Parse result
+			var read_data = null;
+			var write_data = null;
+
+			if (graph_result.hasOwnProperty('flot_data'))
+			{
+				var flot_data = graph_result['flot_data'];
+
+				for (var i = 0; i < flot_data.length; i++)
+				{
+					if (flot_data[i].label == 'Read')
+					{
+						read_data = flot_data[i].data;
+					}
+					if (flot_data[i].label == 'Write')
+					{
+						write_data = flot_data[i].data;
+					}
+				}
+			}
+
+			if (read_data == null ||
+				write_data == null)
+			{
+				graphsShowError(id, g_graphs_error);
+				return;
+			}
+
+			// Setup graph
+			var data = [
+				{
+					color: '#1e88e5', // data
+					label: 'Read',
+					data: read_data,
+					shadowSize: 0
+				},
+				{
+					color: '#ffa726', // data
+					label: 'Write',
+					data: write_data,
+					shadowSize: 0
+				}
+			];
+
+			var options = {
+				xaxes: [
+					{
+						color: '#e6e9eb', // grid
+						show: true,
+						mode: 'time',
+						/*timezone: '', // Need timezoneJS for this feature */
+						timeformat: '%b %d',
+						minTickSize: [1, 'day']
+					}
+				],
+				yaxes: [
+					{
+						color: '#e6e9eb', // grid
+						font: {
+							color: "#616366" // text
+						},
+						min: 0,
+						//max: 100,
+						//tickFormatter: bytesFormatter,
+						labelWidth: 75
+					}
+				],
+				legend: {
+					position: 'sw'
+				},
+				series: {
+					stack: false,
+					lines: {
+						show: true,
+						fill: false,
+						steps: false,
+						lineWidth: 1.0
+					},
+					bars: {
+						show: false
+					},
+					points: {
+						show: false
+					}
+				},
+				grid: {
+					color: '#616366', // text
+					borderColor: '#e6e9eb', // grid
+					borderWidth: 1.0
+				}
+			};
+
+			if (period == '-1days')
+			{
+				options.xaxes[0].timeformat = '%H:%M';
+				options.xaxes[0].minTickSize = [4, 'hour'];
+			}
+
+			graphsShowGraph(id);
+			$.plot(graph_jq, data, options);
+		}
+
+		function graphsFillNetwork(period, graph_result)
+		{
+			var id = 'network_graph';
+			var graph_jq = $('#' + id);
+
+			// Parse result
+			var in_data = null;
+			var out_data = null;
+
+			if (graph_result.hasOwnProperty('flot_data'))
+			{
+				var flot_data = graph_result['flot_data'];
+
+				for (var i = 0; i < flot_data.length; i++)
+				{
+					if (flot_data[i].label == 'In')
+					{
+						in_data = flot_data[i].data;
+					}
+					if (flot_data[i].label == 'Out')
+					{
+						out_data = flot_data[i].data;
+					}
+				}
+			}
+
+			if (in_data == null ||
+				out_data == null)
+			{
+				graphsShowError(id, g_graphs_error);
+				return;
+			}
+
+			// Setup graph
+			var data = [
+				{
+					color: '#1e88e5', // data
+					label: 'Bytes received',
+					data: in_data,
+					shadowSize: 0
+				},
+				{
+					color: '#ffa726', // data
+					label: 'Bytes sent',
+					data: out_data,
+					shadowSize: 0
+				}
+			];
+
+			var options = {
+				xaxes: [
+					{
+						color: '#e6e9eb', // grid
+						show: true,
+						mode: 'time',
+						/*timezone: '', // Need timezoneJS for this feature */
+						timeformat: '%b %d',
+						minTickSize: [1, 'day']
+					}
+				],
+				yaxes: [
+					{
+						color: '#e6e9eb', // grid
+						font: {
+							color: "#616366" // text
+						},
+						min: 0,
+						//max: 100,
+						tickFormatter: bpsFormatter,
+						labelWidth: 75
+					}
+				],
+				legend: {
+					position: 'sw'
+				},
+				series: {
+					stack: false,
+					lines: {
+						show: true,
+						fill: false,
+						steps: false,
+						lineWidth: 1.0
+					},
+					bars: {
+						show: false
+					},
+					points: {
+						show: false
+					}
+				},
+				grid: {
+					color: '#616366', // text
+					borderColor: '#e6e9eb', // grid
+					borderWidth: 1.0
+				}
+			};
+
+			if (period == '-1days')
+			{
+				options.xaxes[0].timeformat = '%H:%M';
+				options.xaxes[0].minTickSize = [4, 'hour'];
+			}
+
+			graphsShowGraph(id);
+			$.plot(graph_jq, data, options);
+		}
+
+		function graphsShowSpinnerByType(graphs)
+		{
+			var id_array = graphsGetIdArrayByType(graphs);
+
+			for (var i = 0; i < id_array.length; i++)
+			{
+				graphsShowSpinner(id_array[i]);
+			}
+		}
+
+		function graphsShowErrorByType(graphs, error)
+		{
+			var id_array = graphsGetIdArrayByType(graphs);
+
+			for (var i = 0; i < id_array.length; i++)
+			{
+				graphsShowError(id_array[i], error);
+			}
+		}
+
+		function graphsHideByType(graphs)
+		{
+			var id_array = graphsGetIdArrayByType(graphs);
+
+			for (var i = 0; i < id_array.length; i++)
+			{
+				graphsHide(id_array[i]);
+			}
+		}
+
+		function graphsReload(graphs)
+		{
+			if (g_graphs_loading)
+			{
+				return;
+			}
+
+			g_graphs_loading = true;
+
+			var id_array = graphsGetIdArrayByType(graphs);
+
+			var graph_period_jq = $('#graph_period');
+			graph_period_jq.attr('disabled', 'disabled');
+			graph_period_jq.val();
+
+			var period = graph_period_jq.val();
+
+			graphsShowSpinnerByType(graphs);
+
+			$.ajax({
+				url: '/_ajax/get_graph.php',
+				cache: false,
+				dataType: 'json',
+				data: {
+					SUBID: '10245339',
+					period: period,
+					graphs: graphs
+				},
+				type: 'GET',
+				success: function (data, textStatus, jqXHR)
+				{
+					g_graphs_loading = false;
+					graph_period_jq.removeAttr('disabled');
+
+					if (data.ok)
+					{
+						var graph_result_map = data.graph_result_map;
+
+						var next_result;
+						var next_id;
+
+						// monthly_bandwidth_graph
+						next_result = 'monthly_bandwidth';
+						next_id = 'monthly_bandwidth_graph';
+
+						if (id_array.indexOf(next_id) != -1)
+						{
+							if (graph_result_map.hasOwnProperty(next_result) &&
+								graph_result_map[next_result].ok
+								)
+							{
+								graphsFillMonthlyBandwidth(graph_result_map[next_result]);
+							}
+							else
+							{
+								var error = (graph_result_map[next_result].hasOwnProperty('error') && graph_result_map[next_result].error.length > 0) ? graph_result_map[next_result].error : g_graphs_error;
+								graphsShowError(next_id, error);
+							}
+						}
+
+						// cpu_graph
+						next_result = 'cpu';
+						next_id = 'cpu_graph';
+
+						if (id_array.indexOf(next_id) != -1)
+						{
+							if (graph_result_map.hasOwnProperty(next_result) &&
+								graph_result_map[next_result].ok
+								)
+							{
+								graphsFillCPU(period, graph_result_map[next_result]);
+							}
+							else
+							{
+								var error = (graph_result_map[next_result].hasOwnProperty('error') && graph_result_map[next_result].error.length > 0) ? graph_result_map[next_result].error : g_graphs_error;
+								graphsShowError(next_id, error);
+							}
+						}
+
+						// disk_ops_graph
+						next_result = 'disk_ops';
+						next_id = 'disk_ops_graph';
+
+						if (id_array.indexOf(next_id) != -1)
+						{
+							if (graph_result_map.hasOwnProperty(next_result) &&
+								graph_result_map[next_result].ok
+								)
+							{
+								graphsFillDiskOps(period, graph_result_map[next_result]);
+							}
+							else
+							{
+								var error = (graph_result_map[next_result].hasOwnProperty('error') && graph_result_map[next_result].error.length > 0) ? graph_result_map[next_result].error : g_graphs_error;
+								graphsShowError(next_id, error);
+							}
+						}
+
+						// network_graph
+						next_result = 'network';
+						next_id = 'network_graph';
+
+						if (id_array.indexOf(next_id) != -1)
+						{
+							if (graph_result_map.hasOwnProperty(next_result) &&
+								graph_result_map[next_result].ok
+								)
+							{
+								graphsFillNetwork(period, graph_result_map[next_result]);
+							}
+							else
+							{
+								var error = (graph_result_map[next_result].hasOwnProperty('error') && graph_result_map[next_result].error.length > 0) ? graph_result_map[next_result].error : g_graphs_error;
+								graphsShowError(next_id, error);
+							}
+						}
+					}
+					else
+					{
+						graphsShowErrorByType(graphs, g_graphs_error);
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					g_graphs_loading = false;
+					graph_period_jq.removeAttr('disabled');
+					graphsShowErrorByType(graphs, g_graphs_error);
+				}
+			});
+		}
+
+		function onGraphsShow()
+		{
+			graphsReload('all');
+		}
+
+		function onGraphsDisplayChange()
+		{
+			graphsReload('server_monitors');
+		}
+
+		function cpuSmallGraphReload()
+		{
+			cpuSmallGraphShowLoading();
+
+			$.ajax({
+				url: '/_ajax/get_graph.php',
+				cache: false,
+				dataType: 'json',
+				data: {
+					SUBID: '10245339',
+					period: '-3hours',
+					graphs: 'cpu'
+				},
+				type: 'GET',
+				success: function (data, textStatus, jqXHR)
+				{
+					var total_data = null;
+					var percent_text = '--';
+
+					if (data.ok)
+					{
+						var graph_result_map = data.graph_result_map;
+
+						if (graph_result_map.hasOwnProperty('cpu') &&
+								graph_result_map['cpu'].ok
+						)
+						{
+							var graph_result = graph_result_map['cpu'];
+
+							if (graph_result.hasOwnProperty('flot_data'))
+							{
+								var flot_data = graph_result['flot_data'];
+
+								for (var i = 0; i < flot_data.length; i++)
+								{
+									if (flot_data[i].label == 'Total' &&
+										flot_data[i].data.length > 0
+										)
+									{
+										total_data = flot_data[i].data;
+									}
+								}
+							}
+						}
+					}
+
+					if (total_data !== null)
+					{
+						var cpu_usage = clamp(0, 100, Math.round(total_data[total_data.length - 1][1]));
+						percent_text = cpu_usage.toFixed(0) + '%';
+					}
+
+					if (total_data !== null)
+					{
+						cpuSmallGraphFill(total_data, percent_text);
+					}
+					else
+					{
+						cpuSmallGraphShowError();
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					cpuSmallGraphShowError();
+				}
+			});
+		}
+
+		function cpuSmallGraphFill(total_data, percent_text)
+		{
+			var data = [
+				{
+					color: 'rgba(30, 136, 229, 1.0)',
+					label: 'Total',
+					data: total_data,
+					shadowSize: 0
+				}
+			];
+
+			var options = {
+				xaxes: [
+					{
+						show: true,
+						mode: 'time',
+						/*timezone: '', // Need timezoneJS for this feature */
+						timeformat: '%b %d',
+						minTickSize: [1, 'day']
+					}
+				],
+				yaxes: [
+					{
+						min: 0,
+						//max: 100,
+						tickFormatter: percentFormatter,
+						labelWidth: 75
+					}
+				],
+				legend: {
+					show: false
+				},
+				series: {
+					stack: false,
+					lines: {
+						show: true,
+						fill: false,
+						steps: false,
+						lineWidth: 1.0
+					},
+					bars: {
+						show: false
+					},
+					points: {
+						show: false
+					}
+				},
+				grid: {
+					show: false
+				}
+			};
+
+			$('#cpu_label_sm').show();
+			$('#cpu_label_sm').text(percent_text);
+			$('#cpu_graph_sm').show();
+			$('#cpu_graph_sm_spinner').hide();
+			$.plot($('#cpu_graph_sm'), data, options);
+		}
+
+		function cpuSmallGraphShowLoading()
+		{
+			$('#cpu_label_sm').show();
+			$('#cpu_label_sm').text('--');
+			$('#cpu_graph_sm').hide();
+			$('#cpu_graph_sm_spinner').show();
+		}
+
+		function cpuSmallGraphShowError()
+		{
+			$('#cpu_label_sm').show();
+			$('#cpu_label_sm').text('--');
+			$('#cpu_graph_sm').hide();
+			$('#cpu_graph_sm_spinner').hide();
+		}
+
+		function update_reverse(form)
+		{
+			var address     = form.find('input[name=address]').val();
+			var reverse_dns = form.find('input[name=reverse_dns]').val();
+
+			hideReverseForm(address, true);
+
+			$.ajax({
+				url: '/subs/',
+				data: {
+					'SUBID'       : '10245339',
+					'action'      : 'update_reverse',
+					'csrf_token'  : '3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=',
+					'address'     : address,
+					'reverse_dns' : reverse_dns
+				},
+				method: 'POST',
+				dataType: 'json',
+				success: function(data)
+				{
+					$('span[name=address_'+address+']').html(data.update_reverse.reverse_dns.replace(/\./g, '<span style="font-size:24px;">.</span>')).css('color', '#0084df');
+					var message = $('div.reverse_dns_message');
+					if (data.update_reverse.error)
+					{
+						message
+							.addClass('error_message')
+							.html(data.update_reverse.message)
+							.toggle('on')
+						;
+					}
+					else
+					{
+						message
+							.addClass('success_message')
+							.html(data.update_reverse.message)
+							.toggle('on')
+						;
+					}
+					setTimeout(function()
+					{
+						message.toggle('off');
+					}, 3000);
+				}
+			});
+		}
+
+		function loadReverseDNS()
+		{
+			if (!window.loadedReverseDNS)
+			{
+				$.ajax({
+					url: '/subs/',
+					data: { 'SUBID': '10245339', 'action':'get_all_reverse', 'csrf_token': "3r7Bfih1Gx5orDxXRSsIsBOCqebNK2FG+HJyBRVxvAo=" },
+					method: 'POST',
+					dataType: 'json',
+					success: function(data)
+					{
+						window.loadedReverseDNS = true;
+						$.each(data.reverse_dns, function(address, reverseDNS)
+						{
+							$('span[name=address_'+address+']').html(reverseDNS.replace(/\./g, '<span style="font-size:24px;">.</span>')).css('color', '#0084df');
+							$('#reverseform_'+address+' input[type=text][name=reverse_dns]').val(reverseDNS);
+						});
+					}
+				});
+			}
+		}
+
+		function changePlanLoad()
+		{
+			if (g_changeplan_loaded)
+			{
+				return;
+			}
+
+			g_changeplan_loaded = true;
+
+			var upgrade_plan_spinner = $('#upgrade_plan_spinner');
+			var upgrade_plan_text = $('#upgrade_plan_text');
+			var upgrade_plan_form = $('#upgrade_plan_form');
+
+			// Form submit handler
+			upgrade_plan_form.submit(function()
+			{
+				confirmDialogShow(btoa(g_changeplan_warning), upgrade_plan_form[0]);
+				return false;
+			});
+
+			// Callback
+			var onAjaxComplete = function(ok, error_text, data)
+			{
+				upgrade_plan_spinner.hide();
+
+				if (ok)
+				{
+					g_changeplan_warning = data.warning_message;
+
+					upgrade_plan_form.show();
+					upgrade_plan_text.hide();
+
+					var select_jq = upgrade_plan_form.find('select');
+					select_jq.empty();
+					select_jq.append($('<option>', {value: 0, text: ' -- Please Choose -- '}));
+					for (var i = 0; i < data.upgrade_array.length; i++)
+					{
+						var upgrade = data.upgrade_array[i];
+						select_jq.append($('<option>', {value: upgrade.val, text: upgrade.text}));
+					}
+					select_jq.trigger('change');
+				}
+				else
+				{
+					upgrade_plan_form.hide();
+					upgrade_plan_text.text(error_text);
+					upgrade_plan_text.show();
+				}
+			};
+
+			// Load change plan info
+			$.ajax({
+				url: '/_ajax/get_update_plan.php',
+				cache: false,
+				dataType: 'json',
+				data: {
+					SUBID: '10245339'
+				},
+				type: 'GET',
+				success: function (data, textStatus, jqXHR)
+				{
+					onAjaxComplete(data.ok, data.error, data.data);
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					onAjaxComplete(false, 'Error loading upgrade options.', {});
+				}
+			});
+		}
+
+		$(function()
+		{
+			// Setup graphs
+			graphsHideByType('all');
+			$('#graphs').change(function()
+			{
+				onGraphsShow();
+			});
+
+			$('#graph_period').change(function()
+			{
+				onGraphsDisplayChange();
+			});
+
+			if ($('input[name=tabs-1][id=graphs]').prop('checked'))
+			{
+				onGraphsShow();
+			}
+
+			if ($('#vm_mount_progress'))
+			{
+				checkMountProgress();
+			}
+
+			// Allow specifying a default tab when loading the page
+			if (window.location.hash != '')
+			{
+				var tabname = window.location.hash.substr(1);
+				var split = tabname.split('-');
+
+				if (tabname == 'subssettings' || tabname == 'subssettings-ipv4')
+				{
+											loadReverseDNS();
+									}
+
+				if (split.length > 1)
+				{
+					var tabname = split[0];
+
+					if ($('#tabc_' + tabname).length == 0)
+					{
+						tabname = 'subsoverview';
+					}
+
+					changeTabSubmenu(tabname);
+
+					if ($('#settings_' + split[1]).length == 0)
+					{
+						changeSideTab(document.getElementById('settings_ipv4'));
+					}
+					else
+					{
+						changeSideTab(document.getElementById('settings_' + split[1]))
+					}
+				}
+				else
+				{
+					var tabc = $('#tabc_' + tabname);
+					if (tabc.length == 0)
+					{
+						tabname = 'subsoverview';
+					}
+
+					changeTabSubmenu(tabname);
+
+					if (tabname == 'subssettings')
+					{
+						changeSideTab(document.getElementById('settings_ipv4'));
+					}
+				}
+			}
+			else
+			{
+				changeTabSubmenu('subsoverview');
+			}
+
+			
+			// (changeplan ajax)
+			if (window.location.hash == '#subssettings-changeplan')
+			{
+				changePlanLoad();
+			}
+			$('input[name="settings"]').change(function()
+			{
+				var id = $('input[name="settings"]:checked').attr('id');
+
+				if (id === 'settings_changeplan')
+				{
+					changePlanLoad();
+				}
+			});
+
+			// Hide remove ISO button
+							$('#removeisobutton').hide();
+			
+			
+			// Setup backups
+			var auto_backup_cron_type_jq = $('select[name="auto_backup_cron_type"]');
+
+			if (auto_backup_cron_type_jq.length > 0)
+			{
+				changeAutoBackupCronType();
+				auto_backup_cron_type_jq.change(changeAutoBackupCronType);
+			}
+
+			cpuSmallGraphReload();
+
+			$('.password-show').on('click', function()
+			{
+				$(this).addClass('hidden');
+				$('.password-hide').removeClass('hidden');
+				$('.password').html($('.password').data('password'));
+				return false;
+			});
+			$('.password-hide').on('click', function()
+			{
+				var pass = '';
+				$(this).addClass('hidden');
+				$('.password-show').removeClass('hidden');
+				$('.password').html('•••••••');
+				return false;
+			});
+
+		});
+
+		$('span.label_input').click(function(e)
+		{
+			e.stopPropagation();
+		});
+
+		function update_firewall(warn)
+		{
+			if (warn)
+			{
+				if ($('#update_firewall').find('[name=FIREWALLGROUPID]').val() != 0)
+				{
+					return confirmDialogShow(btoa("This server already belongs to a firewall group. Adding it to this firewall group will remove it from the previous one."), $('#update_firewall'));
+				}
+			}
+			$('#update_firewall').submit();
+		}
+
+		function flashElement(id)
+		{
+			var e = $('#' + id);
+			e.addClass('spanflash');
+			setTimeout(function() {
+				e.removeClass('spanflash');
+			}, 500);
+		}
+	</script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 858656304;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/858656304/?guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '828098694004178');
+fbq('track', 'PageView');
+</script>
+<noscript>&lt;img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=828098694004178&amp;ev=PageView&amp;noscript=1"/&gt;</noscript>
+<script>
+!function(e,n,u,a){e.twq||(a=e.twq=function(){a.exe?a.exe.apply(a,arguments):
+a.queue.push(arguments);},a.version='1',a.queue=[],t=n.createElement(u),
+t.async=!0,t.src='//static.ads-twitter.com/uwt.js',s=n.getElementsByTagName(u)[0],
+s.parentNode.insertBefore(t,s))}(window,document,'script');
+twq('init','nuyim');
+twq('track','PageView');
+</script>
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5624299"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript>&lt;img src="//bat.bing.com/action/0?ti=5624299&amp;Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /&gt;</noscript>
+
+
+</body></html>

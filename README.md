@@ -169,5 +169,3 @@ ___aka decisions that turned out well___
 * [Heroku](https://dashboard.heroku.com/) - Deployment
 * [Tierion](https://tierion.io) - Core API, blockchain technology
 * [Bulma](https://bulma.io) - CSS Module
-
-__Contact: michelle.y.lai |at| gmail.com__
